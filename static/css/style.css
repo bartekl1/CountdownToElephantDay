@@ -1,0 +1,497 @@
+:root {
+    /* body */
+    --body-bg-color: #9acd32;
+
+    --background-image: '';
+    --background-position: center;
+    --background-repeat: no-repeat;
+    --background-size: cover;
+
+    /* site title */
+    --site-title-color: blue;
+    
+    /* countdown */
+    --countdown-color: #000072;
+    --countdown-bg-color: #007a00;
+    --countdown-border-width: 5px;
+    --countdown-border-color: black;
+    --countdown-border-style: solid;
+
+    /* countdown labels */
+    --left-header-color: blue;
+    --left-unit-color: blue;
+
+    /* date */
+    --date-label-color: blue;
+    --date-color: blue;
+
+    /* display dates */
+    --display-today-datetime: block;
+    --display-elephant-day-datetime: block;
+
+    --rotate-speed: 4s;
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 400;
+    src: url('/static/fonts/segoeui.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 400;
+    src: url('/static/fonts/segoeuii.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 200;
+    src: url('/static/fonts/segoeuil.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 200;
+    font-style: italic;
+    src: url('/static/fonts/seguili.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 300;
+    src: url('/static/fonts/segoeuisl.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 300;
+    font-style: italic;
+    src: url('/static/fonts/seguisli.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 600;
+    src: url('/static/fonts/seguisb.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 600;
+    font-style: italic;
+    src: url('/static/fonts/seguisbi.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 700;
+    src: url('/static/fonts/segoeuib.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 700;
+    src: url('/static/fonts/segoeuiz.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 800;
+    src: url('/static/fonts/seguibl.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 800;
+    src: url('/static/fonts/seguibli.ttf')  format('truetype');
+    font-display: swap
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('/static/fonts/JetBrainsMono-Regular.woff2')  format('truetype');
+    font-display: swap
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: var(--body-bg-color) !important;
+    font-family: 'Segoe UI';
+    background-image: var(--background-image);
+    background-position: var(--background-position);
+    background-repeat: var(--background-repeat);
+    background-size: var(--background-size);
+    height: 100%;
+}
+
+h1.site-title {
+    color: var(--site-title-color);
+    text-align: center;
+    font-weight: 500 !important;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.h1 {
+    font-weight: 600;
+}
+
+.h2 {
+    font-weight: 600;
+}
+
+.h3 {
+    font-weight: 600;
+}
+
+.h4 {
+    font-weight: 600;
+}
+
+.h5 {
+    font-weight: 600;
+}
+
+.h6 {
+    font-weight: 600;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+h5 {
+    font-weight: 600;
+}
+
+h6 {
+    font-weight: 600;
+}
+
+h1.site-title {
+    text-align: center;
+}
+
+/* .btn.btn-link, a:not(.btn-primary) {
+    color: #0000ff !important;
+} */
+
+.tab-content {
+    width: 100%;
+}
+
+@media screen and (min-width: 608px) {
+    .options-button {
+        width: 150px;
+    } 
+}
+
+@keyframes close {
+    from {
+        height: 124px;
+    }
+    to {
+        height: 0px;
+    }
+}
+
+@keyframes open {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 124px;
+    }
+}
+
+.top-menu {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 608px) {
+    .top-menu {
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+
+    .top-menu-open {
+        display: none;
+    }
+
+    .top-menu-element:not(#top-menu-open-div) {
+        float: left;
+    }
+
+    .menu-button {
+        width: 195px;
+    }
+}
+
+@media screen and (max-width: 607px) {
+    .top-menu {
+        width: calc(100% - 0.5rem);
+    }
+
+    .top-menu-element {
+        margin-left: 0px !important;
+    }
+
+    .menu-button {
+        width: 100%;
+    }
+
+    .closed {
+        display: none;
+    }
+
+    .close {
+        animation: close 1s forwards;
+        overflow: hidden;
+    }
+
+    .opened {
+        height: fit-content !important;
+    }
+
+    .open {
+        animation: open 1s forwards;
+        overflow: hidden;
+    }
+}
+
+iframe:not(#elephant-video) {
+    width: 100%;
+}
+
+#elephant-video {
+    max-width: 100%;
+}
+
+/* iframe:not(#report-form-iframe) {
+    height: 100%;
+} */
+
+.modal-header {
+    cursor: move;
+}
+
+.modal-content {
+    resize: both;
+    overflow: auto;
+
+    height: 100%;
+} 
+
+.code {
+    font-family: 'JetBrains Mono';
+    font-size: 14px;
+}
+
+.switch-lg {
+    width: 3em !important;
+    height: 1.5em !important;
+}
+
+#visit-counter {
+    border-style: solid;
+
+    width: -moz-fit-content;
+    width: fit-content;
+    height: fit-content;
+
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 26px;
+}
+
+.countdown-container {
+    text-align: center;
+}
+
+.date-label {
+    margin-bottom: 0px;
+
+    font-weight: bold;
+
+    color: var(--date-label-color);
+}
+
+.date {
+    color: var(--date-color);
+}
+
+.left-header {
+    font-size: 22px;
+    color: var(--left-header-color);
+}
+
+.left-unit {
+    font-size: 16px;
+    color: var(--left-unit-color);
+}
+
+.countdown {
+    color: var(--countdown-color);
+    background-color: var(--countdown-bg-color);
+
+    border-width: var(--countdown-border-width);
+    border-color: var(--countdown-border-color);
+    border-style: var(--countdown-border-style);
+
+    width: 100%;
+
+    max-width: 170px;
+    height: fit-content;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#today-datetime {
+    display: var(--display-today-datetime);
+}
+
+#today-datetime-label {
+    display: var(--display-today-datetime);
+}
+
+#elephant-day-datetime {
+    display: var(--display-elephant-day-datetime);
+}
+
+#elephant-day-datetime-label {
+    display: var(--display-elephant-day-datetime);
+}
+
+.profile-picture {
+    clip-path: circle();
+}
+
+.social-link {
+    font-size: 30px;
+    color: var(--bs-heading-color, inherit);
+}
+
+.site-link:hover {
+    color: #4f4fff !important;
+}
+
+.youtube-link:hover {
+    color: #f00 !important;
+}
+
+img.rotate {
+    margin-top: 70px;
+    -webkit-animation: spin var(--rotate-speed) linear infinite;
+    -moz-animation: spin var(--rotate-speed) linear infinite;
+    animation: spin var(--rotate-speed) linear infinite;
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+
+.btn.btn-custom {
+    --bs-btn-color: var(--custom-button-color);
+    --bs-btn-bg: var(--custom-button-bg);
+    --bs-btn-border-color: var(--custom-button-border-color);
+    --bs-btn-hover-color: var(--custom-button-hover-color);
+    --bs-btn-hover-bg: var(--custom-button-hover-bg);
+    --bs-btn-hover-border-color: var(--custom-button-hover-border-color);
+    --bs-btn-active-color: var(--custom-button-active-color);
+    --bs-btn-active-bg: var(--custom-button-active-bg);
+    --bs-btn-active-border-color: var(--custom-button-active-border-color);
+}
+
+video.background {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+iframe.background {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.modal {
+    overflow: hidden;
+}
+
+.font-size-24 {
+    font-size: 24px;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+#api-response {
+    font-family: "JetBrains Mono";
+    height: fit-content;
+    resize: none;
+}

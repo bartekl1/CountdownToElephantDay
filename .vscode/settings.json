@@ -1,0 +1,38 @@
+{
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Odliczanie do Dnia Słonia",
+            "database": "iledodniaslonia",
+            "username": "root",
+            "password": ""
+        }
+    ],
+    "cSpell.words": [
+        "DWDCA1o0-1H8j5EFCdKwydPuXDlKfackEDtgsAQ9jbM",
+        "iledodniaslonia",
+        "precache",
+        "precached",
+        "segoeui",
+        "segoeuib",
+        "segoeuii",
+        "segoeuil",
+        "segoeuisl",
+        "segoeuiz",
+        "seguibl",
+        "seguibli",
+        "seguili",
+        "seguisb",
+        "seguisbi",
+        "seguisli"
+    ]
+}
