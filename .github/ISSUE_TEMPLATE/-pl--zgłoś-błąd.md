@@ -10,7 +10,7 @@ assignees: ''
 **Opisz błąd**
 Opis błędu.
 
-**Występowanie błędu**
+**Okoliczności występowania błędu**
 Kroki, aby odtworzyć błąd:
 1. Go to '...'
 2. Click on '....'
