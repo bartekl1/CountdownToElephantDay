@@ -1,0 +1,14 @@
+{
+    "flask": {
+        "host": "127.0.0.1",
+        "port": 5000,
+        "debug": false
+    },
+    "mysql": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "OdliczanieDoDniaSlonia",
+        "port": 3306
+    }
+}

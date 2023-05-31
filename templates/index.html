@@ -252,8 +252,6 @@
                                 <button class="nav-link options-button" id="v-pills-widget-tab" data-bs-toggle="pill" data-bs-target="#v-pills-widget" type="button" role="tab" aria-controls="v-pills-widget" aria-selected="false"><i class="bi bi-window"></i> Widżet</button>
                                 <button class="nav-link options-button" id="v-pills-api-tab" data-bs-toggle="pill" data-bs-target="#v-pills-api" type="button" role="tab" aria-controls="v-pills-api" aria-selected="false"><i class="bi bi-code-slash"></i> API</button>
                                 <button class="nav-link options-button" id="v-pills-visit-counter-tab" data-bs-toggle="pill" data-bs-target="#v-pills-visit-counter" type="button" role="tab" aria-controls="v-pills-visit-counter" aria-selected="false"><i class="bi bi-123"></i> Licznik odwiedzin</button>
-                                <button class="nav-link options-button" id="v-pills-support-tab" data-bs-toggle="pill" data-bs-target="#v-pills-support" type="button" role="tab" aria-controls="v-pills-support" aria-selected="false"><i class="bi bi-megaphone-fill"></i> Zgłoszenie</button>
-                                <button class="nav-link options-button" id="v-pills-other-versions-tab" data-bs-toggle="pill" data-bs-target="#v-pills-other-versions" type="button" role="tab" aria-controls="v-pills-other-versions" aria-selected="false"><i class="bi bi-grid-3x3-gap-fill"></i> Inne wersje</button>
                                 <button class="nav-link options-button" id="v-pills-about-tab" data-bs-toggle="pill" data-bs-target="#v-pills-about" type="button" role="tab" aria-controls="v-pills-about" aria-selected="false"><i class="bi bi-info-circle-fill"></i> O stronie</button>
                                 <button class="nav-link options-button" id="v-pills-elephants-tab" data-bs-toggle="pill" data-bs-target="#v-pills-elephants" type="button" role="tab" aria-controls="v-pills-elephants" aria-selected="false">Słonie</button>
                             </div>
@@ -796,7 +794,7 @@
                                             updateURL();
                                         </script>
 
-                                        <p class="h4">Dokumentacja API:</p>
+                                        <!-- <p class="h4">Dokumentacja API:</p>
 
                                         <p>API jest darmowe i dostępne bez uwierzytelniania, nie posiada limitów zapytań.</p>
                                         <p>Aby uzyskać czas pozostały do Dnia Słonia należy wykonać zapytanie pod URL <code>/api/get_left_time</code>
@@ -822,7 +820,7 @@
                                                         <td>UTC</td>
                                                         <td>Strefa czasowa w formacie tz (<a
                                                                 href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
-                                                                target="_blank" rel="noopener noreferrer">lista stref czasowych dostępna jest tutaj</a>)</td>
+                                                                target="_blank" rel="noopener">lista stref czasowych dostępna jest tutaj</a>)</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -904,7 +902,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-visit-counter" role="tabpanel" aria-labelledby="v-pills-visit-counter-tab" tabindex="0">
@@ -921,61 +919,6 @@
                                     </div>
                                     <div id="visit-counter-offline" class="alert alert-danger m-1 d-none" role="alert">
                                         Jesteś offline.
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-support" role="tabpanel" aria-labelledby="v-pills-support-tab" tabindex="0">
-                                    <div id="support">
-                                        <p>
-                                            Formularz jest też dostępny
-                                            <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/2BZuieyQP1ACbihcA">
-                                                tutaj
-                                            </a>
-                                        </p>
-                                        <div id="support-form-div">Ładuję…</div>
-                                        <div id="support-form-loading">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="spinner-border text-primary" role="status">
-                                                    <span class="visually-hidden">Ładuję...</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script>
-                                            document.querySelector('#v-pills-support-tab').addEventListener('click', () => {
-                                                var formDiv = document.querySelector('#support-form-div');
-                                                if (formDiv.innerHTML == 'Ładuję…' && window.navigator.onLine) {
-                                                    formDiv.innerHTML = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfuVcsSmPfLZZjGWzrP5ceAC1EHf9zCx2cQdEfAGT2PscB3Jw/viewform?embedded=true" height="585" frameborder="0" marginheight="0" marginwidth="0" style="background-color: white" id="report-form-iframe" class="d-none">Ładuję…</iframe>';
-                                                    const h = formDiv.querySelector('iframe').contentWindow.document.body.scrollHeight;
-                                                    formDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.style.minHeight = h + 'px'; });
-                                                    formDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.classList.remove('d-none'); document.querySelector('#support-form-loading').remove(); });
-                                                }
-                                            });
-                                        </script>
-                                    </div>
-                                    <div id="support-offline-info" class="alert alert-danger m-1 d-none" role="alert">
-                                        Jesteś offline.
-                                    </div>
-                                    <script>
-                                        if (!(window.navigator.onLine)) {
-                                            document.querySelector('#support').classList.add('d-none');
-                                            document.querySelector('#support-offline-info').classList.remove('d-none');
-                                        }
-                                    </script>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-other-versions" role="tabpanel" aria-labelledby="v-pills-other-versions-tab" tabindex="0">
-                                    <div class="container-fluid">
-                                        <div class="h3">Inne wersje Odliczania do Dnia Słonia</div>
-                                        <div class="mt-4">
-                                            <div class="h4">Widżet na pulpit <i class="bi bi-window"></i></div>
-                                            <p>Widżet wymaga zainstalowanego programu <a href="https://www.rainmeter.net/" target="_blank" rel="noopener noreferrer">Rainmeter</a></p>
-                                            <a href="https://slonindyjski.pythonanywhere.com/static/downloads/Odliczanie do Dnia Słonia_1.0.rmskin" class="btn btn-primary btn-lg"><i class="bi bi-download"></i> Pobierz</a>
-                                        </div>
-                                        <div class="mt-4">
-                                            <div class="h4">Bot Discord <i class="bi bi-discord"></i></div>
-                                            <a href="https://discord.com/api/oauth2/authorize?client_id=1099030064965898270&permissions=274878000128&scope=bot" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer"><i class="bi bi-discord"></i> Dodaj do serwera</a>
-                                        </div>
-                                        <div class="alert alert-info mt-3" role="alert">
-                                            Wkrótce zostaną dodane też inne wersje.
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-about" role="tabpanel" aria-labelledby="v-pills-about-tab" tabindex="0">
@@ -1025,6 +968,21 @@
                                                 Biblioteki
                                             </button>
                                         </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button
+                                            class="nav-link"
+                                            id="pills-other-versions-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-other-versions"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-other-versions"
+                                            aria-selected="false"
+                                            >
+                                                <i class="bi bi-grid-3x3-gap-fill"></i>
+                                                Inne wersje
+                                            </button>
+                                        </li>
                                     </ul>
                                     <div class="tab-content">
                                         <div
@@ -1035,10 +993,12 @@
                                         >
                                             <p class="font-size-24"><b>Strona Odliczanie do Dnia Słonia</b></p>
 
+                                            <a href="https://github.com/slonindyjski/OdliczanieDoDniaSloniaStrona" target="_blank" rel="noopener">Repozytorium GitHub</a>
+
                                             <p class="font-size-24"><b>Wersja</b></p>
-                                            <p><b>Wersja:</b> 1.13</p>
-                                            <p><b>Build:</b> 202305111853</p>
-                                            <!-- <p><b>Kanał:</b> DEV (podczas tworzenia)</p> -->
+                                            <p><b>Wersja:</b> {{ version['version'] }}</p>
+                                            <p><b>Build:</b> {{ version['build'] }}</p>
+                                            {% if version['dev'] %}<p><b>DEV (podczas tworzenia)</b></p>{% endif %}
 
                                             <p class="font-size-24"><b>Autor</b></p>
                                             <div class="container-fluid">
@@ -1049,8 +1009,9 @@
                                                     <div class="col">
                                                         <p class="h2">Słoń Indyjski</p>
                                 
-                                                        <a href="https://slonindyjski.pythonanywhere.com/" class="social-link site-link" target="_blank" title="Strona internetowa" rel="noopener noreferrer"><i class="bi bi-globe"></i></a>
-                                                        <a href="https://www.youtube.com/@slon_indyjski" class="social-link youtube-link" target="_blank" title="Kanał YouTube" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+                                                        <a href="https://slonindyjski.pythonanywhere.com/" class="social-link site-link" target="_blank" title="Strona internetowa" rel="noopener"><i class="bi bi-globe"></i></a>
+                                                        <a href="https://www.youtube.com/@slon_indyjski" class="social-link youtube-link" target="_blank" title="Kanał YouTube" rel="noopener"><i class="bi bi-youtube"></i></a>
+                                                        <a href="https://github.com/slonindyjski" class="social-link github-link" target="_blank" title="Profil GitHub" rel="noopener"><i class="bi bi-github"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1063,7 +1024,12 @@
                                         >
                                             <p class="font-size-24"><b>Rejestr zmian</b></p>
 
-                                            <p class="h3">1.13 (bieżąca wersja) <i class="bi bi-check-lg"></i></p>
+                                            <p class="h3">1.14 (bieżąca wersja) <i class="bi bi-check-lg"></i></p>
+                                            <ul>
+                                                <li>Drobne poprawki</li>
+                                            </ul>
+
+                                            <p class="h3">1.13</p>
                                             <ul>
                                                 <li>Poprawiono wsparcie dla wielu języków</li>
                                                 <li>Dodano informacje o innych wersjach Odliczania do Dnia Słonia</li>
@@ -1185,21 +1151,41 @@
                                             <div class="margin-left-10">
                                                 <p class="font-size-18"><b>Front-end:</b></p>
                                                 <ul>
-                                                    <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a></li>
-                                                    <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a></li>
-                                                    <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener noreferrer">screenfull</a></li>
-                                                    <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener noreferrer">NoSleep.js</a></li>
+                                                    <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
+                                                    <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a></li>
+                                                    <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a></li>
+                                                    <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a></li>
                                                     <li>Czcionka Segoe UI</li>
-                                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener noreferrer">Czcionka JetBrains Mono</a></li>
+                                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener">Czcionka JetBrains Mono</a></li>
                                                 </ul>
                                             </div>
                                             <div class="margin-left-10">
                                                 <p class="font-size-18"><b>Back-end:</b></p>
                                                 <ul>
-                                                    <li><a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener noreferrer">Flask</a></li>
-                                                    <li><a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener noreferrer">MySQL Connector Python</a></li>
-                                                    <li><a href="https://pypi.org/project/pytz/" target="_blank" rel="noopener noreferrer">pytz</a></li>
+                                                    <li><a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener">Flask</a></li>
+                                                    <li><a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener">MySQL Connector Python</a></li>
+                                                    <li><a href="https://pypi.org/project/pytz/" target="_blank" rel="noopener">pytz</a></li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                        <div
+                                        class="tab-pane fade"
+                                        id="pills-other-versions"
+                                        role="tabpanel"
+                                        aria-labelledby="pills-other-versions-tab"
+                                        >
+                                            <div class="h3">Inne wersje Odliczania do Dnia Słonia</div>
+                                            <div class="mt-4">
+                                                <div class="h4">Widżet na pulpit <i class="bi bi-window"></i></div>
+                                                <p>Widżet wymaga zainstalowanego programu <a href="https://www.rainmeter.net/" target="_blank" rel="noopener">Rainmeter</a></p>
+                                                <a href="https://slonindyjski.pythonanywhere.com/static/downloads/Odliczanie do Dnia Słonia_1.0.rmskin" class="btn btn-primary btn-lg"><i class="bi bi-download"></i> Pobierz</a>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="h4">Bot Discord <i class="bi bi-discord"></i></div>
+                                                <a href="https://discord.com/api/oauth2/authorize?client_id=1099030064965898270&permissions=274878000128&scope=bot" class="btn btn-primary btn-lg" target="_blank" rel="noopener"><i class="bi bi-discord"></i> Dodaj do serwera</a>
+                                            </div>
+                                            <div class="alert alert-info mt-3" role="alert">
+                                                Wkrótce zostaną dodane też inne wersje.
                                             </div>
                                         </div>
                                     </div>

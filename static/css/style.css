@@ -411,7 +411,8 @@ iframe:not(#elephant-video) {
 
 .social-link {
     font-size: 30px;
-    color: var(--bs-heading-color, inherit);
+    color: var(--bs-heading-color);
+    margin-right: 5px;
 }
 
 .site-link:hover {
@@ -420,6 +421,10 @@ iframe:not(#elephant-video) {
 
 .youtube-link:hover {
     color: #f00 !important;
+}
+
+.github-link:hover {
+    color: #505050 !important;
 }
 
 img.rotate {

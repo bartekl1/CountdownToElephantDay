@@ -4,12 +4,12 @@ import json
 import datetime
 import pytz
 
-db_data = {
-    "host": "localhost",
-    "user": "root",
-    "password": "",
-    "database": "iledodniaslonia"
-}
+with open("configs.json") as file:
+    configs = json.load(file)
+
+with open("version.json") as file:
+    version = json.load(file)
+
 
 app = Flask(__name__)
 
@@ -36,12 +36,12 @@ def sw():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', version=version)
 
 
 @app.route('/visit_counter')
 def get_visits():
-    db = mysql.connector.connect(**db_data)
+    db = mysql.connector.connect(**configs['mysql'])
 
     cursor = db.cursor()
 
@@ -56,7 +56,7 @@ def get_visits():
 
 @app.route('/visit_counter', methods=["POST"])
 def add_visit():
-    db = mysql.connector.connect(**db_data)
+    db = mysql.connector.connect(**configs['mysql'])
 
     cursor = db.cursor()
 
@@ -91,7 +91,6 @@ def get_left_time():
                     'hours': 0,
                     'minutes': 0,
                     'seconds': 0}
-            left_sumary = left
         else:
             if now.month < 8 or (now.month == 8 and now.day < 12):
                 elephant_day = datetime.datetime(
@@ -107,11 +106,6 @@ def get_left_time():
                     'hours': left_timedelta.seconds // 3600,
                     'minutes': left_timedelta.seconds % 3600 // 60,
                     'seconds': left_timedelta.seconds % 60 % 60}
-            seconds = left_timedelta.seconds + left_timedelta.days * 86400
-            left_sumary = {'days': seconds / 86400,
-                           'hours': seconds / 3600,
-                           'minutes': seconds / 60,
-                           'seconds': seconds}
 
         offset = datetime.datetime.now(tz).utcoffset().seconds
     except pytz.exceptions.UnknownTimeZoneError:
@@ -134,7 +128,6 @@ def get_left_time():
             'today': now.isoformat(),
             'elephant_day': elephant_day.date().isoformat(),
             'left': left,
-            'left_sumary': left_sumary
         }
 
         response = Response(response=json.dumps(response_dict),
@@ -145,4 +138,4 @@ def get_left_time():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(**configs['flask'])

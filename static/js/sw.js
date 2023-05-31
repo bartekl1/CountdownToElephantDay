@@ -30,7 +30,8 @@ const precacheResources = [
     '/static/fonts/segoeuiz.ttf',
     '/static/fonts/seguibl.ttf',
     '/static/fonts/seguibli.ttf',
-    '/static/fonts/JetBrainsMono-Regular.woff2'
+    '/static/fonts/JetBrainsMono-Regular.woff2',
+    '/static/img/elephant-outline-content.txt'
 ];
 
 // When the service worker is installing, open the cache and add the precache resources to it
