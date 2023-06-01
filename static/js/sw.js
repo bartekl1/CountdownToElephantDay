@@ -1,4 +1,4 @@
-const version = '1.13'
+const version = '1.14'
 // Choose a cache name
 const cacheName = `cache-v${version}`;
 // List the files to precache
