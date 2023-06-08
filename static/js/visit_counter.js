@@ -1,6 +1,6 @@
 function visitCounterUpdate() {
     if (window.navigator.onLine) {
-        if (document.body.classList.contains('modal-open') && document.querySelector('#v-pills-visit-counter-tab').classList.contains('active')) {
+        if (document.body.classList.contains('modal-open') && !(document.querySelector('#visit-counter-information').classList.contains('d-none'))) {
             fetch('/visit_counter')
                 .then((response) => response.text())
                 .then((data) => {

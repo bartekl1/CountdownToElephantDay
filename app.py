@@ -1,8 +1,6 @@
 from flask import Flask, render_template, send_file, Response, request
 import mysql.connector
 import json
-import datetime
-import pytz
 
 with open("configs.json") as file:
     configs = json.load(file)
@@ -69,72 +67,6 @@ def add_visit():
     db.close()
 
     return 'ok'
-
-
-@app.route('/api/get_left_time')
-def get_left_time():
-    left = None
-    left_sumary = None
-    elephant_day = datetime.datetime.now()
-
-    try:
-        timezone_name = request.args.get('tz')
-        if timezone_name:
-            tz = pytz.timezone(timezone_name)
-        else:
-            tz = pytz.timezone('UTC')
-
-        now = datetime.datetime.now(tz=tz)
-
-        if now.month == 8 and now.day == 12:
-            left = {'days': 0,
-                    'hours': 0,
-                    'minutes': 0,
-                    'seconds': 0}
-        else:
-            if now.month < 8 or (now.month == 8 and now.day < 12):
-                elephant_day = datetime.datetime(
-                    year=now.year, month=8, day=12)
-            else:
-                elephant_day = datetime.datetime(
-                    year=now.year+1, month=8, day=12)
-            elephant_day = tz.localize(elephant_day)
-
-            left_timedelta = elephant_day - now
-
-            left = {'days': left_timedelta.days,
-                    'hours': left_timedelta.seconds // 3600,
-                    'minutes': left_timedelta.seconds % 3600 // 60,
-                    'seconds': left_timedelta.seconds % 60 % 60}
-
-        offset = datetime.datetime.now(tz).utcoffset().seconds
-    except pytz.exceptions.UnknownTimeZoneError:
-        response_dict = {
-            'status': 'error',
-            'error': 'Bad timezone name.'
-        }
-
-        response = Response(response=json.dumps(response_dict),
-                            status=400,
-                            mimetype='application/json')
-    else:
-        response_dict = {
-            'status': 'success',
-            'timezone': {
-                'name': str(tz),
-                'seconds_offset': offset,
-                'hours_offset': offset / 3600
-            },
-            'today': now.isoformat(),
-            'elephant_day': elephant_day.date().isoformat(),
-            'left': left,
-        }
-
-        response = Response(response=json.dumps(response_dict),
-                            status=200,
-                            mimetype='application/json')
-
-    return response
 
 
 if __name__ == '__main__':

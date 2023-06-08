@@ -681,7 +681,7 @@ function showLanguageInfo() {
         });
         popover.show();
         document.querySelector('button.language-popover').addEventListener('click', () => {
-            popover.hide();
+            popover.dispose();
             localStorage.setItem('language-popover-closed', 'true');
         });
     }

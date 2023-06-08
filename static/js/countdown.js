@@ -8,8 +8,6 @@ var elephantDayDate = new Date();
 
 elephantDay = [12, 7];
 
-var language = getLanguage();
-
 addEventListener('load', countdown);
 
 
@@ -57,14 +55,29 @@ function getLeftTime() {
 function countdown() {
     var leftTime = getLeftTime();
 
+    var language;
+
+    if (localStorage.getItem('date-language') == undefined) {
+        language = getLanguage();
+    } else if (localStorage.getItem('date-language') == '@browser') {
+        language = undefined;
+    } else {
+        try {
+            nowDate.toLocaleDateString(language, dateOptions);
+            language = localStorage.getItem('date-language');
+        } catch {
+
+        }
+    }
+
     document.querySelector('#countdown-days').innerText = leftTime.leftDays;
     document.querySelector('#countdown-hours').innerText = leftTime.leftHours;
     document.querySelector('#countdown-minutes').innerText = leftTime.leftMinutes;
     document.querySelector('#countdown-seconds').innerText = leftTime.leftSeconds;
     document.querySelector('#countdown-milliseconds').innerText = leftTime.leftMilliseconds;
 
-    document.querySelector('#today-datetime').innerText = nowDate.toLocaleDateString(undefined, dateOptions) + ' ' + nowDate.toLocaleTimeString();
-    document.querySelector('#elephant-day-datetime').innerText = elephantDayDate.toLocaleDateString(undefined, dateOptions);
+    document.querySelector('#today-datetime').innerText = nowDate.toLocaleDateString(language, dateOptions) + ' ' + nowDate.toLocaleTimeString();
+    document.querySelector('#elephant-day-datetime').innerText = elephantDayDate.toLocaleDateString(language, dateOptions);
 
     if (document.querySelector('html').lang == 'pl') {
         if (leftTime.leftDays == 1) {

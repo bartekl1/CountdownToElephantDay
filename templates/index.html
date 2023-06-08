@@ -67,9 +67,9 @@
 
                 <div id="top-menu" class="closed close">
                     <div class="top-menu-element ms-1 mb-1 mb-sm-1 mb-md-1 mb-lg-1 mb-xl-0 mb-xxl-0">
-                        <button class="btn btn-primary menu-button" id="options-button" data-bs-toggle="modal" data-bs-target="#optionsModal">
-                            <i class="bi bi-three-dots-vertical"></i>
-                            <span class="menu-button-name">Opcje</span>
+                        <button class="btn btn-primary menu-button" id="options-button" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                            <i class="bi bi-gear-fill"></i>
+                            <span class="menu-button-name">Ustawienia</span>
                         </button>
                     </div>
 
@@ -237,1047 +237,666 @@
             </noscript>
         </div>
 
-        <div class="modal fade" id="optionsModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-scrollable modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="optionsModalLabel">Opcje <i class="bi bi-three-dots-vertical"></i></h5>
+                        <p class="modal-title h5">Ustawienia <i class="bi bi-gear-fill"></i></p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="settings-div" class="d-flex align-items-start">
-                            <div class="nav flex-column nav-pills me-3" id="options-v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <button class="nav-link active options-button" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="true"><i class="bi bi-gear-fill"></i> Ustawienia</button>
-                                <button class="nav-link options-button" id="v-pills-appearance-tab" data-bs-toggle="pill" data-bs-target="#v-pills-appearance" type="button" role="tab" aria-controls="v-pills-appearance" aria-selected="false"><i class="bi bi-palette-fill"></i> Wygląd</button>
-                                <button class="nav-link options-button" id="v-pills-widget-tab" data-bs-toggle="pill" data-bs-target="#v-pills-widget" type="button" role="tab" aria-controls="v-pills-widget" aria-selected="false"><i class="bi bi-window"></i> Widżet</button>
-                                <button class="nav-link options-button" id="v-pills-api-tab" data-bs-toggle="pill" data-bs-target="#v-pills-api" type="button" role="tab" aria-controls="v-pills-api" aria-selected="false"><i class="bi bi-code-slash"></i> API</button>
-                                <button class="nav-link options-button" id="v-pills-visit-counter-tab" data-bs-toggle="pill" data-bs-target="#v-pills-visit-counter" type="button" role="tab" aria-controls="v-pills-visit-counter" aria-selected="false"><i class="bi bi-123"></i> Licznik odwiedzin</button>
-                                <button class="nav-link options-button" id="v-pills-about-tab" data-bs-toggle="pill" data-bs-target="#v-pills-about" type="button" role="tab" aria-controls="v-pills-about" aria-selected="false"><i class="bi bi-info-circle-fill"></i> O stronie</button>
-                                <button class="nav-link options-button" id="v-pills-elephants-tab" data-bs-toggle="pill" data-bs-target="#v-pills-elephants" type="button" role="tab" aria-controls="v-pills-elephants" aria-selected="false">Słonie</button>
+                        <div id="settings-main-menu">
+                            <button class="settings-category-button" settings-target="#general-settings"><i class="bi bi-gear-fill"></i> <span class="settings-category-button-text">Ogólne</span></button>
+                            <button class="settings-category-button" settings-target="#language-settings"><i class="bi bi-translate"></i> <span class="settings-category-button-text">Język / Language</span></button>
+                            <button class="settings-category-button" settings-target="#advanced-settings"><i class="bi bi-code-slash"></i> <span class="settings-category-button-text">Zaawansowane</span></button>
+                            <button class="settings-category-button" settings-target="#appearance-settings"><i class="bi bi-palette-fill"></i> <span class="settings-category-button-text">Wygląd</span></button>
+                            <button class="settings-category-button" settings-target="#widget-settings"><i class="bi bi-window"></i> <span class="settings-category-button-text">Widżet</span></button>
+                            <button class="settings-category-button" settings-target="#information-settings"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text">Informacje</span></button>
+                        </div>
+
+                        <div id="general-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
+                            
+                            <div class="mb-3">
+                                <label for="update-frequency" class="form-label">Częstotliwość odświeżania (milisekundy)</label>
+                                <input type="number" class="form-control settings" id="update-frequency">
                             </div>
-                            <div class="tab-content" id="options-v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">
-                                    <div class="mb-3">
-                                        <label for="update-frequency" class="form-label">Częstotliwość odświeżania (milisekundy)</label>
-                                        <input type="number" class="form-control settings" id="update-frequency">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="language-select" class="form-label">Język / Language</label>
-                                        <select class="form-select settings" id="language-select">
-                                            <option selected value="default">Język przeglądarki / Browser language</option>
-                                            <option value="pl" class="language-option">Polski / Polish</option>
-                                            <option value="en" class="language-option">Angielski / English</option>
-                                        </select>
-                                        <p class="mb-0">Aby zastosować zmianę języka odśwież stronę.</p>
-                                        <p class="mb-0">To apply the language change, refresh the page.</p>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="customCSSTextarea" class="form-label">Własny kod CSS</label>
-                                        <textarea class="form-control code settings" id="customCSSTextarea" rows="3"></textarea>
-                                        <p class="mb-0">Aby mieć pewność, że kod zostanie poprawnie zastosowany dodaj <code>!important</code> na końcu każdej linijki.</p>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="customJSTextarea" class="form-label">Własny kod Javascript</label>
-                                        <textarea class="form-control code settings" id="customJSTextarea" rows="3"></textarea>
-                                        <p class="mb-0">Kod zacznie działać dopiero po odświeżeniu strony.</p>
-                                    </div>
-            
-                                    <script>
-                                        var updateFrequencyInput = document.querySelector('#update-frequency');
-                                        var languageSelect = document.querySelector('#language-select');
-            
-                                        function setSettingsForm() {
-                                            if (localStorage.getItem('updateFrequency') !== null) {
-                                                updateFrequencyInput.value = localStorage.getItem('updateFrequency');
-                                            } else {
-                                                updateFrequencyInput.value = updateTime;
-                                            }
-            
-                                            if (localStorage.getItem('language') !== null) {
-                                                languageSelect.value = localStorage.getItem('language');
-                                            } else {
-                                                languageSelect.value = 'default';
-                                            }
-            
-                                            document.querySelector('#customCSSTextarea').value = localStorage.getItem('userCustomCSS');
-                                            document.querySelector('#customJSTextarea').value = localStorage.getItem('userCustomJS');
-                                        }
-            
-                                        function saveSettings() {
-                                            localStorage.setItem('updateFrequency', parseInt(updateFrequencyInput.value));
-                                            updateTime = parseInt(updateFrequencyInput.value);
-            
-                                            if (languageSelect.value != 'default') {
-                                                localStorage.setItem('language', languageSelect.value);
-                                            } else {
-                                                localStorage.removeItem('language');
-                                            }
-            
-                                            localStorage.setItem('userCustomCSS', document.querySelector('#customCSSTextarea').value);
-                                            document.querySelector('#user-custom-css').innerHTML = document.querySelector('#customCSSTextarea').value;
-            
-                                            localStorage.setItem('userCustomJS', document.querySelector('#customJSTextarea').value);
-                                            document.querySelector('#user-custom-js').innerHTML = document.querySelector('#customJSTextarea').value;
-                                        }
-            
-                                        function resetSettings() {
-                                            localStorage.removeItem('updateFrequency');
-                                            updateTime = defaultUpdateTime;
-            
-                                            localStorage.removeItem('language');
-            
-                                            localStorage.removeItem('userCustomCSS');
-                                            document.querySelector('#customCSSTextarea').value = '';
-                                            document.querySelector('#user-custom-css').innerHTML = '';
-            
-                                            localStorage.removeItem('userCustomJS');
-                                            document.querySelector('#customJSTextarea').value = '';
-                                            document.querySelector('#user-custom-js').innerHTML = '';
-            
-                                            setSettingsForm();
-                                        }
 
-                                        addEventListener('load', () => {
-                                            setSettingsForm();
-                                        });
+                            <hr class="border border-1 opacity-100">
 
-                                        document.querySelectorAll('.settings').forEach((e) => {
-                                            e.addEventListener('change', saveSettings);
-                                        });
-                                    </script>
-                                    <button type="button" class="btn btn-danger mb-1" onclick="resetSettings()">
-                                        <i class="bi bi-arrow-clockwise"></i> Resetuj
-                                    </button>
+                            <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#clearAllData">
+                                <i class="bi bi-trash"></i> Resetuj wszystkie ustawienia
+                            </button>
+                        </div>
 
-                                    <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#clearAllData">
-                                        <i class="bi bi-trash"></i> Usuń wszystkie dane
-                                    </button>
+                        <div id="language-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <div class="mb-3">
+                                <label for="language-select" class="form-label">Język / Language</label>
+                                <select class="form-select settings" id="language-select">
+                                    <option selected value="default">Język przeglądarki / Browser language</option>
+                                    <option value="pl" class="language-option">Polski / Polish</option>
+                                    <option value="en" class="language-option">Angielski / English</option>
+                                </select>
+                            </div>
+
+                            <div id="language-alert" class="alert alert-warning d-none" role="alert">
+                                Język został zmieniony, aby go zastosować odśwież stronę.
+                                <br>
+                                The language has been changed, refresh website to apply it.
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date-language-select" class="form-label">Język daty</label>
+                                <select class="form-select settings" id="date-language-select">
+                                    <option selected value="website">Język strony</option>
+                                    <option value="browser">Język przeglądarki</option>
+                                    <option value="custom">Wybierz</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3 d-none">
+                                <label for="date-language" class="form-label">Język daty</label>
+                                <input type="text" class="form-control settings" id="date-language">
+                                <div class="form-text">Język należy podać w formacie BCP 47. <a href="https://www.techonthenet.com/js/language_tags.php" target="_blank" rel="noopener">lista dostępnych języków</a></div>
+                            </div>
+                        </div>
+
+                        <div id="advanced-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <div class="mb-3">
+                                <label for="customCSSTextarea" class="form-label">Własny kod CSS</label>
+                                <textarea class="form-control code settings" id="customCSSTextarea" rows="3"></textarea>
+                                <div class="form-text">Aby mieć pewność, że kod zostanie poprawnie zastosowany dodaj <code>!important</code> na końcu każdej linijki.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="customJSTextarea" class="form-label">Własny kod Javascript</label>
+                                <textarea class="form-control code settings" id="customJSTextarea" rows="3"></textarea>
+                                <div class="form-text">Kod zacznie działać dopiero po odświeżeniu strony.</div>
+                            </div>
+                        </div>
+
+                        <div id="appearance-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <div class="mb-3">
+                                <label for="dark-theme-select" class="form-label">Ciemny motyw</label>
+                                <select class="form-select appearance-setting" id="dark-theme-select">
+                                    <option selected value="auto">Automatycznie (motyw przeglądarki)</option>
+                                    <option value="light">Jasny</option>
+                                    <option value="dark">Ciemny</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="scale" class="form-label">Skala</label>
+                                <input type="number" class="form-control appearance-setting" id="scale" step="0.1">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input appearance-setting" type="checkbox" id="centerSiteVertically">
+                                <label class="form-check-label" for="centerSiteVertically">
+                                    Wyśrodkuj stronę w pionie
+                                </label>
+                            </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <div class="mb-3">
+                                <label for="site-background" class="form-label">Tło strony</label>
+                                <select class="form-select appearance-setting" id="site-background">
+                                    <option value="default">Domyślny kolor (#9acd32)</option>
+                                    <option value="custom-color">Własny kolor</option>
+                                    <option value="image">Zdjęcie</option>
+                                    <option value="video">Film</option>
+                                    <option value="youtube-video">Film z YouTube</option>
+                                    <option value="website">Strona</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3 d-none">
+                                <label class="form-label" for="site-title-color">Kolor</label>
+                                <input type="color" id="background-color" class="form-control form-control-color appearance-setting" spellcheck="false" autocomplete="off">
+                            </div>
+                            
+                            <div class="mb-3 d-none">
+                                <label for="background-url" class="form-label">URL</label>
+                                <input type="text" class="form-control appearance-setting" id="background-url" spellcheck="false" autocomplete="off">
+                            </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <div class="mb-3">
+                                <label for="theme-select" class="form-label">Motyw</label>
+                                <select class="form-select" id="theme-select">
+                                    <option value="default">Domyślny</option>
+                                    <option value="white-black">Biało-czarny</option>
+                                    <option value="black-white">Czarno-biały</option>
+                                    <option value="custom">Własny</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="site-title-color">Kolor tytułu strony</label>
+                                <input type="color" id="site-title-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--site-title-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="countdown-color">Kolor czcionki odliczania</label>
+                                <input type="color" id="countdown-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#000072" white-black-value="#000000" black-white-value="#ffffff" css-variable="--countdown-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="countdown-bg-color">Kolor tła odliczania</label>
+                                <input type="color" id="countdown-bg-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#007a00" white-black-value="#ffffff" black-white-value="#000000" css-variable="--countdown-bg-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="countdown-border-color">Kolor ramki odliczania</label>
+                                <input type="color" id="countdown-border-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#000000" white-black-value="#000000" black-white-value="#ffffff" css-variable="--countdown-border-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="left-header-color">Kolor czcionki nagłówka "Pozostało:"</label>
+                                <input type="color" id="left-header-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--left-header-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="left-unit-color">Kolor tekstu z jednostkami czasu</label>
+                                <input type="color" id="left-unit-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--left-unit-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="date-label-color">Kolor czcionki etykiet dat</label>
+                                <input type="color" id="date-label-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--date-label-color">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="date-color">Kolor czcionki dat</label>
+                                <input type="color" id="date-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--date-color">
+                            </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <div class="mb-3">
+                                <label class="form-label" for="countdown-border-width">Szerokość ramki odliczania</label>
+                                <div class="input-group">
+                                    <input type="number" id="countdown-border-width" class="form-control appearance-setting" spellcheck="false" autocomplete="off">
+                                    <span class="input-group-text">px</span>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-appearance" role="tabpanel" aria-labelledby="v-pills-appearance-tab" tabindex="0">
-                                    <div class="mb-3">
-                                        <label for="dark-theme-select" class="form-label">Ciemny motyw</label>
-                                        <select class="form-select appearance-setting" id="dark-theme-select">
-                                            <option selected value="auto">Automatycznie (motyw przeglądarki)</option>
-                                            <option value="light">Jasny</option>
-                                            <option value="dark">Ciemny</option>
-                                        </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="countdown-border-style">Styl ramki odliczania</label>
+                                <select id="countdown-border-style" class="form-select appearance-setting">
+                                    <option value="none">Brak</option>
+                                    <option value="solid">Ciągła</option>
+                                    <option value="double">Podwójna</option>
+                                    <option value="dashed">Kreski</option>
+                                    <option value="dotted">Kropki</option>
+                                    <option value="inset">Wklęsła</option>
+                                    <option value="outset">Wypukła</option>
+                                    <option value="groove">Wklęsły pasek</option>
+                                    <option value="ridge">Wypukły pasek</option>
+                                </select>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input appearance-setting" type="checkbox" id="display-today-datetime">
+                                <label class="form-check-label" for="display-today-datetime">Wyświetlaj dzisiejszą datę</label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input appearance-setting" type="checkbox" id="display-elephant-day-datetime">
+                                <label class="form-check-label" for="display-elephant-day-datetime">Wyświetlaj datę Dnia Słonia</label>
+                            </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input appearance-setting" type="checkbox" id="countdown-shadow">
+                                <label class="form-check-label" for="countdown-shadow">Cień odliczania</label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input appearance-setting" type="checkbox" id="outline-icon">
+                                <label class="form-check-label" for="outline-icon">Kontur ikony</label>
+                            </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <div class="mb-3">
+                                <label class="form-label" for="menu-buttons-appearance">Styl przycisków menu</label>
+                                <select id="menu-buttons-appearance" class="form-select appearance-setting">
+                                    <optgroup label="Kolory">
+                                        <option value="primary">Primary (domyślny)</option>
+                                        <option value="secondary">Secondary</option>
+                                        <option value="success">Success</option>
+                                        <option value="danger">Danger</option>
+                                        <option value="warning">Warning</option>
+                                        <option value="info">Info</option>
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="link">Link</option>
+                                    </optgroup>
+                                    <optgroup label="Kolory z samym konturem">
+                                        <option value="outline-primary">Primary</option>
+                                        <option value="outline-secondary">Secondary</option>
+                                        <option value="outline-success">Success</option>
+                                        <option value="outline-danger">Danger</option>
+                                        <option value="outline-warning">Warning</option>
+                                        <option value="outline-info">Info</option>
+                                        <option value="outline-light">Light</option>
+                                        <option value="outline-dark">Dark</option>
+                                    </optgroup>
+                                    <optgroup label="Własny">
+                                        <option value="custom">Własny</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <table class="table" id="buttons-colors">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Wartość \ Stan</th>
+                                        <th scope="col">Normalny</th>
+                                        <th scope="col">Kursor</th>
+                                        <th scope="col">Aktywny</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">Tekst</th>
+                                        <td><input type="color" id="custom-button-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-color"></td>
+                                        <td><input type="color" id="custom-button-hover-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-color"></td>
+                                        <td><input type="color" id="custom-button-active-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-color"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Tło</th>
+                                        <td><input type="color" id="custom-button-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-bg"></td>
+                                        <td><input type="color" id="custom-button-hover-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-bg"></td>
+                                        <td><input type="color" id="custom-button-active-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-bg"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Kontur</th>
+                                        <td><input type="color" id="custom-button-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-border-color"></td>
+                                        <td><input type="color" id="custom-button-hover-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-border-color"></td>
+                                        <td><input type="color" id="custom-button-active-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-border-color"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="widget-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
+                        
+                        
+                        </div>
+
+                        <div id="information-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
+                    
+                            <button class="settings-category-button" settings-target="#general-information"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text">Ogólne</span></button>
+                            <button class="settings-category-button" settings-target="#changelog-information"><i class="bi bi-list-ol"></i> <span class="settings-category-button-text">Rejestr zmian</span></button>
+                            <button class="settings-category-button" settings-target="#open-source-information"><i class="bi bi-collection-fill"></i> <span class="settings-category-button-text">Open source</span></button>
+                            <button class="settings-category-button" settings-target="#other-versions-information"><i class="bi bi-grid-3x3-gap-fill"></i> <span class="settings-category-button-text">Inne wersje</span></button>
+                            <button class="settings-category-button" settings-target="#visit-counter-information"><i class="bi bi-123"></i> <span class="settings-category-button-text">Licznik wejść</span></button>
+                            <button class="settings-category-button" settings-target="#elephants-information"><span class="settings-category-button-text">Słonie</span></button>
+                        </div>
+
+                        <div id="general-information" class="d-none">
+                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <p class="font-size-24"><b>Strona Odliczanie do Dnia Słonia</b></p>
+
+                            <a href="https://github.com/slonindyjski/OdliczanieDoDniaSloniaStrona" target="_blank" rel="noopener">Repozytorium GitHub</a>
+
+                            <p class="font-size-24"><b>Wersja</b></p>
+                            <p><b>Wersja:</b> {{ version['version'] }}</p>
+                            <p><b>Build:</b> {{ version['build'] }}</p>
+                            {% if version['dev'] %}<p><b>DEV (podczas tworzenia)</b></p>{% endif %}
+
+                            <p class="font-size-24"><b>Autor</b></p>
+                            <div class="container-fluid">
+                                <div class="row row-cols-auto">
+                                    <div class="col">
+                                        <img class="img-fluid profile-picture" src="/static/img/slon_zwierze_szary_2.jpg" height="150px" width="150px" alt="Zdjęcie profilowe">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="scale" class="form-label">Skala</label>
-                                        <input type="number" class="form-control appearance-setting" id="scale" step="0.1">
+                                    <div class="col">
+                                        <p class="h2">Słoń Indyjski</p>
+                
+                                        <a href="https://slonindyjski.pythonanywhere.com/" class="social-link site-link" target="_blank" title="Strona internetowa" rel="noopener"><i class="bi bi-globe"></i></a>
+                                        <a href="https://www.youtube.com/@slon_indyjski" class="social-link youtube-link" target="_blank" title="Kanał YouTube" rel="noopener"><i class="bi bi-youtube"></i></a>
+                                        <a href="https://github.com/slonindyjski" class="social-link github-link" target="_blank" title="Profil GitHub" rel="noopener"><i class="bi bi-github"></i></a>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input appearance-setting" type="checkbox" id="centerSiteVertically">
-                                        <label class="form-check-label" for="centerSiteVertically">
-                                            Wyśrodkuj stronę w pionie
-                                        </label>
-                                    </div>
-
-                                    <hr class="border border-1 opacity-100">
-
-                                    <div class="mb-3">
-                                        <label for="site-background" class="form-label">Tło strony</label>
-                                        <select class="form-select appearance-setting" id="site-background">
-                                            <option value="default">Domyślny kolor (#9acd32)</option>
-                                            <option value="custom-color">Własny kolor</option>
-                                            <option value="image">Zdjęcie</option>
-                                            <option value="video">Film</option>
-                                            <option value="youtube-video">Film z YouTube</option>
-                                            <option value="website">Strona</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3 d-none">
-                                        <label class="form-label" for="site-title-color">Kolor</label>
-                                        <input type="color" id="background-color" class="form-control form-control-color appearance-setting" spellcheck="false" autocomplete="off">
-                                    </div>
-                                    
-                                    <div class="mb-3 d-none">
-                                        <label for="background-url" class="form-label">URL</label>
-                                        <input type="text" class="form-control appearance-setting" id="background-url" spellcheck="false" autocomplete="off">
-                                    </div>
-
-                                    <hr class="border border-1 opacity-100">
-
-                                    <div class="mb-3">
-                                        <label for="theme-select" class="form-label">Motyw</label>
-                                        <select class="form-select" id="theme-select">
-                                            <option value="default">Domyślny</option>
-                                            <option value="white-black">Biało-czarny</option>
-                                            <option value="black-white">Czarno-biały</option>
-                                            <option value="custom">Własny</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="site-title-color">Kolor tytułu strony</label>
-                                        <input type="color" id="site-title-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--site-title-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="countdown-color">Kolor czcionki odliczania</label>
-                                        <input type="color" id="countdown-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#000072" white-black-value="#000000" black-white-value="#ffffff" css-variable="--countdown-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="countdown-bg-color">Kolor tła odliczania</label>
-                                        <input type="color" id="countdown-bg-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#007a00" white-black-value="#ffffff" black-white-value="#000000" css-variable="--countdown-bg-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="countdown-border-color">Kolor ramki odliczania</label>
-                                        <input type="color" id="countdown-border-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#000000" white-black-value="#000000" black-white-value="#ffffff" css-variable="--countdown-border-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="left-header-color">Kolor czcionki nagłówka "Pozostało:"</label>
-                                        <input type="color" id="left-header-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--left-header-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="left-unit-color">Kolor tekstu z jednostkami czasu</label>
-                                        <input type="color" id="left-unit-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--left-unit-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="date-label-color">Kolor czcionki etykiet dat</label>
-                                        <input type="color" id="date-label-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--date-label-color">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="date-color">Kolor czcionki dat</label>
-                                        <input type="color" id="date-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--date-color">
-                                    </div>
-
-                                    <hr class="border border-1 opacity-100">
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="countdown-border-width">Szerokość ramki odliczania</label>
-                                        <div class="input-group">
-                                            <input type="number" id="countdown-border-width" class="form-control appearance-setting" spellcheck="false" autocomplete="off">
-                                            <span class="input-group-text">px</span>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" for="countdown-border-style">Styl ramki odliczania</label>
-                                        <select id="countdown-border-style" class="form-select appearance-setting">
-                                            <option value="none">Brak</option>
-                                            <option value="solid">Ciągła</option>
-                                            <option value="double">Podwójna</option>
-                                            <option value="dashed">Kreski</option>
-                                            <option value="dotted">Kropki</option>
-                                            <option value="inset">Wklęsła</option>
-                                            <option value="outset">Wypukła</option>
-                                            <option value="groove">Wklęsły pasek</option>
-                                            <option value="ridge">Wypukły pasek</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input appearance-setting" type="checkbox" id="display-today-datetime">
-                                        <label class="form-check-label" for="display-today-datetime">Wyświetlaj dzisiejszą datę</label>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input appearance-setting" type="checkbox" id="display-elephant-day-datetime">
-                                        <label class="form-check-label" for="display-elephant-day-datetime">Wyświetlaj datę Dnia Słonia</label>
-                                    </div>
-
-                                    <hr class="border border-1 opacity-100">
-
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input appearance-setting" type="checkbox" id="countdown-shadow">
-                                        <label class="form-check-label" for="countdown-shadow">Cień odliczania</label>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input appearance-setting" type="checkbox" id="outline-icon">
-                                        <label class="form-check-label" for="outline-icon">Kontur ikony</label>
-                                    </div>
-
-                                    <hr class="border border-1 opacity-100">
-
-                                    <div class="mb-3">
-                                        <label class="form-label" for="menu-buttons-appearance">Styl przycisków menu</label>
-                                        <select id="menu-buttons-appearance" class="form-select appearance-setting">
-                                            <optgroup label="Kolory">
-                                                <option value="primary">Primary (domyślny)</option>
-                                                <option value="secondary">Secondary</option>
-                                                <option value="success">Success</option>
-                                                <option value="danger">Danger</option>
-                                                <option value="warning">Warning</option>
-                                                <option value="info">Info</option>
-                                                <option value="light">Light</option>
-                                                <option value="dark">Dark</option>
-                                                <option value="link">Link</option>
-                                            </optgroup>
-                                            <optgroup label="Kolory z samym konturem">
-                                                <option value="outline-primary">Primary</option>
-                                                <option value="outline-secondary">Secondary</option>
-                                                <option value="outline-success">Success</option>
-                                                <option value="outline-danger">Danger</option>
-                                                <option value="outline-warning">Warning</option>
-                                                <option value="outline-info">Info</option>
-                                                <option value="outline-light">Light</option>
-                                                <option value="outline-dark">Dark</option>
-                                            </optgroup>
-                                            <optgroup label="Własny">
-                                                <option value="custom">Własny</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-
-                                    <table class="table" id="buttons-colors">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Wartość \ Stan</th>
-                                                <th scope="col">Normalny</th>
-                                                <th scope="col">Kursor</th>
-                                                <th scope="col">Aktywny</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="col">Tekst</th>
-                                                <td><input type="color" id="custom-button-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-color"></td>
-                                                <td><input type="color" id="custom-button-hover-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-color"></td>
-                                                <td><input type="color" id="custom-button-active-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-color"></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Tło</th>
-                                                <td><input type="color" id="custom-button-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-bg"></td>
-                                                <td><input type="color" id="custom-button-hover-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-bg"></td>
-                                                <td><input type="color" id="custom-button-active-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-bg"></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Kontur</th>
-                                                <td><input type="color" id="custom-button-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-border-color"></td>
-                                                <td><input type="color" id="custom-button-hover-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-border-color"></td>
-                                                <td><input type="color" id="custom-button-active-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-border-color"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <hr class="border border-1 opacity-100">
-
-                                    <button type="button" class="btn btn-danger" onclick="resetAppearance()">
-                                        <i class="bi bi-arrow-clockwise"></i> Resetuj
-                                    </button>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-widget" role="tabpanel" aria-labelledby="v-pills-widget-tab" tabindex="0">
-                                    <div class="alert alert-warning" role="alert">
-                                        Widżet jest tymczasowo niedostępny!
-                                    </div>
-                                    <div class="container-fluid d-none">
-                                        <div class="row">
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                                                <div class="mb-3">
-                                                    <label for="html-code" class="form-label">Kod HTML</label>
-                                                    <input type="text" class="form-control" id="html-code" spellcheck="false" autocomplete="off">
-                                                </div>
-            
-                                                <button role="button" id="copy-button" class="btn btn-primary" onclick="copyCode()"><i class="bi bi-clipboard"></i> Kopiuj</button>
-            
-                                                <div class="mt-5">
-                                                    <p class="h3">Ustawienia widżetu</p>
-                                                    <div class="mb-1">
-                                                        <label class="form-label" for="widget-height">Wysokość</label>
-                                                        <input type="number" id="widget-height" class="form-control widget-setting" value="780" spellcheck="false" autocomplete="off">
-                                                    </div>
-                                                    <div class="mb-1">
-                                                        <label class="form-label" for="widget-width">Szerokość</label>
-                                                        <input type="number" id="widget-width" class="form-control widget-setting" value="375" spellcheck="false" autocomplete="off">
-                                                    </div>
-                                                    <div class="mb-1">
-                                                        <label class="form-label" for="widget-mode">Tryb widżetu</label>
-                                                        <select type="number" id="widget-mode" class="form-control widget-setting">
-                                                            <option value="true" selected>Włączony</option>
-                                                            <option value="without_link">Włączony (bez linku)</option>
-                                                            <option value="false">Wyłączony</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="mb-1">
-                                                        <label class="form-label" for="widget-language">Język</label>
-                                                        <select type="number" id="widget-language" class="form-control widget-setting">
-                                                            <option value="default" selected>Użytkownika</option>
-                                                            <option value="pl">Polski</option>
-                                                            <option value="en">Angielski</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="mb-1">
-                                                        <label class="form-label" for="widget-scale">Skala</label>
-                                                        <input type="number" id="widget-scale" class="form-control widget-setting" value="1" spellcheck="false" autocomplete="off" step="0.1">
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input widget-setting" type="checkbox" id="widget-center">
-                                                        <label class="form-check-label" for="widget-center">
-                                                            Wyśrodkuj stronę w pionie
-                                                        </label>
-                                                    </div>
-                                                    <script>
-                                                        function updateWidgetSettings() {
-                                                            if (!(document.querySelector('#widget-div').innerHTML.includes('iframe'))) {
-                                                                addWidget();
-                                                                addCode();
-                                                            }
-
-                                                            document.querySelector('#widget-div').querySelector('iframe').height = document.querySelector('#widget-height').value;
-                                                            document.querySelector('#widget-div').querySelector('iframe').width = document.querySelector('#widget-width').value;
-
-                                                            var params = {};
-                                                            
-                                                            if (document.querySelector('#widget-mode').value != 'false') {
-                                                                params.widget = document.querySelector('#widget-mode').value;
-                                                            }
-                                                            
-                                                            if (document.querySelector('#widget-language').value != 'default') {
-                                                                params.lang = document.querySelector('#widget-language').value;
-                                                            }
-                                                            
-                                                            if (document.querySelector('#widget-scale').value != '1') {
-                                                                params.scale = document.querySelector('#widget-scale').value;
-                                                            }
-                                                            
-                                                            if (document.querySelector('#widget-center').checked) {
-                                                                params.center = 'true';
-                                                            }
-
-                                                            var urlObject = new URL(window.location.href);
-                                                            var url = urlObject.origin;
-
-                                                            if (params != {}) {
-                                                                url += '/?';
-
-                                                                for (const [key, value] of Object.entries(params)) {
-                                                                    url += key + '=' + value + '&';
-                                                                }
-
-                                                                url = url.slice(0, -1);
-                                                            }
-
-                                                            if (document.querySelector('#widget-div').querySelector('iframe').src != url) {
-                                                                document.querySelector('#widget-div').querySelector('iframe').src = url;
-                                                                document.querySelector('#widget-div').classList.add('d-none');
-                                                                document.querySelector('#widget-loading').classList.remove('d-none');
-                                                                document.querySelector('#widget-div').querySelector('iframe').addEventListener('load', (e) => { document.querySelector('#widget-div').classList.remove('d-none'); document.querySelector('#widget-loading').classList.add('d-none'); e.currentTarget.style.minHeight = e.currentTarget.contentWindow.document.body.scrollHeight + 'px'; });
-                                                            }
-
-                                                            document.querySelector('#html-code').value = document.querySelector('#widget-div').innerHTML.replaceAll('&amp;', '&');
-                                                        }
-
-                                                        document.querySelectorAll('.widget-setting').forEach((e) => {
-                                                            e.addEventListener('change', updateWidgetSettings);
-                                                        });
-                                                    </script>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mt-3 mt-sm-3 mt-md-3 mt-lg-0 mt-xl-0 mt-xxl-0">
-                                                <div id="widget-div" class="d-none">
-                                                    
-                                                </div>
-                                                <div id="widget-loading">
-                                                    <div class="d-flex justify-content-center">
-                                                        <div class="spinner-border text-primary" role="status">
-                                                            <span class="visually-hidden">Ładuję...</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <script>
-                                                function addCode() {
-                                                    document.querySelector('#html-code').value = document.querySelector('#widget-div').innerHTML;
-                                                }
-            
-                                                function copyCode() {
-                                                    var widgetCode = document.querySelector('#html-code');
-                                                    var copyButton = document.querySelector('#copy-button');
-            
-                                                    navigator.clipboard.writeText(widgetCode.value);
-            
-                                                    if (document.querySelector('html').lang == 'pl') {
-                                                        copyButton.innerHTML = '<i class="bi bi-clipboard-check"></i> Skopiowano';
-                                                    } else {
-                                                        copyButton.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied';
-                                                    }
-                                                }
-            
-                                                function addWidget() {
-                                                    var widgetDiv = document.querySelector('#widget-div');
-                                                    var widgetCode = document.querySelector('#html-code');
-            
-                                                    if (widgetCode.value == '') {
-                                                        var url = new URL(window.location.href);
-                                                        widgetDiv.innerHTML = `<iframe src="${url.origin}/?widget=true" width="375" height="780"></iframe>`;
-                                                        widgetDiv.querySelector('iframe').addEventListener('load', (e) => { document.querySelector('#widget-div').classList.remove('d-none'); document.querySelector('#widget-loading').classList.add('d-none'); e.currentTarget.style.minHeight = e.currentTarget.contentWindow.document.body.scrollHeight + 'px'; });
-                                                    } else {
-                                                        widgetDiv.innerHTML = widgetCode.value;
-                                                    }
-                                                }
-            
-                                                document.querySelector('[data-bs-target="#v-pills-widget"]').addEventListener('click', function () {
-                                                    if (!(document.querySelector('#widget-div').innerHTML.includes('iframe')) && window.navigator.onLine) {
-                                                        addWidget();
-                                                        addCode();
-                                                        updateWidgetSettings();
-                                                    }
-                                                });
-                                            </script>
-                                        </div>
-                                    </div>
-                                    <div id="widget-offline-info" class="alert alert-danger m-1 d-none" role="alert">
-                                        Jesteś offline.
-                                    </div>
-                                    <script>
-                                        if (!(window.navigator.onLine)) {
-                                            document.querySelector('#v-pills-widget').querySelector('.container-fluid').classList.add('d-none');
-                                            document.querySelector('#widget-offline-info').classList.remove('d-none');
-                                        }
-                                    </script>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-api" role="tabpanel" aria-labelledby="v-pills-api-tab" tabindex="0">
-                                    <div class="container-fluid">
-                                        <div class="h3">API</div>
-
-                                        <p class="h4">Generator URL:</p>
-
-                                        <form>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="form-floating">
-                                                        <input type="text" class="form-control" id="api-timezone">
-                                                        <label for="timezone">Strefa czasowa</label>
-                                                    </div>
-                                                    <button class="btn btn-outline-primary" type="button" id="api-auto-timezone"
-                                                        title="Wykryj automatycznie"><i class="bi bi-geo-alt-fill"></i></button>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="input-group">
-                                                    <div class="form-floating">
-                                                        <input type="text" class="form-control" id="api-url" disabled>
-                                                        <label for="url">URL</label>
-                                                    </div>
-                                                    <button class="btn btn-outline-primary" type="button" id="api-open-in-new-tab"
-                                                        title="Otwórz w nowej karcie"><i class="bi bi-window-plus"></i></button>
-                                                    <button class="btn btn-outline-success" type="button" id="api-copy-url" title="Kopiuj"><i
-                                                            class="bi bi-clipboard"></i></button>
-                                                    <button class="btn btn-outline-light" type="button" id="api-send-request"
-                                                        title="Wyślij zapytanie"><i class="bi bi-send"></i></button>
-                                                </div>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <textarea class="form-control" id="api-response" rows="3" disabled></textarea>
-                                                <label for="response">Odpowiedź</label>
-                                            </div>
-                                        </form>
-
-                                        <script>
-                                            function updateURL() {
-                                                var url = new URL(location.href);
-                                                var params = '';
-                                                if (document.querySelector('#api-timezone').value != '') {
-                                                    params = `?tz=${document.querySelector('#api-timezone').value}`
-                                                }
-                                                document.querySelector('#api-url').value = `${url.origin}/api/get_left_time${params}`;
-                                            }
-
-                                            document.querySelector('#api-auto-timezone').addEventListener('click', (e) => {
-                                                document.querySelector('#api-timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                                                updateURL();
-                                            });
-                                            document.querySelector('#api-timezone').addEventListener('change', updateURL);
-                                            document.querySelector('#api-open-in-new-tab').addEventListener('click', () => {
-                                                window.open(document.querySelector('#api-url').value, '_blank').focus();
-                                            });
-                                            document.querySelector('#api-copy-url').addEventListener('click', () => {
-                                                navigator.clipboard.writeText(document.querySelector('#api-url').value)
-                                            })
-                                            document.querySelector('#api-send-request').addEventListener('click', () => {
-                                                fetch(document.querySelector('#api-url').value)
-                                                    .then(function (response) { return response.json(); })
-                                                    .then(function (json) {
-                                                        var code = JSON.stringify(json, null, 4);
-                                                        document.querySelector('#api-response').value = code;
-                                                        document.querySelector('#api-response').rows = (code.match(/\n/g) || []).length + 1;
-                                                    });
-                                            })
-                                            updateURL();
-                                        </script>
-
-                                        <!-- <p class="h4">Dokumentacja API:</p>
-
-                                        <p>API jest darmowe i dostępne bez uwierzytelniania, nie posiada limitów zapytań.</p>
-                                        <p>Aby uzyskać czas pozostały do Dnia Słonia należy wykonać zapytanie pod URL <code>/api/get_left_time</code>
-                                        </p>
-
-                                        <p class="h5">Parametry:</p>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Parametr</th>
-                                                        <th scope="col">Format</th>
-                                                        <th scope="col">Wymagany</th>
-                                                        <th scope="col">Domyślna wartość</th>
-                                                        <th scope="col">Opis</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">tz</th>
-                                                        <td>String</td>
-                                                        <td>Nie</td>
-                                                        <td>UTC</td>
-                                                        <td>Strefa czasowa w formacie tz (<a
-                                                                href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
-                                                                target="_blank" rel="noopener">lista stref czasowych dostępna jest tutaj</a>)</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <p class="h5">Odpowiedź:</p>
-
-                                        <p>Serwer zwraca odpowiedź w formacie JSON.</p>
-
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Klucz</th>
-                                                        <th scope="col">Format</th>
-                                                        <th scope="col">Opis</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">status</th>
-                                                        <td>String</td>
-                                                        <td>W przypadku powodzenia <code>success</code>, w przypadku ostrzeżenia <code>earning</code>, a w przypadku błędu <code>error</code></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">timezone</th>
-                                                        <td>Słownik</td>
-                                                        <td>
-                                                            Określa strefę czasową
-                                                            <br>
-                                                            Wartością klucza <code>name</code> jest nazwa strefy czasowej w formacie tz.
-                                                            <br>
-                                                            Wartością klucza <code>seconds_offset</code> jest przesunięcie czasu między lokalną strefą a czasem uniwersalnym, która jest podana w sekundach.
-                                                            <br>
-                                                            Wartością klucza <code>hours_offset</code> jest przesunięcie czasu między lokalną strefą a czasem uniwersalnym, która jest podana w godzinach.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">today</th>
-                                                        <td>String</td>
-                                                        <td>Aktualna data i czas w formacie ISO</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">elephant_day</th>
-                                                        <td>String</td>
-                                                        <td>Data Dnia Słonia w formacie ISO</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">left</th>
-                                                        <td>Słownik</td>
-                                                        <td>
-                                                            Czas pozostały do dnia słonia w jednostkach: dni (klucz <code>days</code>), godziny (klucz <code>hours</code>), minuty (kucz <code>minutes</code>) i sekundy (klucz <code>seconds</code>).
-                                                            <br>
-                                                            Pozostały czas = pozostałe dni + pozostałe godziny + pozostałe minuty + pozostałe sekundy
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">left_sumary</th>
-                                                        <td>Słownik</td>
-                                                        <td>
-                                                            Czas pozostały do dnia słonia w jednostkach: dni (klucz <code>days</code>), godziny (klucz <code>hours</code>), minuty (kucz <code>minutes</code>) i sekundy (klucz <code>seconds</code>).
-                                                            <br>
-                                                            Pozostały czas = pozostałe dni = pozostałe godziny = pozostałe minuty = pozostałe sekundy
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">warning</th>
-                                                        <td>String</td>
-                                                        <td>
-                                                            Opis ostrzeżenia
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">error</th>
-                                                        <td>String</td>
-                                                        <td>
-                                                            Opis błędu
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-visit-counter" role="tabpanel" aria-labelledby="v-pills-visit-counter-tab" tabindex="0">
-                                    <div id="visit-counter-div">
-                                        <div class="h3">Licznik odwiedzin</div>
-                                        <div id="visit-counter" class="d-none"></div>
-                                        <div id="visit-counter-loading">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="spinner-border text-primary" role="status">
-                                                    <span class="visually-hidden">Ładuję...</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="visit-counter-offline" class="alert alert-danger m-1 d-none" role="alert">
-                                        Jesteś offline.
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-about" role="tabpanel" aria-labelledby="v-pills-about-tab" tabindex="0">
-                                    <ul class="nav nav-tabs mb-3" id="about-pills-tab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button
-                                            class="nav-link active"
-                                            id="pills-info-info-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-info-info"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-info-info"
-                                            aria-selected="true"
-                                            >
-                                                <i class="bi bi-info-circle-fill"></i>
-                                                Informacje
-                                            </button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button
-                                            class="nav-link"
-                                            id="pills-info-changes-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-info-changes"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-info-changes"
-                                            aria-selected="false"
-                                            >
-                                                <i class="bi bi-list-ol"></i>
-                                                Rejestr zmian
-                                            </button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button
-                                            class="nav-link"
-                                            id="pills-info-libraries-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-info-libraries"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-info-libraries"
-                                            aria-selected="false"
-                                            >
-                                                <i class="bi bi-collection-fill"></i>
-                                                Biblioteki
-                                            </button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button
-                                            class="nav-link"
-                                            id="pills-other-versions-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-other-versions"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-other-versions"
-                                            aria-selected="false"
-                                            >
-                                                <i class="bi bi-grid-3x3-gap-fill"></i>
-                                                Inne wersje
-                                            </button>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div
-                                        class="tab-pane fade show active"
-                                        id="pills-info-info"
-                                        role="tabpanel"
-                                        aria-labelledby="pills-info-info-tab"
-                                        >
-                                            <p class="font-size-24"><b>Strona Odliczanie do Dnia Słonia</b></p>
-
-                                            <a href="https://github.com/slonindyjski/OdliczanieDoDniaSloniaStrona" target="_blank" rel="noopener">Repozytorium GitHub</a>
-
-                                            <p class="font-size-24"><b>Wersja</b></p>
-                                            <p><b>Wersja:</b> {{ version['version'] }}</p>
-                                            <p><b>Build:</b> {{ version['build'] }}</p>
-                                            {% if version['dev'] %}<p><b>DEV (podczas tworzenia)</b></p>{% endif %}
-
-                                            <p class="font-size-24"><b>Autor</b></p>
-                                            <div class="container-fluid">
-                                                <div class="row row-cols-auto">
-                                                    <div class="col">
-                                                        <img class="img-fluid profile-picture" src="/static/img/slon_zwierze_szary_2.jpg" height="150px" width="150px" alt="Zdjęcie profilowe">
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="h2">Słoń Indyjski</p>
-                                
-                                                        <a href="https://slonindyjski.pythonanywhere.com/" class="social-link site-link" target="_blank" title="Strona internetowa" rel="noopener"><i class="bi bi-globe"></i></a>
-                                                        <a href="https://www.youtube.com/@slon_indyjski" class="social-link youtube-link" target="_blank" title="Kanał YouTube" rel="noopener"><i class="bi bi-youtube"></i></a>
-                                                        <a href="https://github.com/slonindyjski" class="social-link github-link" target="_blank" title="Profil GitHub" rel="noopener"><i class="bi bi-github"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                        class="tab-pane fade"
-                                        id="pills-info-changes"
-                                        role="tabpanel"
-                                        aria-labelledby="pills-info-changes-tab"
-                                        >
-                                            <p class="font-size-24"><b>Rejestr zmian</b></p>
-
-                                            <p class="h3">1.14 (bieżąca wersja) <i class="bi bi-check-lg"></i></p>
-                                            <ul>
-                                                <li>Drobne poprawki</li>
-                                            </ul>
-
-                                            <p class="h3">1.13</p>
-                                            <ul>
-                                                <li>Poprawiono wsparcie dla wielu języków</li>
-                                                <li>Dodano informacje o innych wersjach Odliczania do Dnia Słonia</li>
-                                                <li>Przeniesiono API</li>
-                                                <li>Inne poprawki i ulepszenia</li>
-                                            </ul>
-
-                                            <p class="h3">1.12</p>
-                                            <ul>
-                                                <li>Dodano możliwość korzystania ze strony w trybie offline</li>
-                                                <li>Dodano komunikat w przypadku braku wsparcia dla JavaScript</li>
-                                                <li>Inne poprawki i ulepszenia</li>
-                                            </ul>
-
-                                            <p class="h3">1.11</p>
-                                            <ul>
-                                                <li>Zmieniono motywy i wtyczki na ustawienia wyglądu</li>
-                                                <li>Dodano więcej opcji dostosowywania strony</li>
-                                                <li>Inne poprawki i ulepszenia</li>
-                                            </ul>
-
-                                            <p class="h3">1.10</p>
-                                            <ul>
-                                                <li>Dodano licznik odwiedzin</li>
-                                                <li>Poprawa wydajności</li>
-                                                <li>Dodano tłumaczenie nazwy aplikacji (PWA)</li>
-                                                <li>Inne poprawki i ulepszenia</li>
-                                            </ul>
-
-                                            <p class="h3">1.9</p>
-                                            <ul>
-                                                <li>Naprawiono błąd powodujący generowanie błędnego URL widżetu (URL był względny)</li>
-                                                <li>Dodano wtyczkę "Cień odliczania"</li>
-                                                <li>Dodano wtyczkę "Kontur ikony"</li>
-                                                <li>Dodano ustawienia widżetu</li>
-                                                <li>Inne poprawki i ulepszenia</li>
-                                            </ul>
-
-            
-                                            <p class="h3">1.8</p>
-                                            <ul>
-                                                <li>Przeniesiono ustawienia, motywy, wtyczki, widżet i informacje do opcji</li>
-                                                <li>Dodano możliwość pionowego wyśrodkowania strony</li>
-                                                <li>Dodano możliwość skalowania strony</li>
-                                                <li>Dodano możliwość dostosowywania strony przez URL (dawniej dostępne tylko w trybie widżetu)</li>
-                                                <li>Inne ulepszenia</li>
-                                            </ul>
-            
-                                            <p class="h3">1.7</p>
-                                            <ul>
-                                                <li>Poprawiono wydajność</li>
-                                                <li>Dodano możliwość używania wtyczek</li>
-                                                <li>Dodano ciemny motyw</li>
-                                                <li>Inne ulepszenia</li>
-                                            </ul>
-            
-                                            <p class="h3">1.6</p>
-                                            <ul>
-                                                <li>Poprawiono menu</li>
-                                                <li>Dodano opcję korzystania z przycisków menu za pomocą klawiatury</li>
-                                                <li>Dołączono do strony wymagane czcionki, aby strona wyświetlała się prawidłowo na systemach, które nie mają jej zainstalowanej (np. Linux)</li>
-                                                <li>Opcja dodania własnego kodu CSS i Javascript</li>
-                                                <li>Poprawiono tłumaczenie</li>
-                                            </ul>
-            
-                                            <p class="h3">1.5</p>
-                                            <ul>
-                                                <li>Odmiana jednostek czasu</li>
-                                                <li>Odmiana miesięcy</li>
-                                                <li>Poprawiono wygląd okienek modal, gdy są wyższe od ekranu</li>
-                                                <li>Tworzenie widżetu dopiero, gdy użytkownik otworzy jego okno (wpływ na wydajność)</li>
-                                                <li>Dodano rejestr zmian</li>
-                                                <li>Różne języki</li>
-                                                <li>Informacje o stronie jako okienko modal</li>
-                                                <li>Poprawiono zegar (0 przed godziną jeśli jest liczbą jednocyfrową)</li>
-                                                <li>Zmieniono format daty</li>
-                                                <li>Przeniesiono "Zgłoś błąd / zaproponuj nową funkcję" do informacji o stronie</li>
-                                            </ul>
-                                            
-                                            <p class="h3">1.4</p>
-                                            <ul>
-                                                <li>Dodano opcję zmiany motywów</li>
-                                                <li>Naprawiono błąd powodujący wielokrotne ładowanie się widżetu (wpływający na wydajność)</li>
-                                                <li>Dodano możliwość przeciągania i zmiany rozmiaru okienek modal (dostępne tylko na komputerach)</li>
-                                            </ul>
-                                            
-                                            <p class="h3">1.3</p>
-                                            <ul>
-                                                <li>Dodano opcję dostosowywania motywów</li>
-                                            </ul>
-                                            
-                                            <p class="h3">1.2</p>
-                                            <ul>
-                                                <li>Ulepszono menu</li>
-                                                <li>Dodano ustawienia</li>
-                                                <li>Dodano przycisk do włączania pełnego ekranu</li>
-                                                <li>Dodano przycisk zapobiegający wygaszanie ekranu</li>
-                                            </ul>
-                                            
-                                            <p class="h3">1.1</p>
-                                            <ul>
-                                                <li>Dodano widżet na stronę (iframe)</li>
-                                            </ul>
-                                            
-                                            <p class="h3">1.0</p>
-                                            <ul>
-                                                <li>Pierwsza wersja strony</li>
-                                            </ul>
-            
-                                            <p>Opis niektórych wersji może być niekompletny i może zawierać błędy.</p>
-                                        </div>
-                                        <div
-                                        class="tab-pane fade"
-                                        id="pills-info-libraries"
-                                        role="tabpanel"
-                                        aria-labelledby="pills-info-libraries-tab"
-                                        >
-                                            <p class="font-size-24"><b>Biblioteki i oprogramowanie użyte przy tworzeniu strony:</b></p>
-                                            <div class="margin-left-10">
-                                                <p class="font-size-18"><b>Front-end:</b></p>
-                                                <ul>
-                                                    <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
-                                                    <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a></li>
-                                                    <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a></li>
-                                                    <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a></li>
-                                                    <li>Czcionka Segoe UI</li>
-                                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener">Czcionka JetBrains Mono</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="margin-left-10">
-                                                <p class="font-size-18"><b>Back-end:</b></p>
-                                                <ul>
-                                                    <li><a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener">Flask</a></li>
-                                                    <li><a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener">MySQL Connector Python</a></li>
-                                                    <li><a href="https://pypi.org/project/pytz/" target="_blank" rel="noopener">pytz</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div
-                                        class="tab-pane fade"
-                                        id="pills-other-versions"
-                                        role="tabpanel"
-                                        aria-labelledby="pills-other-versions-tab"
-                                        >
-                                            <div class="h3">Inne wersje Odliczania do Dnia Słonia</div>
-                                            <div class="mt-4">
-                                                <div class="h4">Widżet na pulpit <i class="bi bi-window"></i></div>
-                                                <p>Widżet wymaga zainstalowanego programu <a href="https://www.rainmeter.net/" target="_blank" rel="noopener">Rainmeter</a></p>
-                                                <a href="https://slonindyjski.pythonanywhere.com/static/downloads/Odliczanie do Dnia Słonia_1.0.rmskin" class="btn btn-primary btn-lg"><i class="bi bi-download"></i> Pobierz</a>
-                                            </div>
-                                            <div class="mt-4">
-                                                <div class="h4">Bot Discord <i class="bi bi-discord"></i></div>
-                                                <a href="https://discord.com/api/oauth2/authorize?client_id=1099030064965898270&permissions=274878000128&scope=bot" class="btn btn-primary btn-lg" target="_blank" rel="noopener"><i class="bi bi-discord"></i> Dodaj do serwera</a>
-                                            </div>
-                                            <div class="alert alert-info mt-3" role="alert">
-                                                Wkrótce zostaną dodane też inne wersje.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-elephants" role="tabpanel" aria-labelledby="v-pills-elephants-tab" tabindex="0">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <img src="/static/img/icons/elephant.svg" class="img-fluid" alt="Ikona słonia">
-                                            </div>
-                                            <div class="col-6">
-                                                <img src="/static/img/slon_zwierze_szary_wykadrowany.webp" class="img-fluid" alt="Słoń Indyjski">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="elephants-video-div" class="d-none"></div>
-                                    <div id="elephants-video-loading">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="spinner-border text-primary" role="status">
-                                                <span class="visually-hidden">Ładuję...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="elephants-video-offline" class="alert alert-danger m-1 d-none" role="alert">
-                                        Jesteś offline.
-                                    </div>
-                                    <script>
-                                        document.querySelector('#v-pills-elephants-tab').addEventListener('click', () => {
-                                            var videoDiv = document.querySelector('#elephants-video-div');
-                                            if (videoDiv.innerHTML == '' && window.navigator.onLine) {
-                                                videoDiv.innerHTML = '<iframe id="elephant-video" width="560" height="315" src="https://www.youtube.com/embed/kcisCwsjppg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-                                                const h = videoDiv.querySelector('iframe').contentWindow.document.body.scrollHeight;
-                                                videoDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.parentElement.style.minHeight = h + 'px'; });
-                                                videoDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.parentElement.classList.remove('d-none'); document.querySelector('#elephants-video-loading').remove(); });
-                                            }
-                                        });
-
-                                        if (!(window.navigator.onLine)) {
-                                            document.querySelector('#elephants-video-loading').classList.add('d-none');
-                                            document.querySelector('#elephants-video-offline').classList.remove('d-none');
-                                        }
-                                    </script>
-                                    <img src="/static/img/slon_zwierze_szary_wykadrowany.webp" class="img-fluid rotate" alt="Słoń Indyjski" width="250" height="168">
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            var settingsDiv = document.querySelector('#settings-div');
-                            var settingsButtonsDiv = document.querySelector('#options-v-pills-tab');
 
-                            function resize() {
-                                if (window.innerWidth < 610) {
-                                    if (settingsDiv.classList.contains('d-flex')) {
-                                        settingsDiv.classList.remove('d-flex');
+                        <div id="changelog-information" class="d-none">
+                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <p class="font-size-24"><b>Rejestr zmian</b></p>
+
+                            <p class="h3">1.14 (bieżąca wersja) <i class="bi bi-check-lg"></i></p>
+                            <ul>
+                                <li>Drobne poprawki</li>
+                            </ul>
+
+                            <p class="h3">1.13</p>
+                            <ul>
+                                <li>Poprawiono wsparcie dla wielu języków</li>
+                                <li>Dodano informacje o innych wersjach Odliczania do Dnia Słonia</li>
+                                <li>Przeniesiono API</li>
+                                <li>Inne poprawki i ulepszenia</li>
+                            </ul>
+
+                            <p class="h3">1.12</p>
+                            <ul>
+                                <li>Dodano możliwość korzystania ze strony w trybie offline</li>
+                                <li>Dodano komunikat w przypadku braku wsparcia dla JavaScript</li>
+                                <li>Inne poprawki i ulepszenia</li>
+                            </ul>
+
+                            <p class="h3">1.11</p>
+                            <ul>
+                                <li>Zmieniono motywy i wtyczki na ustawienia wyglądu</li>
+                                <li>Dodano więcej opcji dostosowywania strony</li>
+                                <li>Inne poprawki i ulepszenia</li>
+                            </ul>
+
+                            <p class="h3">1.10</p>
+                            <ul>
+                                <li>Dodano licznik odwiedzin</li>
+                                <li>Poprawa wydajności</li>
+                                <li>Dodano tłumaczenie nazwy aplikacji (PWA)</li>
+                                <li>Inne poprawki i ulepszenia</li>
+                            </ul>
+
+                            <p class="h3">1.9</p>
+                            <ul>
+                                <li>Naprawiono błąd powodujący generowanie błędnego URL widżetu (URL był względny)</li>
+                                <li>Dodano wtyczkę "Cień odliczania"</li>
+                                <li>Dodano wtyczkę "Kontur ikony"</li>
+                                <li>Dodano ustawienia widżetu</li>
+                                <li>Inne poprawki i ulepszenia</li>
+                            </ul>
+
+
+                            <p class="h3">1.8</p>
+                            <ul>
+                                <li>Przeniesiono ustawienia, motywy, wtyczki, widżet i informacje do opcji</li>
+                                <li>Dodano możliwość pionowego wyśrodkowania strony</li>
+                                <li>Dodano możliwość skalowania strony</li>
+                                <li>Dodano możliwość dostosowywania strony przez URL (dawniej dostępne tylko w trybie widżetu)</li>
+                                <li>Inne ulepszenia</li>
+                            </ul>
+
+                            <p class="h3">1.7</p>
+                            <ul>
+                                <li>Poprawiono wydajność</li>
+                                <li>Dodano możliwość używania wtyczek</li>
+                                <li>Dodano ciemny motyw</li>
+                                <li>Inne ulepszenia</li>
+                            </ul>
+
+                            <p class="h3">1.6</p>
+                            <ul>
+                                <li>Poprawiono menu</li>
+                                <li>Dodano opcję korzystania z przycisków menu za pomocą klawiatury</li>
+                                <li>Dołączono do strony wymagane czcionki, aby strona wyświetlała się prawidłowo na systemach, które nie mają jej zainstalowanej (np. Linux)</li>
+                                <li>Opcja dodania własnego kodu CSS i Javascript</li>
+                                <li>Poprawiono tłumaczenie</li>
+                            </ul>
+
+                            <p class="h3">1.5</p>
+                            <ul>
+                                <li>Odmiana jednostek czasu</li>
+                                <li>Odmiana miesięcy</li>
+                                <li>Poprawiono wygląd okienek modal, gdy są wyższe od ekranu</li>
+                                <li>Tworzenie widżetu dopiero, gdy użytkownik otworzy jego okno (wpływ na wydajność)</li>
+                                <li>Dodano rejestr zmian</li>
+                                <li>Różne języki</li>
+                                <li>Informacje o stronie jako okienko modal</li>
+                                <li>Poprawiono zegar (0 przed godziną jeśli jest liczbą jednocyfrową)</li>
+                                <li>Zmieniono format daty</li>
+                                <li>Przeniesiono "Zgłoś błąd / zaproponuj nową funkcję" do informacji o stronie</li>
+                            </ul>
+                            
+                            <p class="h3">1.4</p>
+                            <ul>
+                                <li>Dodano opcję zmiany motywów</li>
+                                <li>Naprawiono błąd powodujący wielokrotne ładowanie się widżetu (wpływający na wydajność)</li>
+                                <li>Dodano możliwość przeciągania i zmiany rozmiaru okienek modal (dostępne tylko na komputerach)</li>
+                            </ul>
+                            
+                            <p class="h3">1.3</p>
+                            <ul>
+                                <li>Dodano opcję dostosowywania motywów</li>
+                            </ul>
+                            
+                            <p class="h3">1.2</p>
+                            <ul>
+                                <li>Ulepszono menu</li>
+                                <li>Dodano ustawienia</li>
+                                <li>Dodano przycisk do włączania pełnego ekranu</li>
+                                <li>Dodano przycisk zapobiegający wygaszanie ekranu</li>
+                            </ul>
+                            
+                            <p class="h3">1.1</p>
+                            <ul>
+                                <li>Dodano widżet na stronę (iframe)</li>
+                            </ul>
+                            
+                            <p class="h3">1.0</p>
+                            <ul>
+                                <li>Pierwsza wersja strony</li>
+                            </ul>
+                        </div>
+
+                        <div id="open-source-information" class="d-none">
+                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <p class="font-size-24"><b>Oprogramowanie open source przy tworzeniu strony:</b></p>
+                            <div class="margin-left-10">
+                                <p class="font-size-18"><b>Front-end:</b></p>
+                                <ul>
+                                    <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
+                                    <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a></li>
+                                    <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a></li>
+                                    <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a></li>
+                                    <li><a href="https://learn.microsoft.com/pl-pl/typography/font-list/segoe-ui" target="_blank" rel="noopener">Czcionka Segoe UI</a></li>
+                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener">Czcionka JetBrains Mono</a></li>
+                                </ul>
+                            </div>
+                            <div class="margin-left-10">
+                                <p class="font-size-18"><b>Back-end:</b></p>
+                                <ul>
+                                    <li><a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener">Flask</a></li>
+                                    <li><a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener">MySQL Connector Python</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="other-versions-information" class="d-none">
+                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <div class="h3">Inne wersje Odliczania do Dnia Słonia</div>
+                            <div class="mt-4">
+                                <div class="h4">Widżet na pulpit <i class="bi bi-window"></i></div>
+                                <p>Widżet wymaga zainstalowanego programu <a href="https://www.rainmeter.net/" target="_blank" rel="noopener">Rainmeter</a></p>
+                                <a href="https://slonindyjski.pythonanywhere.com/static/downloads/Odliczanie do Dnia Słonia_1.0.rmskin" class="btn btn-primary btn-lg"><i class="bi bi-download"></i> Pobierz</a>
+                            </div>
+                            <div class="mt-4">
+                                <div class="h4">Bot Discord <i class="bi bi-discord"></i></div>
+                                <a href="https://discord.com/api/oauth2/authorize?client_id=1099030064965898270&permissions=274878000128&scope=bot" class="btn btn-primary btn-lg" target="_blank" rel="noopener"><i class="bi bi-discord"></i> Dodaj do serwera</a>
+                            </div>
+                            <div class="alert alert-info mt-3" role="alert">
+                                Wkrótce zostaną dodane też inne wersje.
+                            </div>
+                        </div>
+
+                        <div id="visit-counter-information" class="d-none">
+                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <div id="visit-counter-div">
+                                <div class="h3">Licznik odwiedzin</div>
+                                <div id="visit-counter" class="d-none"></div>
+                                <div id="visit-counter-loading">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Ładuję...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="visit-counter-offline" class="alert alert-danger m-1 d-none" role="alert">
+                                Jesteś offline.
+                            </div>
+                        </div>
+
+                        <div id="elephants-information" class="d-none">
+                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img src="/static/img/icons/elephant.svg" class="img-fluid" alt="Ikona słonia">
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="/static/img/slon_zwierze_szary_wykadrowany.webp" class="img-fluid" alt="Słoń Indyjski">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="elephants-video-div" class="d-none"></div>
+                            <div id="elephants-video-loading">
+                                <div class="d-flex justify-content-center">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Ładuję...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="elephants-video-offline" class="alert alert-danger m-1 d-none" role="alert">
+                                Jesteś offline.
+                            </div>
+                            <script>
+                                addEventListener('load', () => {
+                                    var videoDiv = document.querySelector('#elephants-video-div');
+                                    if (videoDiv.innerHTML == '' && window.navigator.onLine) {
+                                        videoDiv.innerHTML = '<iframe id="elephant-video" width="560" height="315" src="https://www.youtube.com/embed/kcisCwsjppg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+                                        const h = videoDiv.querySelector('iframe').contentWindow.document.body.scrollHeight;
+                                        videoDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.parentElement.style.minHeight = h + 'px'; });
+                                        videoDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.parentElement.classList.remove('d-none'); document.querySelector('#elephants-video-loading').remove(); });
                                     }
-                                    if (settingsButtonsDiv.classList.contains('me-3')) {
-                                        settingsButtonsDiv.classList.replace('me-3', 'mb-3');
-                                    }
-                                } else {
-                                    if (!(settingsDiv.classList.contains('d-flex'))) {
-                                        settingsDiv.classList.add('d-flex');
-                                    }
-                                    if (settingsButtonsDiv.classList.contains('mb-3')) {
-                                        settingsButtonsDiv.classList.replace('mb-3', 'me-3');
-                                    }
+                                });
+
+                                if (!(window.navigator.onLine)) {
+                                    document.querySelector('#elephants-video-loading').classList.add('d-none');
+                                    document.querySelector('#elephants-video-offline').classList.remove('d-none');
                                 }
-                            }
-
-                            addEventListener("resize", resize);
-                            resize();
-                        </script>
+                            </script>
+                            <img src="/static/img/slon_zwierze_szary_wykadrowany.webp" class="img-fluid rotate" alt="Słoń Indyjski" width="250" height="168">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <script>
+            var updateFrequencyInput = document.querySelector('#update-frequency');
+            var languageSelect = document.querySelector('#language-select');
+
+            var oldLanguage = localStorage.getItem('language');
+
+            function setSettingsForm() {
+                if (localStorage.getItem('updateFrequency') !== null) {
+                    updateFrequencyInput.value = localStorage.getItem('updateFrequency');
+                } else {
+                    updateFrequencyInput.value = updateTime;
+                }
+
+                if (localStorage.getItem('language') !== null) {
+                    languageSelect.value = localStorage.getItem('language');
+                } else {
+                    languageSelect.value = 'default';
+                }
+
+                document.querySelector('#customCSSTextarea').value = localStorage.getItem('userCustomCSS');
+                document.querySelector('#customJSTextarea').value = localStorage.getItem('userCustomJS');
+
+                if (localStorage.getItem('date-language') == undefined) {
+                    document.querySelector('#date-language-select').value = 'website';
+                    document.querySelector('#date-language').parentElement.classList.add('d-none');
+                } else if (localStorage.getItem('date-language') == '@browser') {
+                    document.querySelector('#date-language-select').value = 'browser';
+                    document.querySelector('#date-language').parentElement.classList.add('d-none');
+                } else {
+                    document.querySelector('#date-language-select').value = 'custom';
+                    document.querySelector('#date-language').parentElement.classList.remove('d-none');
+                    document.querySelector('#date-language').value = localStorage.getItem('date-language');
+                }
+            }
+
+            function saveSettings() {
+                localStorage.setItem('updateFrequency', parseInt(updateFrequencyInput.value));
+                updateTime = parseInt(updateFrequencyInput.value);
+
+                if (languageSelect.value != 'default') {
+                    localStorage.setItem('language', languageSelect.value);
+                } else {
+                    localStorage.removeItem('language');
+                }
+
+                localStorage.setItem('userCustomCSS', document.querySelector('#customCSSTextarea').value);
+                document.querySelector('#user-custom-css').innerHTML = document.querySelector('#customCSSTextarea').value;
+
+                localStorage.setItem('userCustomJS', document.querySelector('#customJSTextarea').value);
+                document.querySelector('#user-custom-js').innerHTML = document.querySelector('#customJSTextarea').value;
+
+                var currentLanguage;
+                if (languageSelect.value != 'default') {
+                    currentLanguage = languageSelect.value;
+                } else {
+                    currentLanguage = undefined;
+                }
+
+                if (currentLanguage != oldLanguage) {
+                    document.querySelector('#language-alert').classList.remove('d-none');
+                } else {
+                    document.querySelector('#language-alert').classList.add('d-none');
+                }
+
+                if (document.querySelector('#date-language-select').value == 'website') {
+                    localStorage.removeItem('date-language');
+                    document.querySelector('#date-language').parentElement.classList.add('d-none');
+                } else if (document.querySelector('#date-language-select').value == 'browser') {
+                    localStorage.setItem('date-language', '@browser');
+                    document.querySelector('#date-language').parentElement.classList.add('d-none');
+                } else {
+                    localStorage.setItem('date-language', document.querySelector('#date-language').value);
+                    document.querySelector('#date-language').parentElement.classList.remove('d-none');
+                }
+            }
+
+            addEventListener('load', () => {
+                setSettingsForm();
+            });
+
+            document.querySelectorAll('.settings').forEach((e) => {
+                e.addEventListener('change', saveSettings);
+            });
+        </script>
+
+        <script>
+            document.querySelectorAll(['.settings-category-button', '.settings-back-button']).forEach((e) => {
+                e.addEventListener('click', (evt) => {
+                    evt.currentTarget.parentElement.classList.add('d-none');
+                    document.querySelector(evt.currentTarget.getAttribute('settings-target')).classList.remove('d-none');
+                });
+            });
+        </script>
+
         <div class="modal fade" id="clearAllData" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <p class="modal-title fs-5 h1"><i class="bi bi-trash"></i> Usuń wszystkie dane</p>
+                        <p class="modal-title fs-5 h1"><i class="bi bi-trash"></i> Resetuj wszystkie ustawienia</p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="clearAllDataModalBody">
-                        Czy na pewno chcesz usunąć wszystkie dane?
-                        <br>
-                        Spowoduje to usunięcie ustawień w tym wyglądu.
-                        <br>
-                        Aby to zastosować wymagane jest odświeżenie strony.
+                        Czy na pewno chcesz zresetować wszystkie ustawienia?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-target="#optionsModal" data-bs-toggle="modal"><i class="bi bi-x-lg"></i> Nie</button>
+                        <button type="button" class="btn btn-secondary" data-bs-target="#settingsModal" data-bs-toggle="modal"><i class="bi bi-x-lg"></i> Nie</button>
                         <button type="button" class="btn btn-danger" id="clearAllDataButton"><i class="bi bi-check-lg"></i> Tak</button>
                     </div>
                 </div>

@@ -515,3 +515,37 @@ button.language-popover {
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+.settings-category-button {
+    width: 100%;
+    height: 60px;
+    text-align: left;
+    font-size: 22px;
+    padding-left: 15px;
+    color: var(--bs-emphasis-color);
+    background-color: transparent;
+    border-style: solid;
+    border-color: rgba(var(--bs-emphasis-color-rgb), 0.4);
+    border-width: 1px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.settings-category-button:hover {
+    background-color: rgba(var(--bs-emphasis-color-rgb), 0.05);
+}
+
+.settings-category-button:active {
+    background-color: rgba(var(--bs-emphasis-color-rgb), 0.1);
+}
+
+.settings-category-button-text {
+    margin-left: 10px;
+}
+
+.settings-back-button {
+    font-size: 26px;
+    color: var(--bs-emphasis-color);
+    background-color: transparent;
+    border-style: none;
+}
