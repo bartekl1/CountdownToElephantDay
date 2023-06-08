@@ -667,13 +667,25 @@ function translate() {
 function translateIfRequired() {
     if (localStorage.getItem('language') == 'en') {
         translate();
-    } else if (localStorage.getItem('language') == undefined && navigator.language.split('-')[0] != 'pl') {
-        var modal = new bootstrap.Modal('#translateModal');
-        modal.show();
+    }
+}
+
+function showLanguageInfo() {
+    if (localStorage.getItem('language') == undefined && navigator.language.split('-')[0] != 'pl' && localStorage.getItem('language-popover-closed') == undefined) {
+        var popover = new bootstrap.Popover(document.querySelector('#options-button'), {
+            content: '<p class="language-popover">You can change language in the settings.</p><button class="btn btn-secondary language-popover">OK</button>',
+            placement: 'bottom',
+            html: true,
+            sanitize: false,
+            customClass: 'language-popover'
+        });
+        popover.show();
+        document.querySelector('button.language-popover').addEventListener('click', () => {
+            popover.hide();
+            localStorage.setItem('language-popover-closed', 'true');
+        });
     }
 }
 
 addEventListener('load', translateIfRequired);
-addEventListener('load', () => { document.querySelector('#translateButton').addEventListener('click', translate); });
-addEventListener('load', () => { document.querySelector('#alwaysTranslateButton').addEventListener('click', () => { localStorage.setItem('language', 'en'); translate(); }); });
-addEventListener('load', () => { document.querySelector('#neverTranslateButton').addEventListener('click', () => { localStorage.setItem('language', 'pl'); }); });
+addEventListener('load', showLanguageInfo);

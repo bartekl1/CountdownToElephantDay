@@ -1284,28 +1284,6 @@
             </div>
         </div>
 
-        <div class="modal fade" id="translateModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <p class="modal-title fs-5 h1"><i class="bi bi-translate"></i> Translation / Tłumaczenie</p>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="translateModalBody">
-                        It has been detected that the browser language is not Polish. Would you like to change the language to English?
-                        <hr class="border border-1 opacity-100">
-                        Wykryto, że językiem przeglądarki nie jest polski. Czy chcesz zmienić język na angielski?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="neverTranslateButton">Never / Nigdy</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No / Nie</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="translateButton">Yes / Tak</button>
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="alwaysTranslateButton">Always / Zawsze</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <script>
             document.querySelector('#clearAllDataButton').addEventListener('click', () => {
                 localStorage.clear();

@@ -500,3 +500,18 @@ iframe.background {
     height: fit-content;
     resize: none;
 }
+
+.language-popover {
+    --bs-popover-body-padding-x: 10px;
+    --bs-popover-body-padding-y: 10px;
+}
+
+p.language-popover {
+    margin-bottom: 5px;
+}
+
+button.language-popover {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
