@@ -1,4 +1,4 @@
-const version = '1.14'
+const version = '1.15'
 // Choose a cache name
 const cacheName = `cache-v${version}`;
 // List the files to precache
@@ -18,18 +18,6 @@ const precacheResources = [
     '/static/js/draggable.js',
     '/static/js/appearance.js',
     '/static/js/visit_counter.js',
-    '/static/fonts/segoeui.ttf',
-    '/static/fonts/segoeuii.ttf',
-    '/static/fonts/segoeuil.ttf',
-    '/static/fonts/seguili.ttf',
-    '/static/fonts/segoeuisl.ttf',
-    '/static/fonts/seguisli.ttf',
-    '/static/fonts/seguisb.ttf',
-    '/static/fonts/seguisbi.ttf',
-    '/static/fonts/segoeuib.ttf',
-    '/static/fonts/segoeuiz.ttf',
-    '/static/fonts/seguibl.ttf',
-    '/static/fonts/seguibli.ttf',
     '/static/fonts/JetBrainsMono-Regular.woff2',
     '/static/img/elephant-outline-content.txt'
 ];

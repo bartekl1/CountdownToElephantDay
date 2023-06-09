@@ -672,7 +672,13 @@ function translateIfRequired() {
 
 function showLanguageInfo() {
     if (localStorage.getItem('language') == undefined && navigator.language.split('-')[0] != 'pl' && localStorage.getItem('language-popover-closed') == undefined) {
-        var popover = new bootstrap.Popover(document.querySelector('#options-button'), {
+        var element;
+        if (window.getComputedStyle(document.querySelector('#top-menu'), null).display == 'block') {
+            element = document.querySelector('#options-button');
+        } else {
+            element = document.querySelector('#top-menu-open');
+        }
+        var popover = new bootstrap.Popover(element, {
             content: '<p class="language-popover">You can change language in the settings.</p><button class="btn btn-secondary language-popover">OK</button>',
             placement: 'bottom',
             html: true,

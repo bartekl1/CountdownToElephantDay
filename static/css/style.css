@@ -33,96 +33,6 @@
 }
 
 @font-face {
-    font-family: "Segoe UI";
-    font-weight: 400;
-    src: url('/static/fonts/segoeui.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-style: italic;
-    font-weight: 400;
-    src: url('/static/fonts/segoeuii.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 200;
-    src: url('/static/fonts/segoeuil.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 200;
-    font-style: italic;
-    src: url('/static/fonts/seguili.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 300;
-    src: url('/static/fonts/segoeuisl.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 300;
-    font-style: italic;
-    src: url('/static/fonts/seguisli.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 600;
-    src: url('/static/fonts/seguisb.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 600;
-    font-style: italic;
-    src: url('/static/fonts/seguisbi.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 700;
-    src: url('/static/fonts/segoeuib.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-style: italic;
-    font-weight: 700;
-    src: url('/static/fonts/segoeuiz.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 800;
-    src: url('/static/fonts/seguibl.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-style: italic;
-    font-weight: 800;
-    src: url('/static/fonts/seguibli.ttf')  format('truetype');
-    font-display: swap
-}
-
-@font-face {
     font-family: "JetBrains Mono";
     src: url('/static/fonts/JetBrainsMono-Regular.woff2')  format('truetype');
     font-display: swap
@@ -134,7 +44,7 @@ html {
 
 body {
     background-color: var(--body-bg-color) !important;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
     background-image: var(--background-image);
     background-position: var(--background-position);
     background-repeat: var(--background-repeat);
@@ -145,7 +55,7 @@ body {
 h1.site-title {
     color: var(--site-title-color);
     text-align: center;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
 }
 
 .modal-title {

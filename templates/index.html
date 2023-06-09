@@ -530,7 +530,6 @@
                             <button class="settings-category-button" settings-target="#open-source-information"><i class="bi bi-collection-fill"></i> <span class="settings-category-button-text">Open source</span></button>
                             <button class="settings-category-button" settings-target="#other-versions-information"><i class="bi bi-grid-3x3-gap-fill"></i> <span class="settings-category-button-text">Inne wersje</span></button>
                             <button class="settings-category-button" settings-target="#visit-counter-information"><i class="bi bi-123"></i> <span class="settings-category-button-text">Licznik wejść</span></button>
-                            <button class="settings-category-button" settings-target="#elephants-information"><span class="settings-category-button-text">Słonie</span></button>
                         </div>
 
                         <div id="general-information" class="d-none">
@@ -686,7 +685,7 @@
                         <div id="open-source-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b>Oprogramowanie open source przy tworzeniu strony:</b></p>
+                            <p class="font-size-24"><b>Oprogramowanie open source użyte przy tworzeniu strony:</b></p>
                             <div class="margin-left-10">
                                 <p class="font-size-18"><b>Front-end:</b></p>
                                 <ul>
@@ -694,7 +693,6 @@
                                     <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a></li>
                                     <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a></li>
                                     <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a></li>
-                                    <li><a href="https://learn.microsoft.com/pl-pl/typography/font-list/segoe-ui" target="_blank" rel="noopener">Czcionka Segoe UI</a></li>
                                     <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener">Czcionka JetBrains Mono</a></li>
                                 </ul>
                             </div>
@@ -742,49 +740,6 @@
                             <div id="visit-counter-offline" class="alert alert-danger m-1 d-none" role="alert">
                                 Jesteś offline.
                             </div>
-                        </div>
-
-                        <div id="elephants-information" class="d-none">
-                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
-                        
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <img src="/static/img/icons/elephant.svg" class="img-fluid" alt="Ikona słonia">
-                                    </div>
-                                    <div class="col-6">
-                                        <img src="/static/img/slon_zwierze_szary_wykadrowany.webp" class="img-fluid" alt="Słoń Indyjski">
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="elephants-video-div" class="d-none"></div>
-                            <div id="elephants-video-loading">
-                                <div class="d-flex justify-content-center">
-                                    <div class="spinner-border text-primary" role="status">
-                                        <span class="visually-hidden">Ładuję...</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="elephants-video-offline" class="alert alert-danger m-1 d-none" role="alert">
-                                Jesteś offline.
-                            </div>
-                            <script>
-                                addEventListener('load', () => {
-                                    var videoDiv = document.querySelector('#elephants-video-div');
-                                    if (videoDiv.innerHTML == '' && window.navigator.onLine) {
-                                        videoDiv.innerHTML = '<iframe id="elephant-video" width="560" height="315" src="https://www.youtube.com/embed/kcisCwsjppg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-                                        const h = videoDiv.querySelector('iframe').contentWindow.document.body.scrollHeight;
-                                        videoDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.parentElement.style.minHeight = h + 'px'; });
-                                        videoDiv.querySelector('iframe').addEventListener('load', (e) => { e.currentTarget.parentElement.classList.remove('d-none'); document.querySelector('#elephants-video-loading').remove(); });
-                                    }
-                                });
-
-                                if (!(window.navigator.onLine)) {
-                                    document.querySelector('#elephants-video-loading').classList.add('d-none');
-                                    document.querySelector('#elephants-video-offline').classList.remove('d-none');
-                                }
-                            </script>
-                            <img src="/static/img/slon_zwierze_szary_wykadrowany.webp" class="img-fluid rotate" alt="Słoń Indyjski" width="250" height="168">
                         </div>
                     </div>
                 </div>
