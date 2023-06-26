@@ -103,6 +103,7 @@ function setAppearanceForm() {
 
     document.querySelector('#countdown-shadow').checked = localStorage.getItem('countdown-shadow') == 'true';
     document.querySelector('#outline-icon').checked = localStorage.getItem('outline-icon') == 'true';
+    document.querySelector('#elephant-cursor').checked = localStorage.getItem('elephant-cursor') == 'true';
 
     if (localStorage.getItem('menu-buttons-appearance') !== null) {
         document.querySelector('#menu-buttons-appearance').value = localStorage.getItem('menu-buttons-appearance');
@@ -187,6 +188,11 @@ function saveAppearance() {
     } else {
         localStorage.removeItem('outline-icon');
     }
+    if (document.querySelector('#elephant-cursor').checked) {
+        localStorage.setItem('elephant-cursor', 'true');
+    } else {
+        localStorage.removeItem('elephant-cursor');
+    }
 
     if (document.querySelector('#menu-buttons-appearance').value !== 'primary') {
         localStorage.setItem('menu-buttons-appearance', document.querySelector('#menu-buttons-appearance').value);
@@ -220,6 +226,7 @@ function resetAppearance() {
 
     localStorage.removeItem('countdown-shadow')
     localStorage.removeItem('outline-icon')
+    localStorage.removeItem('elephant-cursor');
 
     localStorage.removeItem('menu-buttons-appearance');
 
@@ -374,6 +381,16 @@ function loadAppearance() {
     } else {
         document.querySelector('#site-icon').classList.remove('d-none');
         document.querySelector('#site-icon-outline').classList.add('d-none');
+    }
+
+    if (localStorage.getItem('elephant-cursor') == 'true') {
+        document.querySelector('#cursor-css').innerHTML = `
+        * {
+            cursor: url(/static/img/cursor.png) 73 2, auto !important;
+        }
+        `;
+    } else {
+        document.querySelector('#cursor-css').innerHTML = '';
     }
 
     document.querySelectorAll('.menu-button').forEach((e) => { e.className = e.className.replace(/btn-.* /, `btn-${(localStorage.getItem('menu-buttons-appearance') || 'primary')} `); });

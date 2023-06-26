@@ -110,10 +110,26 @@ function countdown() {
             document.querySelector('#left-seconds-unit').innerText = 'sekund';
         }
     } else {
-        document.querySelector('#left-days-unit').innerText = 'days';
-        document.querySelector('#left-hours-unit').innerText = 'hours';
-        document.querySelector('#left-minutes-unit').innerText = 'minutes';
-        document.querySelector('#left-seconds-unit').innerText = 'seconds';
+        if (leftTime.leftDays == 1) {
+            document.querySelector('#left-days-unit').innerText = 'day';
+        } else {
+            document.querySelector('#left-days-unit').innerText = 'days';
+        }
+        if (leftTime.leftHours == 1) {
+            document.querySelector('#left-hours-unit').innerText = 'hour';
+        } else {
+            document.querySelector('#left-hours-unit').innerText = 'hours';
+        }
+        if (leftTime.leftMinutes == 1) {
+            document.querySelector('#left-minutes-unit').innerText = 'minute';
+        } else {
+            document.querySelector('#left-minutes-unit').innerText = 'minutes';
+        }
+        if (leftTime.leftSeconds == 1) {
+            document.querySelector('#left-seconds-unit').innerText = 'second';
+        } else {
+            document.querySelector('#left-seconds-unit').innerText = 'seconds';
+        }
         document.querySelector('#left-milliseconds-unit').innerText = 'milliseconds';
     }
 

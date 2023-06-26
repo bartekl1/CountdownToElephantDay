@@ -21,6 +21,7 @@
         <style id="scale-css"></style>
         <style id="shadow-css"></style>
         <style id="outline-css"></style>
+        <style id="cursor-css"></style>
 
         <link rel="manifest" href="/manifest.json">
 
@@ -38,7 +39,7 @@
     <body class="container-fluid p-0 m-0">
         <div id="main">
             <h1 class="site-title">
-                Odliczanie do Dnia Słonia
+                <span text-id="0">Odliczanie do Dnia Słonia</span>
                 <img id="site-icon" src="/static/img/icons/elephant.svg" alt="Ikona słonia" width="40px" height="40px">
                 <svg
                 id="site-icon-outline"
@@ -69,21 +70,21 @@
                     <div class="top-menu-element ms-1 mb-1 mb-sm-1 mb-md-1 mb-lg-1 mb-xl-0 mb-xxl-0">
                         <button class="btn btn-primary menu-button" id="options-button" data-bs-toggle="modal" data-bs-target="#settingsModal">
                             <i class="bi bi-gear-fill"></i>
-                            <span class="menu-button-name">Ustawienia</span>
+                            <span class="menu-button-name"><span text-id="6">Ustawienia</span></span>
                         </button>
                     </div>
 
                     <div class="top-menu-element ms-1 mb-1 mb-sm-1 mb-md-1 mb-lg-1 mb-xl-0 mb-xxl-0">
                         <button class="btn btn-primary menu-button" id="fullscreen-button" onclick="fullscreen(this)" fullscreen="false">
                             <i class="bi bi-fullscreen"></i>
-                            <span class="menu-button-name">Pełny ekran</span>
+                            <span class="menu-button-name"><span text-id="4">Pełny ekran</span></span>
                         </button>
                     </div>
 
                     <div class="top-menu-element ms-1 mb-1 mb-sm-1 mb-md-1 mb-lg-1 mb-xl-0 mb-xxl-0">
                         <button class="btn btn-primary menu-button" id="keep-screen-on-button" onclick="keepScreenOn(this)" keep-screen-on="false">
                             <i class="bi bi-moon-fill"></i>
-                            <span class="menu-button-name">Nie wygaszaj ekranu</span>
+                            <span class="menu-button-name"><span text-id="5">Nie wygaszaj ekranu</span></span>
                         </button>
                     </div>
                 </div>
@@ -202,13 +203,13 @@
             <br>
 
             <div class="countdown-container d-none">
-                <p class="date-label" id="today-datetime-label">Dzisiejsza data:</p>
+                <p class="date-label" id="today-datetime-label"><span text-id="1">Dzisiaj</span>:</p>
                 <p class="date" id="today-datetime"></p>
 
-                <p class="date-label" id="elephant-day-datetime-label">Data Dnia Słonia:</p>
+                <p class="date-label" id="elephant-day-datetime-label"><span text-id="2">Dzień Słonia</span>:</p>
                 <p class="date" id="elephant-day-datetime"></p>
 
-                <p class="left-header">Pozostało:</p>
+                <p class="left-header"><span text-id="3">Pozostało</span>:</p>
 
                 <div class="countdown" id="countdown-days"></div>
                 <p class="left-unit" id="left-days-unit">dni</p>
@@ -241,31 +242,31 @@
             <div class="modal-dialog modal-dialog-scrollable modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <p class="modal-title h5">Ustawienia <i class="bi bi-gear-fill"></i></p>
+                        <p class="modal-title h5"><i class="bi bi-gear-fill"></i> <span text-id="6">Ustawienia</span></p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div id="settings-main-menu">
-                            <button class="settings-category-button" settings-target="#general-settings"><i class="bi bi-gear-fill"></i> <span class="settings-category-button-text">Ogólne</span></button>
+                            <button class="settings-category-button" settings-target="#general-settings"><i class="bi bi-gear-fill"></i> <span class="settings-category-button-text"><span text-id="7">Ogólne</span></span></button>
                             <button class="settings-category-button" settings-target="#language-settings"><i class="bi bi-translate"></i> <span class="settings-category-button-text">Język / Language</span></button>
-                            <button class="settings-category-button" settings-target="#advanced-settings"><i class="bi bi-code-slash"></i> <span class="settings-category-button-text">Zaawansowane</span></button>
-                            <button class="settings-category-button" settings-target="#appearance-settings"><i class="bi bi-palette-fill"></i> <span class="settings-category-button-text">Wygląd</span></button>
-                            <button class="settings-category-button" settings-target="#widget-settings"><i class="bi bi-window"></i> <span class="settings-category-button-text">Widżet</span></button>
-                            <button class="settings-category-button" settings-target="#information-settings"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text">Informacje</span></button>
+                            <button class="settings-category-button" settings-target="#advanced-settings"><i class="bi bi-code-slash"></i> <span class="settings-category-button-text"><span text-id="8">Zaawansowane</span></span></button>
+                            <button class="settings-category-button" settings-target="#appearance-settings"><i class="bi bi-palette-fill"></i> <span class="settings-category-button-text"><span text-id="9">Wygląd</span></span></button>
+                            <!-- <button class="settings-category-button" settings-target="#widget-settings"><i class="bi bi-window"></i> <span class="settings-category-button-text">Widżet</span></button> -->
+                            <button class="settings-category-button" settings-target="#information-settings"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text"><span text-id="10">Informacje</span></span></button>
                         </div>
 
                         <div id="general-settings" class="d-none">
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                             
                             <div class="mb-3">
-                                <label for="update-frequency" class="form-label">Częstotliwość odświeżania (milisekundy)</label>
+                                <label for="update-frequency" class="form-label"><span text-id="13">Częstotliwość odświeżania (milisekundy)</span></label>
                                 <input type="number" class="form-control settings" id="update-frequency">
                             </div>
 
                             <hr class="border border-1 opacity-100">
 
                             <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#clearAllData">
-                                <i class="bi bi-trash"></i> Resetuj wszystkie ustawienia
+                                <i class="bi bi-trash"></i> <span text-id="14">Resetuj wszystkie ustawienia</span>
                             </button>
                         </div>
 
@@ -288,18 +289,18 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="date-language-select" class="form-label">Język daty</label>
+                                <label for="date-language-select" class="form-label"><span text-id="18">Język daty</span></label>
                                 <select class="form-select settings" id="date-language-select">
-                                    <option selected value="website">Język strony</option>
-                                    <option value="browser">Język przeglądarki</option>
-                                    <option value="custom">Wybierz</option>
+                                    <option selected value="website" text-id="19">Język strony</option>
+                                    <option value="browser" text-id="20">Język przeglądarki</option>
+                                    <option value="custom" text-id="21">Wybierz</option>
                                 </select>
                             </div>
 
                             <div class="mb-3 d-none">
-                                <label for="date-language" class="form-label">Język daty</label>
+                                <label for="date-language" class="form-label"><span text-id="18">Język daty</span></label>
                                 <input type="text" class="form-control settings" id="date-language">
-                                <div class="form-text">Język należy podać w formacie BCP 47. <a href="https://www.techonthenet.com/js/language_tags.php" target="_blank" rel="noopener">lista dostępnych języków</a></div>
+                                <div class="form-text"><span text-id="22">Język należy podać w formacie BCP 47.</span> <a href="https://www.techonthenet.com/js/language_tags.php" target="_blank" rel="noopener"><span text-id="23">lista dostępnych języków</span></a></div>
                             </div>
                         </div>
 
@@ -307,14 +308,14 @@
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                         
                             <div class="mb-3">
-                                <label for="customCSSTextarea" class="form-label">Własny kod CSS</label>
+                                <label for="customCSSTextarea" class="form-label"><span text-id="24">Własny kod CSS</span></label>
                                 <textarea class="form-control code settings" id="customCSSTextarea" rows="3"></textarea>
-                                <div class="form-text">Aby mieć pewność, że kod zostanie poprawnie zastosowany dodaj <code>!important</code> na końcu każdej linijki.</div>
+                                <div class="form-text"><span text-id="26">Aby mieć pewność, że kod zostanie poprawnie zastosowany dodaj <code>!important</code> na końcu każdej linijki.</span></div>
                             </div>
                             <div class="mb-3">
-                                <label for="customJSTextarea" class="form-label">Własny kod Javascript</label>
+                                <label for="customJSTextarea" class="form-label"><span text-id="25">Własny kod Javascript</span></label>
                                 <textarea class="form-control code settings" id="customJSTextarea" rows="3"></textarea>
-                                <div class="form-text">Kod zacznie działać dopiero po odświeżeniu strony.</div>
+                                <div class="form-text"><span text-id="27">Kod zacznie działać dopiero po odświeżeniu strony.</span></div>
                             </div>
                         </div>
 
@@ -322,40 +323,40 @@
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                         
                             <div class="mb-3">
-                                <label for="dark-theme-select" class="form-label">Ciemny motyw</label>
+                                <label for="dark-theme-select" class="form-label"><span text-id="28">Ciemny motyw</span></label>
                                 <select class="form-select appearance-setting" id="dark-theme-select">
-                                    <option selected value="auto">Automatycznie (motyw przeglądarki)</option>
-                                    <option value="light">Jasny</option>
-                                    <option value="dark">Ciemny</option>
+                                    <option selected value="auto" text-id="29">Automatycznie (motyw przeglądarki)</option>
+                                    <option value="light" text-id="30">Jasny</option>
+                                    <option value="dark" text-id="31">Ciemny</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="scale" class="form-label">Skala</label>
+                                <label for="scale" class="form-label"><span text-id="32">Skala</span></label>
                                 <input type="number" class="form-control appearance-setting" id="scale" step="0.1">
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input appearance-setting" type="checkbox" id="centerSiteVertically">
                                 <label class="form-check-label" for="centerSiteVertically">
-                                    Wyśrodkuj stronę w pionie
+                                    <span text-id="33">Wyśrodkuj stronę w pionie</span>
                                 </label>
                             </div>
 
                             <hr class="border border-1 opacity-100">
 
                             <div class="mb-3">
-                                <label for="site-background" class="form-label">Tło strony</label>
+                                <label for="site-background" class="form-label"><span text-id="34">Tło strony</span></label>
                                 <select class="form-select appearance-setting" id="site-background">
-                                    <option value="default">Domyślny kolor (#9acd32)</option>
-                                    <option value="custom-color">Własny kolor</option>
-                                    <option value="image">Zdjęcie</option>
-                                    <option value="video">Film</option>
-                                    <option value="youtube-video">Film z YouTube</option>
-                                    <option value="website">Strona</option>
+                                    <option value="default" text-id="35">Domyślny kolor (#9acd32)</option>
+                                    <option value="custom-color" text-id="36">Własny kolor</option>
+                                    <option value="image" text-id="37">Zdjęcie</option>
+                                    <option value="video" text-id="38">Film</option>
+                                    <option value="youtube-video" text-id="39">Film z YouTube</option>
+                                    <option value="website" text-id="40">Strona</option>
                                 </select>
                             </div>
 
                             <div class="mb-3 d-none">
-                                <label class="form-label" for="site-title-color">Kolor</label>
+                                <label class="form-label" for="site-title-color"><span text-id="41">Kolor</span></label>
                                 <input type="color" id="background-color" class="form-control form-control-color appearance-setting" spellcheck="false" autocomplete="off">
                             </div>
                             
@@ -367,98 +368,102 @@
                             <hr class="border border-1 opacity-100">
 
                             <div class="mb-3">
-                                <label for="theme-select" class="form-label">Motyw</label>
+                                <label for="theme-select" class="form-label"><span text-id="42">Motyw</span></label>
                                 <select class="form-select" id="theme-select">
-                                    <option value="default">Domyślny</option>
-                                    <option value="white-black">Biało-czarny</option>
-                                    <option value="black-white">Czarno-biały</option>
-                                    <option value="custom">Własny</option>
+                                    <option value="default" text-id="43">Domyślny</option>
+                                    <option value="white-black" text-id="44">Biało-czarny</option>
+                                    <option value="black-white" text-id="45">Czarno-biały</option>
+                                    <option value="custom" text-id="46">Własny</option>
                                 </select>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="site-title-color">Kolor tytułu strony</label>
+                                <label class="form-label" for="site-title-color"><span text-id="47">Kolor tytułu strony</span></label>
                                 <input type="color" id="site-title-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--site-title-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="countdown-color">Kolor czcionki odliczania</label>
+                                <label class="form-label" for="countdown-color"><span text-id="48">Kolor czcionki odliczania</span></label>
                                 <input type="color" id="countdown-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#000072" white-black-value="#000000" black-white-value="#ffffff" css-variable="--countdown-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="countdown-bg-color">Kolor tła odliczania</label>
+                                <label class="form-label" for="countdown-bg-color"><span text-id="49">Kolor tła odliczania</span></label>
                                 <input type="color" id="countdown-bg-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#007a00" white-black-value="#ffffff" black-white-value="#000000" css-variable="--countdown-bg-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="countdown-border-color">Kolor ramki odliczania</label>
+                                <label class="form-label" for="countdown-border-color"><span text-id="50">Kolor ramki odliczania</span></label>
                                 <input type="color" id="countdown-border-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#000000" white-black-value="#000000" black-white-value="#ffffff" css-variable="--countdown-border-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="left-header-color">Kolor czcionki nagłówka "Pozostało:"</label>
+                                <label class="form-label" for="left-header-color"><span text-id="51">Kolor czcionki nagłówka "Pozostało:"</span></label>
                                 <input type="color" id="left-header-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--left-header-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="left-unit-color">Kolor tekstu z jednostkami czasu</label>
+                                <label class="form-label" for="left-unit-color"><span text-id="52">Kolor tekstu z jednostkami czasu</span></label>
                                 <input type="color" id="left-unit-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--left-unit-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="date-label-color">Kolor czcionki etykiet dat</label>
+                                <label class="form-label" for="date-label-color"><span text-id="53">Kolor czcionki etykiet dat</span></label>
                                 <input type="color" id="date-label-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--date-label-color">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="date-color">Kolor czcionki dat</label>
+                                <label class="form-label" for="date-color"><span text-id="54">Kolor czcionki dat</span></label>
                                 <input type="color" id="date-color" class="form-control form-control-color color-setting" spellcheck="false" autocomplete="off" default-value="#0000ff" white-black-value="#000000" black-white-value="#ffffff" css-variable="--date-color">
                             </div>
 
                             <hr class="border border-1 opacity-100">
 
                             <div class="mb-3">
-                                <label class="form-label" for="countdown-border-width">Szerokość ramki odliczania</label>
+                                <label class="form-label" for="countdown-border-width"><span text-id="55">Szerokość ramki odliczania</span></label>
                                 <div class="input-group">
                                     <input type="number" id="countdown-border-width" class="form-control appearance-setting" spellcheck="false" autocomplete="off">
                                     <span class="input-group-text">px</span>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="countdown-border-style">Styl ramki odliczania</label>
+                                <label class="form-label" for="countdown-border-style"><span text-id="56">Styl ramki odliczania</span></label>
                                 <select id="countdown-border-style" class="form-select appearance-setting">
-                                    <option value="none">Brak</option>
-                                    <option value="solid">Ciągła</option>
-                                    <option value="double">Podwójna</option>
-                                    <option value="dashed">Kreski</option>
-                                    <option value="dotted">Kropki</option>
-                                    <option value="inset">Wklęsła</option>
-                                    <option value="outset">Wypukła</option>
-                                    <option value="groove">Wklęsły pasek</option>
-                                    <option value="ridge">Wypukły pasek</option>
+                                    <option value="none" text-id="57">Brak</option>
+                                    <option value="solid" text-id="58">Ciągła</option>
+                                    <option value="double" text-id="59">Podwójna</option>
+                                    <option value="dashed" text-id="60">Kreski</option>
+                                    <option value="dotted" text-id="61">Kropki</option>
+                                    <option value="inset" text-id="62">Wklęsła</option>
+                                    <option value="outset" text-id="63">Wypukła</option>
+                                    <option value="groove" text-id="64">Wklęsły pasek</option>
+                                    <option value="ridge" text-id="65">Wypukły pasek</option>
                                 </select>
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input appearance-setting" type="checkbox" id="display-today-datetime">
-                                <label class="form-check-label" for="display-today-datetime">Wyświetlaj dzisiejszą datę</label>
+                                <label class="form-check-label" for="display-today-datetime"><span text-id="66">Wyświetlaj dzisiejszą datę</span></label>
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input appearance-setting" type="checkbox" id="display-elephant-day-datetime">
-                                <label class="form-check-label" for="display-elephant-day-datetime">Wyświetlaj datę Dnia Słonia</label>
+                                <label class="form-check-label" for="display-elephant-day-datetime"><span text-id="67">Wyświetlaj datę Dnia Słonia</span></label>
                             </div>
 
                             <hr class="border border-1 opacity-100">
 
                             <div class="form-check mb-3">
                                 <input class="form-check-input appearance-setting" type="checkbox" id="countdown-shadow">
-                                <label class="form-check-label" for="countdown-shadow">Cień odliczania</label>
+                                <label class="form-check-label" for="countdown-shadow"><span text-id="68">Cień odliczania</span></label>
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input appearance-setting" type="checkbox" id="outline-icon">
-                                <label class="form-check-label" for="outline-icon">Kontur ikony</label>
+                                <label class="form-check-label" for="outline-icon"><span text-id="69">Kontur ikony</span></label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input appearance-setting" type="checkbox" id="elephant-cursor">
+                                <label class="form-check-label" for="elephant-cursor"><span text-id="70">Kursor ze słoniem</span></label>
                             </div>
 
                             <hr class="border border-1 opacity-100">
 
                             <div class="mb-3">
-                                <label class="form-label" for="menu-buttons-appearance">Styl przycisków menu</label>
+                                <label class="form-label" for="menu-buttons-appearance"><span text-id="71">Styl przycisków menu</span></label>
                                 <select id="menu-buttons-appearance" class="form-select appearance-setting">
-                                    <optgroup label="Kolory">
-                                        <option value="primary">Primary (domyślny)</option>
+                                    <optgroup>
+                                        <option value="primary">Primary</option>
                                         <option value="secondary">Secondary</option>
                                         <option value="success">Success</option>
                                         <option value="danger">Danger</option>
@@ -468,18 +473,18 @@
                                         <option value="dark">Dark</option>
                                         <option value="link">Link</option>
                                     </optgroup>
-                                    <optgroup label="Kolory z samym konturem">
-                                        <option value="outline-primary">Primary</option>
-                                        <option value="outline-secondary">Secondary</option>
-                                        <option value="outline-success">Success</option>
-                                        <option value="outline-danger">Danger</option>
-                                        <option value="outline-warning">Warning</option>
-                                        <option value="outline-info">Info</option>
-                                        <option value="outline-light">Light</option>
-                                        <option value="outline-dark">Dark</option>
+                                    <optgroup>
+                                        <option value="outline-primary">Primary (outline)</option>
+                                        <option value="outline-secondary">Secondary (outline)</option>
+                                        <option value="outline-success">Success (outline)</option>
+                                        <option value="outline-danger">Danger (outline)</option>
+                                        <option value="outline-warning">Warning (outline)</option>
+                                        <option value="outline-info">Info (outline)</option>
+                                        <option value="outline-light">Light (outline)</option>
+                                        <option value="outline-dark">Dark (outline)</option>
                                     </optgroup>
-                                    <optgroup label="Własny">
-                                        <option value="custom">Własny</option>
+                                    <optgroup>
+                                        <option value="custom" text-id="72">Własny</option>
                                     </optgroup>
                                 </select>
                             </div>
@@ -487,27 +492,27 @@
                             <table class="table" id="buttons-colors">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Wartość \ Stan</th>
-                                        <th scope="col">Normalny</th>
-                                        <th scope="col">Kursor</th>
-                                        <th scope="col">Aktywny</th>
+                                        <th scope="col"><span text-id="73">Wartość \ Stan</span></th>
+                                        <th scope="col"><span text-id="74">Normalny</span></th>
+                                        <th scope="col"><span text-id="75">Kursor</span></th>
+                                        <th scope="col"><span text-id="76">Aktywny</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="col">Tekst</th>
+                                        <th scope="col"><span text-id="77">Tekst</span></th>
                                         <td><input type="color" id="custom-button-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-color"></td>
                                         <td><input type="color" id="custom-button-hover-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-color"></td>
                                         <td><input type="color" id="custom-button-active-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-color"></td>
                                     </tr>
                                     <tr>
-                                        <th scope="col">Tło</th>
+                                        <th scope="col"><span text-id="78">Tło</span></th>
                                         <td><input type="color" id="custom-button-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-bg"></td>
                                         <td><input type="color" id="custom-button-hover-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-bg"></td>
                                         <td><input type="color" id="custom-button-active-bg" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-bg"></td>
                                     </tr>
                                     <tr>
-                                        <th scope="col">Kontur</th>
+                                        <th scope="col"><span text-id="79">Kontur</span></th>
                                         <td><input type="color" id="custom-button-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-border-color"></td>
                                         <td><input type="color" id="custom-button-hover-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-hover-border-color"></td>
                                         <td><input type="color" id="custom-button-active-border-color" class="form-control form-control-color color-setting-button" spellcheck="false" autocomplete="off" css-variable="--custom-button-active-border-color"></td>
@@ -516,35 +521,34 @@
                             </table>
                         </div>
 
-                        <div id="widget-settings" class="d-none">
+                        <!-- <div id="widget-settings" class="d-none">
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                         
                         
-                        </div>
+                        </div> -->
 
                         <div id="information-settings" class="d-none">
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                     
-                            <button class="settings-category-button" settings-target="#general-information"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text">Ogólne</span></button>
-                            <button class="settings-category-button" settings-target="#changelog-information"><i class="bi bi-list-ol"></i> <span class="settings-category-button-text">Rejestr zmian</span></button>
+                            <button class="settings-category-button" settings-target="#general-information"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text"><span text-id="7">Ogólne</span></span></button>
+                            <button class="settings-category-button" settings-target="#changelog-information"><i class="bi bi-list-ol"></i> <span class="settings-category-button-text"><span text-id="11">Rejestr zmian</span></span></button>
                             <button class="settings-category-button" settings-target="#open-source-information"><i class="bi bi-collection-fill"></i> <span class="settings-category-button-text">Open source</span></button>
-                            <button class="settings-category-button" settings-target="#other-versions-information"><i class="bi bi-grid-3x3-gap-fill"></i> <span class="settings-category-button-text">Inne wersje</span></button>
-                            <button class="settings-category-button" settings-target="#visit-counter-information"><i class="bi bi-123"></i> <span class="settings-category-button-text">Licznik wejść</span></button>
+                            <button class="settings-category-button" settings-target="#visit-counter-information"><i class="bi bi-123"></i> <span class="settings-category-button-text"><span text-id="12">Licznik wejść</span></span></button>
                         </div>
 
                         <div id="general-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b>Strona Odliczanie do Dnia Słonia</b></p>
+                            <p class="font-size-24"><b><span text-id="80">Strona Odliczanie do Dnia Słonia</span></b></p>
 
-                            <a href="https://github.com/slonindyjski/OdliczanieDoDniaSloniaStrona" target="_blank" rel="noopener">Repozytorium GitHub</a>
+                            <a href="https://github.com/slonindyjski/CountdownToElephantDay" target="_blank" rel="noopener"><span text-id="81">Repozytorium GitHub</span></a>
 
-                            <p class="font-size-24"><b>Wersja</b></p>
-                            <p><b>Wersja:</b> {{ version['version'] }}</p>
+                            <p class="font-size-24"><b><span text-id="82">Wersja</span></b></p>
+                            <p><b><span text-id="82">Wersja</span>:</b> {{ version['version'] }}</p>
                             <p><b>Build:</b> {{ version['build'] }}</p>
-                            {% if version['dev'] %}<p><b>DEV (podczas tworzenia)</b></p>{% endif %}
+                            {% if version['dev'] %}<p><b>DEV (<span text-id="83">podczas tworzenia</span>)</b></p>{% endif %}
 
-                            <p class="font-size-24"><b>Autor</b></p>
+                            <p class="font-size-24"><b><span text-id="84">Autor</span></b></p>
                             <div class="container-fluid">
                                 <div class="row row-cols-auto">
                                     <div class="col">
@@ -564,9 +568,9 @@
                         <div id="changelog-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b>Rejestr zmian</b></p>
+                            <p class="font-size-24"><b><span text-id="11">Rejestr zmian</span></b></p>
 
-                            <p class="h3">1.14 (bieżąca wersja) <i class="bi bi-check-lg"></i></p>
+                            <p class="h3"><i class="bi bi-check-lg"></i> 1.14 (<span text-id="85">bieżąca wersja</span>)</p>
                             <ul>
                                 <li>Drobne poprawki</li>
                             </ul>
@@ -685,7 +689,7 @@
                         <div id="open-source-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b>Oprogramowanie open source użyte przy tworzeniu strony:</b></p>
+                            <p class="font-size-24"><b><span text-id="86">Oprogramowanie open source użyte przy tworzeniu strony</span>:</b></p>
                             <div class="margin-left-10">
                                 <p class="font-size-18"><b>Front-end:</b></p>
                                 <ul>
@@ -693,7 +697,7 @@
                                     <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a></li>
                                     <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a></li>
                                     <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a></li>
-                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener">Czcionka JetBrains Mono</a></li>
+                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener"><span text-id="87">Czcionka</span> JetBrains Mono</a></li>
                                 </ul>
                             </div>
                             <div class="margin-left-10">
@@ -705,29 +709,11 @@
                             </div>
                         </div>
 
-                        <div id="other-versions-information" class="d-none">
-                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
-                        
-                            <div class="h3">Inne wersje Odliczania do Dnia Słonia</div>
-                            <div class="mt-4">
-                                <div class="h4">Widżet na pulpit <i class="bi bi-window"></i></div>
-                                <p>Widżet wymaga zainstalowanego programu <a href="https://www.rainmeter.net/" target="_blank" rel="noopener">Rainmeter</a></p>
-                                <a href="https://slonindyjski.pythonanywhere.com/static/downloads/Odliczanie do Dnia Słonia_1.0.rmskin" class="btn btn-primary btn-lg"><i class="bi bi-download"></i> Pobierz</a>
-                            </div>
-                            <div class="mt-4">
-                                <div class="h4">Bot Discord <i class="bi bi-discord"></i></div>
-                                <a href="https://discord.com/api/oauth2/authorize?client_id=1099030064965898270&permissions=274878000128&scope=bot" class="btn btn-primary btn-lg" target="_blank" rel="noopener"><i class="bi bi-discord"></i> Dodaj do serwera</a>
-                            </div>
-                            <div class="alert alert-info mt-3" role="alert">
-                                Wkrótce zostaną dodane też inne wersje.
-                            </div>
-                        </div>
-
                         <div id="visit-counter-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
                             <div id="visit-counter-div">
-                                <div class="h3">Licznik odwiedzin</div>
+                                <div class="h3"><span text-id="12">Licznik odwiedzin</span></div>
                                 <div id="visit-counter" class="d-none"></div>
                                 <div id="visit-counter-loading">
                                     <div class="d-flex justify-content-center">
@@ -738,7 +724,7 @@
                                 </div>
                             </div>
                             <div id="visit-counter-offline" class="alert alert-danger m-1 d-none" role="alert">
-                                Jesteś offline.
+                                <span text-id="88">Jesteś offline</span>
                             </div>
                         </div>
                     </div>
@@ -844,15 +830,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <p class="modal-title fs-5 h1"><i class="bi bi-trash"></i> Resetuj wszystkie ustawienia</p>
+                        <p class="modal-title fs-5 h1"><i class="bi bi-trash"></i> <span text-id="14">Resetuj wszystkie ustawienia</span></p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" id="clearAllDataModalBody">
-                        Czy na pewno chcesz zresetować wszystkie ustawienia?
+                        <span text-id="15">Czy na pewno chcesz zresetować wszystkie ustawienia?</span>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-target="#settingsModal" data-bs-toggle="modal"><i class="bi bi-x-lg"></i> Nie</button>
-                        <button type="button" class="btn btn-danger" id="clearAllDataButton"><i class="bi bi-check-lg"></i> Tak</button>
+                        <button type="button" class="btn btn-secondary" data-bs-target="#settingsModal" data-bs-toggle="modal"><i class="bi bi-x-lg"></i> <span text-id="16">Nie</span></button>
+                        <button type="button" class="btn btn-danger" id="clearAllDataButton"><i class="bi bi-check-lg"></i> <span text-id="17">Tak</span></button>
                     </div>
                 </div>
             </div>

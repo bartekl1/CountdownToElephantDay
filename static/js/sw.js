@@ -19,7 +19,8 @@ const precacheResources = [
     '/static/js/appearance.js',
     '/static/js/visit_counter.js',
     '/static/fonts/JetBrainsMono-Regular.woff2',
-    '/static/img/elephant-outline-content.txt'
+    '/static/img/elephant-outline-content.txt',
+    '/static/img/cursor.png'
 ];
 
 // When the service worker is installing, open the cache and add the precache resources to it
