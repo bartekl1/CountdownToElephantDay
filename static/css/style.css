@@ -471,3 +471,8 @@ button.language-popover {
     margin-left: auto;
     margin-right: auto;
 }
+
+.new-menu-popover {
+    --bs-popover-body-padding-x: 10px;
+    --bs-popover-body-padding-y: 10px;
+}
