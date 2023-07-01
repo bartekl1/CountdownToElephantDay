@@ -263,13 +263,35 @@ function loadAppearance() {
         `;
     }
 
-    if (localStorage.getItem('dark-theme')) {
+    if (localStorage.getItem('dark-theme') == 'dark') {
         document.querySelector('html').setAttribute('data-bs-theme', localStorage.getItem('dark-theme'));
+        document.querySelectorAll('.brand-icon').forEach((e) => {
+            var src = e.src.split('/');
+            src[src.length - 1] = 'ffffff';
+            e.src = src.join('/')
+        });
+    } else if (localStorage.getItem('dark-theme') == 'light') {
+        document.querySelector('html').setAttribute('data-bs-theme', localStorage.getItem('dark-theme'));
+        document.querySelectorAll('.brand-icon').forEach((e) => {
+            var src = e.src.split('/');
+            src[src.length - 1] = '000000';
+            e.src = src.join('/')
+        });
     } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.querySelector('html').setAttribute('data-bs-theme', 'dark');
+            document.querySelectorAll('.brand-icon').forEach((e) => {
+                var src = e.src.split('/');
+                src[src.length - 1] = 'ffffff';
+                e.src = src.join('/')
+            });
         } else {
             document.querySelector('html').setAttribute('data-bs-theme', 'light');
+            document.querySelectorAll('.brand-icon').forEach((e) => {
+                var src = e.src.split('/');
+                src[src.length - 1] = '000000';
+                e.src = src.join('/')
+            });
         }
     }
 

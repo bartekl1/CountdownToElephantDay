@@ -399,18 +399,6 @@ iframe.background {
     overflow: hidden;
 }
 
-.font-size-24 {
-    font-size: 24px;
-}
-
-.font-size-18 {
-    font-size: 18px;
-}
-
-.margin-left-10 {
-    margin-left: 10px;
-}
-
 #api-response {
     font-family: "JetBrains Mono";
     height: fit-content;

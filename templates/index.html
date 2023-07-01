@@ -575,11 +575,11 @@
                         <div id="general-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b><span text-id="80">Strona Odliczanie do Dnia Słonia</span></b></p>
+                            <p class="fs-3 text-dark-emphasis"><b><span text-id="80">Strona Odliczanie do Dnia Słonia</span></b></p>
 
-                            <a href="https://github.com/barteklorenc/CountdownToElephantDay" target="_blank" rel="noopener"><span text-id="81">Repozytorium GitHub</span></a>
+                            <a class="btn btn-dark" href="https://github.com/barteklorenc/CountdownToElephantDay" target="_blank" rel="noopener"><i class="bi bi-github"></i> <span text-id="81">Repozytorium GitHub</span></a>
 
-                            <p class="font-size-24"><b><span text-id="82">Wersja</span></b></p>
+                            <p class="fs-4 text-dark-emphasis"><b><span text-id="82">Wersja</span></b></p>
                             <p><b><span text-id="82">Wersja</span>:</b> {{ version['version'] }}</p>
                             <p><b>Build:</b> {{ version['build'] }}</p>
                             {% if version['dev'] %}<p><b>DEV (<span text-id="83">podczas tworzenia</span>)</b></p>{% endif %}
@@ -600,7 +600,7 @@
                         <div id="changelog-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b><span text-id="11">Rejestr zmian</span></b></p>
+                            <p class="fs-3 text-dark-emphasis"><b><span text-id="11">Rejestr zmian</span></b></p>
 
                             <p class="h3"><i class="bi bi-check-lg"></i> 1.15 (<span text-id="85">bieżąca wersja</span>)</p>
                             <ul>
@@ -729,22 +729,47 @@
                         <div id="open-source-information" class="d-none">
                             <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
-                            <p class="font-size-24"><b><span text-id="86">Oprogramowanie open source użyte przy tworzeniu strony</span>:</b></p>
-                            <div class="margin-left-10">
-                                <p class="font-size-18"><b>Front-end:</b></p>
+                            <p class="fs-3 text-dark-emphasis"><b><span text-id="86">Oprogramowanie open source użyte przy tworzeniu strony</span>:</b></p>
+                            <div class="ms-3">
+                                <p class="fs-4"><b>Front-end:</b></p>
                                 <ul>
-                                    <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
-                                    <li><a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a></li>
-                                    <li><a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a></li>
-                                    <li><a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a></li>
-                                    <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener"><span text-id="87">Czcionka</span> JetBrains Mono</a></li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/bootstrap/ffffff" />
+                                        <a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a>
+                                    </li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/bootstrap/ffffff" />
+                                        <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a>
+                                    </li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/simpleicons/ffffff" />
+                                        <a href="https://simpleicons.org/" target="_blank" rel="noopener">Simple Icons</a>
+                                    </li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/javascript/ffffff" />
+                                        <a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a>
+                                    </li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/javascript/ffffff" />
+                                        <a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a>
+                                    </li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/jetbrains/ffffff" />
+                                        <a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener"><span text-id="87">Czcionka</span> JetBrains Mono</a>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="margin-left-10">
-                                <p class="font-size-18"><b>Back-end:</b></p>
+                            <div class="ms-3">
+                                <p class="fs-4"><b>Back-end:</b></p>
                                 <ul>
-                                    <li><a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener">Flask</a></li>
-                                    <li><a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener">MySQL Connector Python</a></li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/flask/ffffff" />
+                                        <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener">Flask</a>
+                                    </li>
+                                    <li>
+                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/mysql/ffffff" />
+                                        <a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener">MySQL Connector Python</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
