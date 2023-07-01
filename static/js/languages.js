@@ -87,7 +87,8 @@ const translation = [
     'current version',
     'Open source software used in developing the website',
     'Font',
-    'You are offline'
+    'You are offline',
+    'Old menu'
 ];
 
 function getLanguage() {

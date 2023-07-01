@@ -104,6 +104,7 @@ function setAppearanceForm() {
     document.querySelector('#countdown-shadow').checked = localStorage.getItem('countdown-shadow') == 'true';
     document.querySelector('#outline-icon').checked = localStorage.getItem('outline-icon') == 'true';
     document.querySelector('#elephant-cursor').checked = localStorage.getItem('elephant-cursor') == 'true';
+    document.querySelector('#old-menu').checked = localStorage.getItem('old-menu') == 'true';
 
     if (localStorage.getItem('menu-buttons-appearance') !== null) {
         document.querySelector('#menu-buttons-appearance').value = localStorage.getItem('menu-buttons-appearance');
@@ -193,6 +194,11 @@ function saveAppearance() {
     } else {
         localStorage.removeItem('elephant-cursor');
     }
+    if (document.querySelector('#old-menu').checked) {
+        localStorage.setItem('old-menu', 'true');
+    } else {
+        localStorage.removeItem('old-menu');
+    }
 
     if (document.querySelector('#menu-buttons-appearance').value !== 'primary') {
         localStorage.setItem('menu-buttons-appearance', document.querySelector('#menu-buttons-appearance').value);
@@ -227,6 +233,7 @@ function resetAppearance() {
     localStorage.removeItem('countdown-shadow')
     localStorage.removeItem('outline-icon')
     localStorage.removeItem('elephant-cursor');
+    localStorage.removeItem('old-menu');
 
     localStorage.removeItem('menu-buttons-appearance');
 
@@ -391,6 +398,14 @@ function loadAppearance() {
         `;
     } else {
         document.querySelector('#cursor-css').innerHTML = '';
+    }
+
+    if (localStorage.getItem('old-menu') == 'true') {
+        document.querySelector('.top-menu').classList.remove('d-none');
+        document.querySelector('#top-menu-new').classList.add('d-none');
+    } else {
+        document.querySelector('.top-menu').classList.add('d-none');
+        document.querySelector('#top-menu-new').classList.remove('d-none');
     }
 
     document.querySelectorAll('.menu-button').forEach((e) => { e.className = e.className.replace(/btn-.* /, `btn-${(localStorage.getItem('menu-buttons-appearance') || 'primary')} `); });
