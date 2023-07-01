@@ -230,24 +230,6 @@
                 })
             </script>
 
-            <script>
-                var urlString = window.location.href;
-                var url = new URL(urlString);
-                var widgetMode = url.searchParams.get("widget");
-                
-                if (widgetMode == 'true' || widgetMode == 'without_link') {
-                    var topMenu = document.querySelector('.top-menu');
-
-                    topMenu.classList.add('d-none');
-                }
-
-                if (widgetMode == 'true') {
-                    var siteTitle = document.querySelector('.site-title');
-
-                    siteTitle.outerHTML = `<a href="/" target="_blank" style="text-decoration: none;">${siteTitle.outerHTML}</a>`;
-                }
-            </script>
-
             <div class="clearfix"></div>
 
             <br>

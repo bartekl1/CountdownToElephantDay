@@ -23,12 +23,6 @@ body {
 var verticallyCenterSiteCSSElement = document.querySelector('#vertically-center-site-css');
 var scaleCSSElement = document.querySelector('#scale-css');
 
-var urlString = window.location.href;
-var url = new URL(urlString);
-var widgetMode = url.searchParams.get("widget");
-var centerURL = url.searchParams.get("center");
-var scaleURL = url.searchParams.get("scale");
-
 function setAppearanceForm() {
     if (localStorage.getItem('dark-theme') !== null) {
         darkThemeSelect.value = localStorage.getItem('dark-theme');
@@ -253,34 +247,20 @@ function loadAppearance() {
 
     verticallyCenterSiteCSSElement.innerHTML = '';
 
-    if (centerURL != null) {
-        if (centerURL == 'true') {
-            verticallyCenterSiteCSSElement.innerHTML = verticallyCenterSiteCSS;
-        }
-    } else if (widgetMode != 'true' && widgetMode != 'without_link') {
-        if (centerLocalStorage == 'true') {
-            verticallyCenterSiteCSSElement.innerHTML = verticallyCenterSiteCSS;
-        }
+    if (centerLocalStorage == 'true') {
+        verticallyCenterSiteCSSElement.innerHTML = verticallyCenterSiteCSS;
     }
 
     var scaleLocalStorage = localStorage.getItem('scale');
 
     scaleCSSElement.innerHTML = '';
 
-    if (scaleURL != null) {
+    if (scaleLocalStorage != null) {
         scaleCSSElement.innerHTML = `
         #main {
-            scale: ${scaleURL};
+            scale: ${scaleLocalStorage};
         }
         `;
-    } else if (widgetMode != 'true' && widgetMode != 'without_link') {
-        if (scaleLocalStorage != null) {
-            scaleCSSElement.innerHTML = `
-            #main {
-                scale: ${scaleLocalStorage};
-            }
-            `;
-        }
     }
 
     if (localStorage.getItem('dark-theme')) {
