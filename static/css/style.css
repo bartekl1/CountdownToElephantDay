@@ -9,7 +9,7 @@
 
     /* site title */
     --site-title-color: blue;
-    
+
     /* countdown */
     --countdown-color: #000072;
     --countdown-bg-color: #007a00;
@@ -34,7 +34,7 @@
 
 @font-face {
     font-family: "JetBrains Mono";
-    src: url('/static/fonts/JetBrainsMono-Regular.woff2')  format('truetype');
+    src: url('/static/fonts/JetBrainsMono-Regular.woff2') format('truetype');
     font-display: swap
 }
 
@@ -45,7 +45,7 @@ html {
 body {
     background-color: var(--body-bg-color) !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
-    background-image: var(--background-image);
+ background-image: var(--background-image);
     background-position: var(--background-position);
     background-repeat: var(--background-repeat);
     background-size: var(--background-size);
@@ -125,13 +125,14 @@ h1.site-title {
 @media screen and (min-width: 608px) {
     .options-button {
         width: 150px;
-    } 
+    }
 }
 
 @keyframes close {
     from {
         height: 124px;
     }
+
     to {
         height: 0px;
     }
@@ -141,6 +142,7 @@ h1.site-title {
     from {
         height: 0px;
     }
+
     to {
         height: 124px;
     }
@@ -223,7 +225,7 @@ iframe:not(#elephant-video) {
     overflow: auto;
 
     height: 100%;
-} 
+}
 
 .code {
     font-family: 'JetBrains Mono';
@@ -344,19 +346,23 @@ img.rotate {
     animation: spin var(--rotate-speed) linear infinite;
 }
 
-@-moz-keyframes spin { 
-    100% { -moz-transform: rotate(360deg); } 
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
 }
 
-@-webkit-keyframes spin { 
-    100% { -webkit-transform: rotate(360deg); } 
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
-@keyframes spin { 
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        transform:rotate(360deg); 
-    } 
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 .btn.btn-custom {
@@ -458,4 +464,10 @@ button.language-popover {
     color: var(--bs-emphasis-color);
     background-color: transparent;
     border-style: none;
+}
+
+#top-menu-new {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }

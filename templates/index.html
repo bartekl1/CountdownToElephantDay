@@ -100,7 +100,7 @@
                                 button.querySelector('.menu-button-name').innerHTML = 'Exit full screen';
                             }
 
-                            document.querySelector('.bi-fullscreen').classList.replace('bi-fullscreen', 'bi-fullscreen-exit');
+                            button.querySelector('.bi-fullscreen').classList.replace('bi-fullscreen', 'bi-fullscreen-exit');
 
                             button.setAttribute('fullscreen', 'true');
 
@@ -112,7 +112,7 @@
                                 button.querySelector('.menu-button-name').innerHTML = 'Full screen';
                             }
 
-                            document.querySelector('.bi-fullscreen-exit').classList.replace('bi-fullscreen-exit', 'bi-fullscreen');
+                            button.querySelector('.bi-fullscreen-exit').classList.replace('bi-fullscreen-exit', 'bi-fullscreen');
 
                             button.setAttribute('fullscreen', 'false');
 
@@ -128,7 +128,7 @@
                                 button.querySelector('.menu-button-name').innerHTML = 'Disable lock';
                             }
 
-                            document.querySelector('.bi-moon-fill').classList.replace('bi-moon-fill', 'bi-moon-stars-fill');
+                            button.querySelector('.bi-moon-fill').classList.replace('bi-moon-fill', 'bi-moon-stars-fill');
                             
                             button.setAttribute('keep-screen-on', 'true');
 
@@ -140,7 +140,7 @@
                                 button.querySelector('.menu-button-name').innerHTML = 'Don\'t turn off screen';
                             }
                             
-                            document.querySelector('.bi-moon-stars-fill').classList.replace('bi-moon-stars-fill', 'bi-moon-fill');
+                            button.querySelector('.bi-moon-stars-fill').classList.replace('bi-moon-stars-fill', 'bi-moon-fill');
                             
                             button.setAttribute('keep-screen-on', 'false');
 
@@ -152,7 +152,57 @@
                 <div class="clearfix"></div>
             </div>
 
-            <script> document.querySelector('.top-menu').classList.remove('d-none'); </script>
+            <div id="top-menu-new" class="d-none">
+                <div class="ms-1 float-start">
+                    <button class="btn btn-primary" id="options-button2" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                        <i class="bi bi-gear-fill"></i>
+                    </button>
+                </div>
+
+                <div class="ms-1 float-start">
+                    <button class="btn btn-primary" id="fullscreen-button2" onclick="fullscreen2(this)" fullscreen="false">
+                        <i class="bi bi-fullscreen"></i>
+                    </button>
+                </div>
+
+                <div class="ms-1 float-start">
+                    <button class="btn btn-primary" id="keep-screen-on-button2" onclick="keepScreenOn2(this)" keep-screen-on="false">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <script>
+                var noSleep = new NoSleep();
+
+                function fullscreen2(button) {
+                    if (button.getAttribute('fullscreen') == 'false') {
+                        button.querySelector('.bi-fullscreen').classList.replace('bi-fullscreen', 'bi-fullscreen-exit');
+                        button.setAttribute('fullscreen', 'true');
+                        screenfull.request();
+                    } else if (button.getAttribute('fullscreen') == 'true') {
+                        button.querySelector('.bi-fullscreen-exit').classList.replace('bi-fullscreen-exit', 'bi-fullscreen');
+                        button.setAttribute('fullscreen', 'false');
+                        screenfull.exit();
+                    }
+                }
+
+                function keepScreenOn2(button) {
+                    if (button.getAttribute('keep-screen-on') == 'false') {
+                        button.querySelector('.bi-moon-fill').classList.replace('bi-moon-fill', 'bi-moon-stars-fill');
+                        button.setAttribute('keep-screen-on', 'true');
+                        noSleep.enable();
+                    } else if (button.getAttribute('keep-screen-on') == 'true') {
+                        button.querySelector('.bi-moon-stars-fill').classList.replace('bi-moon-stars-fill', 'bi-moon-fill');
+                        button.setAttribute('keep-screen-on', 'false');
+                        noSleep.disable();
+                    }
+                }
+            </script>
+
+            <script> document.querySelector('#top-menu-new').classList.remove('d-none'); </script>
 
             <script>
                 document.querySelector('#top-menu-open').addEventListener('click', function () {
@@ -541,25 +591,21 @@
                         
                             <p class="font-size-24"><b><span text-id="80">Strona Odliczanie do Dnia Słonia</span></b></p>
 
-                            <a href="https://github.com/slonindyjski/CountdownToElephantDay" target="_blank" rel="noopener"><span text-id="81">Repozytorium GitHub</span></a>
+                            <a href="https://github.com/barteklorenc/CountdownToElephantDay" target="_blank" rel="noopener"><span text-id="81">Repozytorium GitHub</span></a>
 
                             <p class="font-size-24"><b><span text-id="82">Wersja</span></b></p>
                             <p><b><span text-id="82">Wersja</span>:</b> {{ version['version'] }}</p>
                             <p><b>Build:</b> {{ version['build'] }}</p>
                             {% if version['dev'] %}<p><b>DEV (<span text-id="83">podczas tworzenia</span>)</b></p>{% endif %}
 
-                            <p class="font-size-24"><b><span text-id="84">Autor</span></b></p>
                             <div class="container-fluid">
                                 <div class="row row-cols-auto">
                                     <div class="col">
                                         <img class="img-fluid profile-picture" src="/static/img/slon_zwierze_szary_2.jpg" height="150px" width="150px" alt="Zdjęcie profilowe">
                                     </div>
                                     <div class="col">
-                                        <p class="h2">Słoń Indyjski</p>
-                
-                                        <a href="https://slonindyjski.pythonanywhere.com/" class="social-link site-link" target="_blank" title="Strona internetowa" rel="noopener"><i class="bi bi-globe"></i></a>
                                         <a href="https://www.youtube.com/@slon_indyjski" class="social-link youtube-link" target="_blank" title="Kanał YouTube" rel="noopener"><i class="bi bi-youtube"></i></a>
-                                        <a href="https://github.com/slonindyjski" class="social-link github-link" target="_blank" title="Profil GitHub" rel="noopener"><i class="bi bi-github"></i></a>
+                                        <a href="https://github.com/barteklorenc" class="social-link github-link" target="_blank" title="Profil GitHub" rel="noopener"><i class="bi bi-github"></i></a>
                                     </div>
                                 </div>
                             </div>
