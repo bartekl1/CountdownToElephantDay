@@ -92,11 +92,17 @@ const translation = [
 ];
 
 function getLanguage() {
-    if (localStorage.getItem('language') != undefined) {
-        return localStorage.getItem('language');
-    }
+    var url = new URL(window.location.href);
+    var searchParams = url.searchParams;
+    if (searchParams.get('lang') != null) {
+        return searchParams.get('lang');
+    } else {
+        if (localStorage.getItem('language') != undefined) {
+            return localStorage.getItem('language');
+        }
 
-    return 'pl';
+        return 'pl';
+    }
 }
 
 
@@ -109,7 +115,7 @@ function translate() {
 }
 
 function translateIfRequired() {
-    if (localStorage.getItem('language') == 'en') {
+    if (getLanguage() == 'en') {
         translate();
     }
 }
@@ -117,10 +123,14 @@ function translateIfRequired() {
 function showLanguageInfo() {
     if (localStorage.getItem('language') == undefined && navigator.language.split('-')[0] != 'pl' && localStorage.getItem('language-popover-closed') == undefined) {
         var element;
-        if (window.getComputedStyle(document.querySelector('#top-menu'), null).display == 'block') {
-            element = document.querySelector('#options-button');
+        if (localStorage.getItem('old-menu') == 'true') {
+            if (window.getComputedStyle(document.querySelector('#top-menu'), null).display == 'block') {
+                element = document.querySelector('#options-button');
+            } else {
+                element = document.querySelector('#top-menu-open');
+            }
         } else {
-            element = document.querySelector('#top-menu-open');
+            element = document.querySelector('#options-button2');
         }
         var popover = new bootstrap.Popover(element, {
             content: '<p class="language-popover">You can change language in the settings.</p><button class="btn btn-secondary language-popover">OK</button>',
