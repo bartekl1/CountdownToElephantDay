@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, Response, request
+from flask import Flask, render_template, send_file
 import mysql.connector
 import json
 
