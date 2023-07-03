@@ -97,6 +97,10 @@ const titleTranslations = {
     'Kanał YouTube': 'YouTube channel',
     'Profil GitHub': 'GitHub profile'
 };
+const altTranslations = {
+    'Ikona': 'Icon',
+    'Słoń': 'Elephant'
+}
 
 function getLanguage() {
     var url = new URL(window.location.href);
@@ -121,6 +125,9 @@ function translate() {
     });
     document.querySelectorAll('[title]').forEach((e) => {
         e.title = titleTranslations[e.title];
+    });
+    document.querySelectorAll('[alt]').forEach((e) => {
+        e.alt = altTranslations[e.alt];
     });
 }
 

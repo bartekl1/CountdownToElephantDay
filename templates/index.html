@@ -46,7 +46,7 @@
         <div id="main">
             <h1 class="site-title">
                 <span text-id="0">Odliczanie do Dnia Słonia</span>
-                <img id="site-icon" src="/static/img/icons/elephant.svg" alt="Ikona słonia" width="40px" height="40px">
+                <img id="site-icon" src="/static/img/icons/elephant.svg" alt="Ikona" width="40px" height="40px">
                 <svg
                 id="site-icon-outline"
                 class="d-none"
@@ -572,7 +572,6 @@
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                     
                             <button class="settings-category-button" settings-target="#general-information"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text"><span text-id="7">Ogólne</span></span></button>
-                            <button class="settings-category-button" settings-target="#changelog-information"><i class="bi bi-list-ol"></i> <span class="settings-category-button-text"><span text-id="11">Rejestr zmian</span></span></button>
                             <button class="settings-category-button" settings-target="#open-source-information"><i class="bi bi-collection-fill"></i> <span class="settings-category-button-text">Open source</span></button>
                             <button class="settings-category-button" settings-target="#visit-counter-information"><i class="bi bi-123"></i> <span class="settings-category-button-text"><span text-id="12">Licznik wejść</span></span></button>
                         </div>
@@ -583,6 +582,12 @@
                             <p class="fs-3 text-dark-emphasis"><b><span text-id="80">Strona Odliczanie do Dnia Słonia</span></b></p>
 
                             <a class="btn btn-dark" href="https://github.com/bartekl1/CountdownToElephantDay" target="_blank" rel="noopener"><i class="bi bi-github"></i> <span text-id="81">Repozytorium GitHub</span></a>
+                            <a id="changelog-link" class="btn btn-secondary" href="https://github.com/bartekl1/CountdownToElephantDay/blob/main/CHANGELOG.md" target="_blank" rel="noopener"><i class="bi bi-list-ol"></i> <span text-id="11">Rejestr zmian</span></a>
+                            <script>
+                                if (getLanguage() == 'pl') {
+                                    document.querySelector('#changelog-link').href = 'https://github.com/bartekl1/CountdownToElephantDay/blob/main/CHANGELOG_PL.md';
+                                }
+                            </script>
 
                             <p class="fs-4 text-dark-emphasis"><b><span text-id="82">Wersja</span></b></p>
                             <p><b><span text-id="82">Wersja</span>:</b> {{ version['version'] }}</p>
@@ -592,7 +597,7 @@
                             <div class="container-fluid">
                                 <div class="row row-cols-auto">
                                     <div class="col">
-                                        <img class="img-fluid profile-picture" src="/static/img/slon_zwierze_szary_2.jpg" height="150px" width="150px" alt="Zdjęcie profilowe">
+                                        <img class="img-fluid profile-picture" src="/static/img/slon_zwierze_szary_2.jpg" height="150px" width="150px" alt="Słoń">
                                     </div>
                                     <div class="col">
                                         <a href="https://www.youtube.com/@slon_indyjski" class="social-link youtube-link" target="_blank" title="Kanał YouTube" rel="noopener"><i class="bi bi-youtube"></i></a>
@@ -600,135 +605,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div id="changelog-information" class="d-none">
-                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
-                        
-                            <p class="fs-3 text-dark-emphasis"><b><span text-id="11">Rejestr zmian</span></b></p>
-
-                            <p class="h3"><i class="bi bi-check-lg"></i> 1.15 (<span text-id="85">bieżąca wersja</span>)</p>
-                            <ul>
-                                <li>Dodano nowe ustawienia</li>
-                                <li>Dodano możliwość zmiany kursora</li>
-                                <li>Poprawiono tłumaczenie</li>
-                                <li>Inne poprawki i ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.14</p>
-                            <ul>
-                                <li>Drobne poprawki</li>
-                            </ul>
-
-                            <p class="h3">1.13</p>
-                            <ul>
-                                <li>Poprawiono wsparcie dla wielu języków</li>
-                                <li>Dodano informacje o innych wersjach Odliczania do Dnia Słonia</li>
-                                <li>Przeniesiono API</li>
-                                <li>Inne poprawki i ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.12</p>
-                            <ul>
-                                <li>Dodano możliwość korzystania ze strony w trybie offline</li>
-                                <li>Dodano komunikat w przypadku braku wsparcia dla JavaScript</li>
-                                <li>Inne poprawki i ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.11</p>
-                            <ul>
-                                <li>Zmieniono motywy i wtyczki na ustawienia wyglądu</li>
-                                <li>Dodano więcej opcji dostosowywania strony</li>
-                                <li>Inne poprawki i ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.10</p>
-                            <ul>
-                                <li>Dodano licznik odwiedzin</li>
-                                <li>Poprawa wydajności</li>
-                                <li>Dodano tłumaczenie nazwy aplikacji (PWA)</li>
-                                <li>Inne poprawki i ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.9</p>
-                            <ul>
-                                <li>Naprawiono błąd powodujący generowanie błędnego URL widżetu (URL był względny)</li>
-                                <li>Dodano wtyczkę "Cień odliczania"</li>
-                                <li>Dodano wtyczkę "Kontur ikony"</li>
-                                <li>Dodano ustawienia widżetu</li>
-                                <li>Inne poprawki i ulepszenia</li>
-                            </ul>
-
-
-                            <p class="h3">1.8</p>
-                            <ul>
-                                <li>Przeniesiono ustawienia, motywy, wtyczki, widżet i informacje do opcji</li>
-                                <li>Dodano możliwość pionowego wyśrodkowania strony</li>
-                                <li>Dodano możliwość skalowania strony</li>
-                                <li>Dodano możliwość dostosowywania strony przez URL (dawniej dostępne tylko w trybie widżetu)</li>
-                                <li>Inne ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.7</p>
-                            <ul>
-                                <li>Poprawiono wydajność</li>
-                                <li>Dodano możliwość używania wtyczek</li>
-                                <li>Dodano ciemny motyw</li>
-                                <li>Inne ulepszenia</li>
-                            </ul>
-
-                            <p class="h3">1.6</p>
-                            <ul>
-                                <li>Poprawiono menu</li>
-                                <li>Dodano opcję korzystania z przycisków menu za pomocą klawiatury</li>
-                                <li>Dołączono do strony wymagane czcionki, aby strona wyświetlała się prawidłowo na systemach, które nie mają jej zainstalowanej (np. Linux)</li>
-                                <li>Opcja dodania własnego kodu CSS i Javascript</li>
-                                <li>Poprawiono tłumaczenie</li>
-                            </ul>
-
-                            <p class="h3">1.5</p>
-                            <ul>
-                                <li>Odmiana jednostek czasu</li>
-                                <li>Odmiana miesięcy</li>
-                                <li>Poprawiono wygląd okienek modal, gdy są wyższe od ekranu</li>
-                                <li>Tworzenie widżetu dopiero, gdy użytkownik otworzy jego okno (wpływ na wydajność)</li>
-                                <li>Dodano rejestr zmian</li>
-                                <li>Różne języki</li>
-                                <li>Informacje o stronie jako okienko modal</li>
-                                <li>Poprawiono zegar (0 przed godziną jeśli jest liczbą jednocyfrową)</li>
-                                <li>Zmieniono format daty</li>
-                                <li>Przeniesiono "Zgłoś błąd / zaproponuj nową funkcję" do informacji o stronie</li>
-                            </ul>
-                            
-                            <p class="h3">1.4</p>
-                            <ul>
-                                <li>Dodano opcję zmiany motywów</li>
-                                <li>Naprawiono błąd powodujący wielokrotne ładowanie się widżetu (wpływający na wydajność)</li>
-                                <li>Dodano możliwość przeciągania i zmiany rozmiaru okienek modal (dostępne tylko na komputerach)</li>
-                            </ul>
-                            
-                            <p class="h3">1.3</p>
-                            <ul>
-                                <li>Dodano opcję dostosowywania motywów</li>
-                            </ul>
-                            
-                            <p class="h3">1.2</p>
-                            <ul>
-                                <li>Ulepszono menu</li>
-                                <li>Dodano ustawienia</li>
-                                <li>Dodano przycisk do włączania pełnego ekranu</li>
-                                <li>Dodano przycisk zapobiegający wygaszanie ekranu</li>
-                            </ul>
-                            
-                            <p class="h3">1.1</p>
-                            <ul>
-                                <li>Dodano widżet na stronę (iframe)</li>
-                            </ul>
-                            
-                            <p class="h3">1.0</p>
-                            <ul>
-                                <li>Pierwsza wersja strony</li>
-                            </ul>
                         </div>
 
                         <div id="open-source-information" class="d-none">
@@ -1030,7 +906,7 @@
             });
             document.querySelector('#keep-screen-on-button2').addEventListener('mouseenter', (evt) => {
                 keepScreenOnPopover.setContent({
-                    '.popover-body': (document.querySelector('#keep-screen-on-button2').getAttribute('keep-screen-on') != 'true') ? ((getLanguage() == 'pl') ? 'Nie wygaszaj ekranu' : 'Don\t turn off screen') : ((getLanguage() == 'pl') ? 'Wyłącz blokadę' : 'Disable lock')
+                    '.popover-body': (document.querySelector('#keep-screen-on-button2').getAttribute('keep-screen-on') != 'true') ? ((getLanguage() == 'pl') ? 'Nie wygaszaj ekranu' : 'Don\'t turn off screen') : ((getLanguage() == 'pl') ? 'Wyłącz blokadę' : 'Disable lock')
                 });
                 keepScreenOnPopover.show();
             });
