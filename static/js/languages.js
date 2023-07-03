@@ -90,6 +90,13 @@ const translation = [
     'You are offline',
     'Old menu'
 ];
+const titleTranslations = {
+    'Ustawienia': 'Settings',
+    'Pełny ekran': 'Fullscreen',
+    'Nie wygaszaj ekranu': 'Don\'t turn off screen',
+    'Kanał YouTube': 'YouTube channel',
+    'Profil GitHub': 'GitHub profile'
+};
 
 function getLanguage() {
     var url = new URL(window.location.href);
@@ -111,6 +118,9 @@ function translate() {
     document.querySelector('title').innerHTML = 'Countdown to Elephant Day';
     document.querySelectorAll('[text-id]').forEach((e) => {
         e.innerHTML = translation[e.getAttribute('text-id')];
+    });
+    document.querySelectorAll('[title]').forEach((e) => {
+        e.title = titleTranslations[e.title];
     });
 }
 

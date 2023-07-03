@@ -25,7 +25,13 @@
 
         <link rel="manifest" href="/manifest.json">
 
+        <!-- Standard browsers -->
         <meta name="theme-color" content="#00c900"/>
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#00c900">
 
         <link rel="apple-touch-icon" href="/static/img/maskable_icons/maskable_icon_x192.png">
 
@@ -154,19 +160,19 @@
 
             <div id="top-menu-new" class="d-none">
                 <div class="ms-1 float-start">
-                    <button class="btn btn-primary new-menu-button" id="options-button2" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                    <button class="btn btn-primary new-menu-button" id="options-button2" data-bs-toggle="modal" data-bs-target="#settingsModal" title="Ustawienia">
                         <i class="bi bi-gear-fill"></i>
                     </button>
                 </div>
 
                 <div class="ms-1 float-start">
-                    <button class="btn btn-primary new-menu-button" id="fullscreen-button2" onclick="fullscreen2(this)" fullscreen="false">
+                    <button class="btn btn-primary new-menu-button" id="fullscreen-button2" onclick="fullscreen2(this)" fullscreen="false" title="Pełny ekran">
                         <i class="bi bi-fullscreen"></i>
                     </button>
                 </div>
 
                 <div class="ms-1 float-start">
-                    <button class="btn btn-primary new-menu-button" id="keep-screen-on-button2" onclick="keepScreenOn2(this)" keep-screen-on="false">
+                    <button class="btn btn-primary new-menu-button" id="keep-screen-on-button2" onclick="keepScreenOn2(this)" keep-screen-on="false" title="Nie wygaszaj ekranu">
                         <i class="bi bi-moon-fill"></i>
                     </button>
                 </div>
@@ -994,33 +1000,48 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.js"></script>
 
         <script>
-            var popovers = {
-                'options-button2': new bootstrap.Popover(document.querySelector('#options-button2'), {
-                    content: (getLanguage() == 'pl') ? 'Ustawienia' : 'Settings',
-                    placement: 'bottom',
-                    customClass: 'new-menu-popover'
-                }),
-                'fullscreen-button2': new bootstrap.Popover(document.querySelector('#fullscreen-button2'), {
-                    content: (getLanguage() == 'pl') ? 'Pełny ekran' : 'Fullscreen',
-                    placement: 'bottom',
-                    customClass: 'new-menu-popover'
-                }),
-                'keep-screen-on-button2': new bootstrap.Popover(document.querySelector('#keep-screen-on-button2'), {
-                    content: (getLanguage() == 'pl') ? 'Nie wygaszaj ekranu' : 'Keep screen on',
-                    placement: 'bottom',
-                    customClass: 'new-menu-popover'
-                })
-            };
-
-            document.querySelectorAll('.new-menu-button').forEach((e) => {
-                e.addEventListener('mouseenter', (evt) => {
-                    popovers[evt.currentTarget.id].show();
-                });
+            var settingsPopover = new bootstrap.Popover(document.querySelector('#options-button2'), {
+                content: (getLanguage() == 'pl') ? 'Ustawienia' : 'Settings',
+                placement: 'bottom',
+                customClass: 'new-menu-popover'
             });
-            document.querySelectorAll('.new-menu-button').forEach((e) => {
-                e.addEventListener('mouseleave', (evt) => {
-                    popovers[evt.currentTarget.id].hide();
+            var fullscreenPopover = new bootstrap.Popover(document.querySelector('#fullscreen-button2'), {
+                content: (getLanguage() == 'pl') ? 'Pełny ekran' : 'Fullscreen',
+                placement: 'bottom',
+                customClass: 'new-menu-popover'
+            });
+            var keepScreenOnPopover = new bootstrap.Popover(document.querySelector('#keep-screen-on-button2'), {
+                content: (getLanguage() == 'pl') ? 'Nie wygaszaj ekranu' : 'Keep screen on',
+                placement: 'bottom',
+                customClass: 'new-menu-popover'
+            });
+
+            document.querySelector('#options-button2').addEventListener('mouseenter', (evt) => {
+                settingsPopover.setContent({
+                    '.popover-body': ((getLanguage() == 'pl') ? 'Ustawienia' : 'Settings')
                 });
+                settingsPopover.show();
+            });
+            document.querySelector('#fullscreen-button2').addEventListener('mouseenter', (evt) => {
+                fullscreenPopover.setContent({
+                    '.popover-body': (document.querySelector('#fullscreen-button2').getAttribute('fullscreen') != 'true') ? ((getLanguage() == 'pl') ? 'Pełny ekran' : 'Fullscreen') : ((getLanguage() == 'pl') ? 'Zamknij pełny ekran' : 'Exit fullscreen')
+                });
+                fullscreenPopover.show();
+            });
+            document.querySelector('#keep-screen-on-button2').addEventListener('mouseenter', (evt) => {
+                keepScreenOnPopover.setContent({
+                    '.popover-body': (document.querySelector('#keep-screen-on-button2').getAttribute('keep-screen-on') != 'true') ? ((getLanguage() == 'pl') ? 'Nie wygaszaj ekranu' : 'Don\t turn off screen') : ((getLanguage() == 'pl') ? 'Wyłącz blokadę' : 'Disable lock')
+                });
+                keepScreenOnPopover.show();
+            });
+            document.querySelector('#options-button2').addEventListener('mouseleave', (evt) => {
+                settingsPopover.hide();
+            });
+            document.querySelector('#fullscreen-button2').addEventListener('mouseleave', (evt) => {
+                fullscreenPopover.hide();
+            });
+            document.querySelector('#keep-screen-on-button2').addEventListener('mouseleave', (evt) => {
+                keepScreenOnPopover.hide();
             });
         </script>
     </body>
