@@ -291,6 +291,7 @@
                             <button class="settings-category-button" settings-target="#appearance-settings"><i class="bi bi-palette-fill"></i> <span class="settings-category-button-text"><span text-id="9">Wygląd</span></span></button>
                             <!-- <button class="settings-category-button" settings-target="#widget-settings"><i class="bi bi-window"></i> <span class="settings-category-button-text">Widżet</span></button> -->
                             <button class="settings-category-button" settings-target="#information-settings"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text"><span text-id="10">Informacje</span></span></button>
+                            <button class="settings-category-button" settings-target="#visit-counter-settings"><i class="bi bi-123"></i> <span class="settings-category-button-text"><span text-id="12">Licznik wejść</span></span></button>
                         </div>
 
                         <div id="general-settings" class="d-none">
@@ -570,19 +571,12 @@
 
                         <div id="information-settings" class="d-none">
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
-                    
-                            <button class="settings-category-button" settings-target="#general-information"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text"><span text-id="7">Ogólne</span></span></button>
-                            <button class="settings-category-button" settings-target="#open-source-information"><i class="bi bi-collection-fill"></i> <span class="settings-category-button-text">Open source</span></button>
-                            <button class="settings-category-button" settings-target="#visit-counter-information"><i class="bi bi-123"></i> <span class="settings-category-button-text"><span text-id="12">Licznik wejść</span></span></button>
-                        </div>
-
-                        <div id="general-information" class="d-none">
-                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
                         
                             <p class="fs-3 text-dark-emphasis"><b><span text-id="80">Strona Odliczanie do Dnia Słonia</span></b></p>
 
-                            <a class="btn btn-dark" href="https://github.com/bartekl1/CountdownToElephantDay" target="_blank" rel="noopener"><i class="bi bi-github"></i> <span text-id="81">Repozytorium GitHub</span></a>
+                            <a class="btn btn-secondary" href="https://github.com/bartekl1/CountdownToElephantDay" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
                             <a id="changelog-link" class="btn btn-secondary" href="https://github.com/bartekl1/CountdownToElephantDay/blob/main/CHANGELOG.md" target="_blank" rel="noopener"><i class="bi bi-list-ol"></i> <span text-id="11">Rejestr zmian</span></a>
+                            <a class="btn btn-secondary" href="https://github.com/bartekl1/CountdownToElephantDay/blob/main/LIBRARIES.md" target="_blank" rel="noopener"><i class="bi bi-collection-fill"></i> <span text-id="90">Biblioteki</span></a>
                             <script>
                                 if (getLanguage() == 'pl') {
                                     document.querySelector('#changelog-link').href = 'https://github.com/bartekl1/CountdownToElephantDay/blob/main/CHANGELOG_PL.md';
@@ -607,56 +601,8 @@
                             </div>
                         </div>
 
-                        <div id="open-source-information" class="d-none">
-                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
-                        
-                            <p class="fs-3 text-dark-emphasis"><b><span text-id="86">Oprogramowanie open source użyte przy tworzeniu strony</span>:</b></p>
-                            <div class="ms-3">
-                                <p class="fs-4"><b>Front-end:</b></p>
-                                <ul>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/bootstrap/ffffff" />
-                                        <a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a>
-                                    </li>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/bootstrap/ffffff" />
-                                        <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a>
-                                    </li>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/simpleicons/ffffff" />
-                                        <a href="https://simpleicons.org/" target="_blank" rel="noopener">Simple Icons</a>
-                                    </li>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/javascript/ffffff" />
-                                        <a href="https://github.com/sindresorhus/screenfull" target="_blank" rel="noopener">screenfull</a>
-                                    </li>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/javascript/ffffff" />
-                                        <a href="https://github.com/richtr/NoSleep.js/" target="_blank" rel="noopener">NoSleep.js</a>
-                                    </li>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/jetbrains/ffffff" />
-                                        <a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener"><span text-id="87">Czcionka</span> JetBrains Mono</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="ms-3">
-                                <p class="fs-4"><b>Back-end:</b></p>
-                                <ul>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/flask/ffffff" />
-                                        <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener">Flask</a>
-                                    </li>
-                                    <li>
-                                        <img class="brand-icon" height="22" width="22" src="https://cdn.simpleicons.org/mysql/ffffff" />
-                                        <a href="https://dev.mysql.com/doc/connector-python/en/index.html" target="_blank" rel="noopener">MySQL Connector Python</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div id="visit-counter-information" class="d-none">
-                            <button class="settings-back-button" settings-target="#information-settings"><i class="bi bi-arrow-left"></i></button>
+                        <div id="visit-counter-settings" class="d-none">
+                            <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                         
                             <div id="visit-counter-div">
                                 <div class="h3"><span text-id="12">Licznik odwiedzin</span></div>

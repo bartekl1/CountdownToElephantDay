@@ -88,7 +88,8 @@ const translation = [
     'Open source software used in developing the website',
     'Font',
     'You are offline',
-    'Old menu'
+    'Old menu',
+    'Libraries'
 ];
 const titleTranslations = {
     'Ustawienia': 'Settings',
