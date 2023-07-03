@@ -149,7 +149,7 @@ function saveAppearance() {
 
     document.querySelectorAll('.color-setting').forEach((e) => { localStorage.setItem(`css-variable${e.getAttribute('css-variable')}`, e.value); });
 
-    if (document.querySelector('#countdown-border-width').value !== 5) {
+    if (document.querySelector('#countdown-border-width').value != 5) {
         localStorage.setItem('countdown-border-width', document.querySelector('#countdown-border-width').value + 'px');
     } else {
         localStorage.removeItem('countdown-border-width');
@@ -422,7 +422,11 @@ function loadAppearance() {
 
     document.querySelectorAll(['.menu-button', '.new-menu-button']).forEach((e) => { e.className = e.className.replace(/btn-.* /, `btn-${(localStorage.getItem('menu-buttons-appearance') || 'primary')} `); });
     
-    document.querySelectorAll('.color-setting-button').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), localStorage.getItem(`css-variable${e.getAttribute('css-variable')}`)); });
+    if (localStorage.getItem('menu-buttons-appearance') == 'custom') {
+        document.querySelectorAll('.color-setting-button').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), localStorage.getItem(`css-variable${e.getAttribute('css-variable')}`)); });
+    } else {
+        document.querySelectorAll('.color-setting-button').forEach((e) => { document.documentElement.style.removeProperty(e.getAttribute('css-variable')); });
+    }
 
     setAppearanceForm();
 }
