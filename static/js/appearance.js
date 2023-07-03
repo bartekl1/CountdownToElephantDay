@@ -302,7 +302,8 @@ function loadAppearance() {
     
     switch (localStorage.getItem('site-background') || 'default') {
         case 'default':
-            document.documentElement.style.setProperty('--body-bg-color', '#9acd32');
+            // document.documentElement.style.setProperty('--body-bg-color', '#9acd32');
+            document.documentElement.style.removeProperty('--body-bg-color');
             break;
 
         case 'custom-color':
@@ -343,7 +344,8 @@ function loadAppearance() {
 
     switch (localStorage.getItem('theme') || 'default') {
         case 'default':
-            document.querySelectorAll('.color-setting').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), e.getAttribute('default-value')); });
+            // document.querySelectorAll('.color-setting').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), e.getAttribute('default-value')); });
+            document.querySelectorAll('.color-setting').forEach((e) => { document.documentElement.style.removeProperty(e.getAttribute('css-variable')); });
             break;
 
         case 'white-black':
@@ -359,19 +361,27 @@ function loadAppearance() {
             break;
     }
 
-    document.documentElement.style.setProperty('--countdown-border-width', localStorage.getItem('countdown-border-width') || '5px');
-    document.documentElement.style.setProperty('--countdown-border-style', localStorage.getItem('countdown-border-style') || 'solid');
+    if (localStorage.getItem('countdown-border-width') != null) {
+        document.documentElement.style.setProperty('--countdown-border-width', localStorage.getItem('countdown-border-width'));
+    } else {
+        document.documentElement.style.removeProperty('--countdown-border-width');
+    }
+    if (localStorage.getItem('countdown-border-style') != null) {
+        document.documentElement.style.setProperty('--countdown-border-style', localStorage.getItem('countdown-border-style'));
+    } else {
+        document.documentElement.style.removeProperty('--countdown-border-style');
+    }
 
     if (localStorage.getItem('display-today-datetime') == 'false') {
         document.documentElement.style.setProperty('--display-today-datetime', 'none');
     } else {
-        document.documentElement.style.setProperty('--display-today-datetime', 'block');
+        document.documentElement.style.removeProperty('--display-today-datetime');
     }
 
     if (localStorage.getItem('display-elephant-day-datetime') == 'false') {
         document.documentElement.style.setProperty('--display-elephant-day-datetime', 'none');
     } else {
-        document.documentElement.style.setProperty('--display-elephant-day-datetime', 'block');
+        document.documentElement.style.removeProperty('--display-elephant-day-datetime');
     }
 
     if (localStorage.getItem('countdown-shadow') == 'true') {
@@ -410,7 +420,7 @@ function loadAppearance() {
         document.querySelector('#top-menu-new').classList.remove('d-none');
     }
 
-    document.querySelectorAll('.menu-button').forEach((e) => { e.className = e.className.replace(/btn-.* /, `btn-${(localStorage.getItem('menu-buttons-appearance') || 'primary')} `); });
+    document.querySelectorAll(['.menu-button', '.new-menu-button']).forEach((e) => { e.className = e.className.replace(/btn-.* /, `btn-${(localStorage.getItem('menu-buttons-appearance') || 'primary')} `); });
     
     document.querySelectorAll('.color-setting-button').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), localStorage.getItem(`css-variable${e.getAttribute('css-variable')}`)); });
 
