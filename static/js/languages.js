@@ -90,7 +90,8 @@ const translation = [
     'You are offline',
     'Old menu',
     'Libraries',
-    'Reinstall service worker and clear cache'
+    'Reinstall service worker and clear cache',
+    'Widget'
 ];
 const titleTranslations = {
     'Ustawienia': 'Settings',

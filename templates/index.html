@@ -298,7 +298,7 @@
                             <button class="settings-category-button" settings-target="#language-settings"><i class="bi bi-translate"></i> <span class="settings-category-button-text">Język / Language</span></button>
                             <button class="settings-category-button" settings-target="#advanced-settings"><i class="bi bi-code-slash"></i> <span class="settings-category-button-text"><span text-id="8">Zaawansowane</span></span></button>
                             <button class="settings-category-button" settings-target="#appearance-settings"><i class="bi bi-palette-fill"></i> <span class="settings-category-button-text"><span text-id="9">Wygląd</span></span></button>
-                            <!-- <button class="settings-category-button" settings-target="#widget-settings"><i class="bi bi-window"></i> <span class="settings-category-button-text">Widżet</span></button> -->
+                            <button class="settings-category-button" settings-target="#widget-settings"><i class="bi bi-window"></i> <span class="settings-category-button-text"><span text-id="92">Widżet</span></span></button>
                             <button class="settings-category-button" settings-target="#information-settings"><i class="bi bi-info-circle-fill"></i> <span class="settings-category-button-text"><span text-id="10">Informacje</span></span></button>
                             <button class="settings-category-button" settings-target="#visit-counter-settings"><i class="bi bi-123"></i> <span class="settings-category-button-text"><span text-id="12">Licznik wejść</span></span></button>
                         </div>
@@ -578,11 +578,28 @@
                             </table>
                         </div>
 
-                        <!-- <div id="widget-settings" class="d-none">
+                        <div id="widget-settings" class="d-none">
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                         
-                        
-                        </div> -->
+                            <div class="mb-3">
+                                <label for="widget-code" class="form-label">Kod HTML</label>
+                                <input type="text" class="form-control" id="widget-code" spellcheck="false" autocomplete="off">
+                            </div>
+
+                            <div id="widget-div"></div>
+
+                            <script>
+                                addEventListener('load', () => {
+                                    var widgetURL = `${(new URL(window.location.href)).protocol}//${(new URL(window.location.href)).host}/`;
+                                    document.querySelector('#widget-div').innerHTML = `<iframe src="${widgetURL}"></iframe>`;
+                                    document.querySelector('#widget-code').value = document.querySelector('#widget-div').innerHTML;
+                                });
+
+                                document.querySelector('#widget-code').addEventListener('change', () => {
+                                    document.querySelector('#widget-div').innerHTML = document.querySelector('#widget-code').value;
+                                })
+                            </script>
+                        </div>
 
                         <div id="information-settings" class="d-none">
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
