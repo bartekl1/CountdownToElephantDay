@@ -208,7 +208,15 @@
                 }
             </script>
 
-            <script> document.querySelector('#top-menu-new').classList.remove('d-none'); </script>
+            <script>
+                if ((new URL(window.location.href)).searchParams.get('hide-menu') != 'true') {
+                    if (localStorage.getItem('old-menu') == 'true') {
+                        document.querySelector('.top-menu').classList.remove('d-none');
+                    } else {
+                        document.querySelector('#top-menu-new').classList.remove('d-none');
+                    }
+                }
+            </script>
 
             <script>
                 document.querySelector('#top-menu-open').addEventListener('click', function () {
@@ -355,6 +363,12 @@
                                 <textarea class="form-control code settings" id="customJSTextarea" rows="3"></textarea>
                                 <div class="form-text"><span text-id="27">Kod zacznie działać dopiero po odświeżeniu strony.</span></div>
                             </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <button type="button" class="btn btn-secondary mb-1" id="reinstall-service-worker">
+                                <i class="bi bi-arrow-clockwise"></i> <span text-id="91">Reinstaluj service worker i wyczyść cache</span>
+                            </button>
                         </div>
 
                         <div id="appearance-settings" class="d-none">
@@ -744,7 +758,15 @@
                         caches.delete(name);
                 });
                 reg.unregister();
-                location.reload();
+                location.reload(true);
+            });
+            document.querySelector('#reinstall-service-worker').addEventListener('click', () => {
+                caches.keys().then(function(names) {
+                    for (let name of names)
+                        caches.delete(name);
+                });
+                reg.unregister();
+                location.reload(true);
             });
         </script>
 

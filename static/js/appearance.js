@@ -65,7 +65,7 @@ function setAppearanceForm() {
         case 'black-white':
             document.querySelectorAll('.color-setting').forEach((e) => { e.value = e.getAttribute('black-white-value'); e.disabled = true; });
             break;
-    
+
         default:
             document.querySelectorAll('.color-setting').forEach((e) => { e.value = localStorage.getItem(`css-variable${e.getAttribute('css-variable')}`); e.disabled = false; });
             break;
@@ -231,7 +231,7 @@ function resetAppearance() {
 
     localStorage.removeItem('menu-buttons-appearance');
 
-    for (var key in localStorage){
+    for (var key in localStorage) {
         if (key.startsWith('css-variable')) {
             localStorage.removeItem(key);
         }
@@ -299,7 +299,7 @@ function loadAppearance() {
     document.querySelector('#background-video-div').classList.add('d-none');
     document.querySelector('#background-youtube-video-div').classList.add('d-none');
     document.querySelector('#background-website-div').classList.add('d-none');
-    
+
     switch (localStorage.getItem('site-background') || 'default') {
         case 'default':
             // document.documentElement.style.setProperty('--body-bg-color', '#9acd32');
@@ -355,7 +355,7 @@ function loadAppearance() {
         case 'black-white':
             document.querySelectorAll('.color-setting').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), e.getAttribute('black-white-value')); });
             break;
-    
+
         default:
             document.querySelectorAll('.color-setting').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), localStorage.getItem(`css-variable${e.getAttribute('css-variable')}`)); });
             break;
@@ -412,16 +412,18 @@ function loadAppearance() {
         document.querySelector('#cursor-css').innerHTML = '';
     }
 
-    if (localStorage.getItem('old-menu') == 'true') {
-        document.querySelector('.top-menu').classList.remove('d-none');
-        document.querySelector('#top-menu-new').classList.add('d-none');
-    } else {
-        document.querySelector('.top-menu').classList.add('d-none');
-        document.querySelector('#top-menu-new').classList.remove('d-none');
+    if ((new URL(window.location.href)).searchParams.get('hide-menu') != 'true') {
+        if (localStorage.getItem('old-menu') == 'true') {
+            document.querySelector('.top-menu').classList.remove('d-none');
+            document.querySelector('#top-menu-new').classList.add('d-none');
+        } else {
+            document.querySelector('.top-menu').classList.add('d-none');
+            document.querySelector('#top-menu-new').classList.remove('d-none');
+        }
     }
 
     document.querySelectorAll(['.menu-button', '.new-menu-button']).forEach((e) => { e.className = e.className.replace(/btn-.* /, `btn-${(localStorage.getItem('menu-buttons-appearance') || 'primary')} `); });
-    
+
     if (localStorage.getItem('menu-buttons-appearance') == 'custom') {
         document.querySelectorAll('.color-setting-button').forEach((e) => { document.documentElement.style.setProperty(e.getAttribute('css-variable'), localStorage.getItem(`css-variable${e.getAttribute('css-variable')}`)); });
     } else {

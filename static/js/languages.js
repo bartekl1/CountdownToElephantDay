@@ -89,7 +89,8 @@ const translation = [
     'Font',
     'You are offline',
     'Old menu',
-    'Libraries'
+    'Libraries',
+    'Reinstall service worker and clear cache'
 ];
 const titleTranslations = {
     'Ustawienia': 'Settings',
