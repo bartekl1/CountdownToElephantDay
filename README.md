@@ -12,4 +12,6 @@ Website is available [here](https://iledodniaslonia.pythonanywhere.com/).
 Polish version of README is available [here](README_PL.md).
 
 ## Documentation
-Documentation is available [here](https://github.com/bartekl1/CountdownToElephantDay/wiki).
+Documentation is available [here](https://github.com/bartekl1/CountdownToElephantDay/wiki). \
+Changelog is available [here](CHANGELOG.md). \
+Libraries info is available [here](LIBRARIES.md).

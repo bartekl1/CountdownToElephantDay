@@ -9,4 +9,6 @@
 Strona jest dostępna [tutaj](https://iledodniaslonia.pythonanywhere.com/).
 
 ## Dokumentacja
-Dokumentacja jest dostępna [tutaj](https://github.com/bartekl1/CountdownToElephantDay/wiki).
+Dokumentacja jest dostępna [tutaj](https://github.com/bartekl1/CountdownToElephantDay/wiki). \
+Rejestr zmian jest dostępny [tutaj](CHANGELOG_PL.md). \
+Informacja o bibliotekach jest dostępna [tutaj](LIBRARIES.md),
