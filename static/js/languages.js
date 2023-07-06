@@ -168,12 +168,14 @@ function showLanguageInfo() {
             element = document.querySelector('#options-button2');
         }
         var popover = new bootstrap.Popover(element, {
-            content: '<p class="language-popover">You can change language in the settings.</p><button class="btn btn-secondary language-popover">OK</button>',
             placement: 'bottom',
             html: true,
             sanitize: false,
             customClass: 'language-popover'
         });
+        popover.setContent({
+            '.popover-body': '<p class="language-popover">You can change language in the settings.</p><button class="btn btn-secondary language-popover">OK</button>'
+        })
         popover.show();
         document.querySelector('button.language-popover').addEventListener('click', () => {
             popover.dispose();
