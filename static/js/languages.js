@@ -91,7 +91,16 @@ const translation = [
     'Old menu',
     'Libraries',
     'Reinstall service worker and clear cache',
-    'Widget'
+    'Widget',
+    'Default',
+    'Automatic (browser language)',
+    'Polish',
+    'English',
+    'Language',
+    'Hide menu',
+    'HTML code',
+    'Height',
+    'Width'
 ];
 const titleTranslations = {
     'Ustawienia': 'Settings',
@@ -108,8 +117,14 @@ const altTranslations = {
 function getLanguage() {
     var url = new URL(window.location.href);
     var searchParams = url.searchParams;
-    if (searchParams.get('lang') != null) {
+    if (searchParams.get('lang') != 'auto' && searchParams.get('lang') != null) {
         return searchParams.get('lang');
+    } else if (searchParams.get('lang') == 'auto') {
+        if (navigator.language.split('-')[0] == 'pl') {
+            return 'pl';
+        } else {
+            return 'en';
+        }
     } else {
         if (localStorage.getItem('language') != undefined) {
             return localStorage.getItem('language');

@@ -582,22 +582,87 @@
                             <button class="settings-back-button" settings-target="#settings-main-menu"><i class="bi bi-arrow-left"></i></button>
                         
                             <div class="mb-3">
-                                <label for="widget-code" class="form-label">Kod HTML</label>
-                                <input type="text" class="form-control" id="widget-code" spellcheck="false" autocomplete="off">
+                                <label for="widget-code" class="form-label"><span text-id="99">Kod HTML</span></label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="widget-code" spellcheck="false" autocomplete="off">
+                                    <button class="btn btn-outline-primary" type="button" id="copy-widget-code"><i class="bi bi-clipboard"></i></button>
+                                </div>
+                            </div>
+
+                            <hr class="border border-1 opacity-100">
+
+                            <div class="mb-3">
+                                <label for="widget-height" class="form-label"><span text-id="100">Wysokość</span></label>
+                                <div class="input-group">
+                                    <input type="number" value="750" id="widget-height" class="form-control widget-settings" spellcheck="false" autocomplete="off">
+                                    <span class="input-group-text">px</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="widget-height" class="form-label"><span text-id="101">Szerokość</span></label>
+                                <div class="input-group">
+                                    <input type="number" value="370" id="widget-width" class="form-control widget-settings" spellcheck="false" autocomplete="off">
+                                    <span class="input-group-text">px</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="widget-language" class="form-label"><span text-id="97">Język</span></label>
+                                <select class="form-select widget-settings" id="widget-language">
+                                    <option value="default"><span text-id="93">Domyślny</span></option>
+                                    <option value="auto"><span text-id="94">Automatycznie (język przeglądarki)</span></option>
+                                    <option value="pl"><span text-id="95">Polski</span></option>
+                                    <option value="en"><span text-id="96">Angielski</span></option>
+                                </select>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input widget-settings" type="checkbox" id="widget-hide-menu" checked>
+                                <label class="form-check-label" for="widget-hide-menu"><span text-id="98">Ukryj menu</span></label>
                             </div>
 
                             <div id="widget-div"></div>
 
                             <script>
-                                addEventListener('load', () => {
-                                    var widgetURL = `${(new URL(window.location.href)).protocol}//${(new URL(window.location.href)).host}/`;
-                                    document.querySelector('#widget-div').innerHTML = `<iframe src="${widgetURL}"></iframe>`;
+                                function updateWidget() {
+                                    var params = {};
+
+                                    if (document.querySelector('#widget-language').value != 'default') {
+                                        params['lang'] = document.querySelector('#widget-language').value;
+                                    }
+
+                                    if (document.querySelector('#widget-hide-menu').checked) {
+                                        params['hide-menu'] = 'true';
+                                    }
+
+                                    var widgetURL = `${(new URL(window.location.href)).protocol}//${(new URL(window.location.href)).host}/${((new URLSearchParams(params)).toString() != '') ? '?' : ''}${(new URLSearchParams(params)).toString()}`;
+
+                                    document.querySelector('#widget-div').innerHTML = `<iframe height="${document.querySelector('#widget-height').value}px" width="${document.querySelector('#widget-width').value}px" src="${widgetURL}"></iframe>`;
                                     document.querySelector('#widget-code').value = document.querySelector('#widget-div').innerHTML;
+                                
+                                    document.querySelector('#copy-widget-code').innerHTML = '<i class="bi bi-clipboard"></i>';
+                                }
+
+                                document.querySelector('[settings-target="#widget-settings"]').addEventListener('click', () => {
+                                    if (document.querySelector('#widget-div').innerHTML == '') {
+                                        updateWidget();
+                                    }
                                 });
 
                                 document.querySelector('#widget-code').addEventListener('change', () => {
                                     document.querySelector('#widget-div').innerHTML = document.querySelector('#widget-code').value;
                                 })
+
+                                document.querySelectorAll('.widget-settings').forEach((e) => {
+                                    e.addEventListener('change', updateWidget);
+                                });
+
+                                document.querySelector('#copy-widget-code').addEventListener('click', () => {
+                                    navigator.clipboard.writeText(document.querySelector('#widget-code').value);
+
+                                    document.querySelector('#copy-widget-code').innerHTML = '<i class="bi bi-clipboard-check"></i>';
+                                });
                             </script>
                         </div>
 

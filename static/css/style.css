@@ -160,17 +160,9 @@ body {
     }
 }
 
-iframe:not(#elephant-video) {
-    width: 100%;
-}
-
 #elephant-video {
     max-width: 100%;
 }
-
-/* iframe:not(#report-form-iframe) {
-    height: 100%;
-} */
 
 .modal-header {
     cursor: move;
