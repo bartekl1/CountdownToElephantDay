@@ -20,7 +20,12 @@ const precacheResources = [
     '/static/js/visit_counter.js',
     '/static/fonts/JetBrainsMono-Regular.woff2',
     '/static/img/elephant-outline-content.txt',
-    '/static/img/cursor.png'
+    '/static/img/cursor.png',
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
+    'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css',
+    'https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js',
+    'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js',
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js'
 ];
 
 // When the service worker is installing, open the cache and add the precache resources to it
