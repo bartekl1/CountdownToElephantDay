@@ -1,5 +1,10 @@
 # Rejestr zmian
 
+## 1.16
+- Dodano nowe menu
+- Przywrócono widżet
+- Inne poprawki i ulepszenia
+
 ## 1.15
 - Dodano nowe ustawienia
 - Dodano możliwość zmiany kursora
