@@ -176,7 +176,9 @@ function showLanguageInfo() {
         popover.setContent({
             '.popover-body': '<p class="language-popover">You can change language in the settings.</p><button class="btn btn-secondary language-popover">OK</button>'
         })
-        popover.show();
+        if ((new URL(window.location.href)).searchParams.get('hide-menu') != 'true') {
+            popover.show();
+        }
         document.querySelector('button.language-popover').addEventListener('click', () => {
             popover.dispose();
             localStorage.setItem('language-popover-closed', 'true');
